@@ -63,6 +63,50 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
 .player-row .goals{color:var(--gold);font-weight:700}
 .player-row .cards{color:var(--red)}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.vs-badge{font-size:.9rem;padding:4px 0}}
+
+/* Apuestas */
+.strat-btn{padding:6px 12px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:6px;cursor:pointer;font-size:.7rem;font-weight:600}
+.strat-btn:hover{border-color:var(--accent)}
+.strat-btn.active-strat{background:var(--accent);color:#000;border-color:var(--accent)}
+.bet-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.bet-stat{background:#0d1225;border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center}
+.bet-stat .l{font-size:.5rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.bet-stat .v{font-size:1.05rem;font-weight:700;color:var(--gold);margin-top:2px}
+.bet-stat .s{font-size:.55rem;color:var(--muted);margin-top:1px}
+.bet-bank-row{display:flex;align-items:center;gap:6px;background:#0d1225;border:1px solid var(--gold);border-radius:6px;padding:6px 10px;margin-bottom:4px;font-size:.7rem}
+.bet-bank-row .bk{color:var(--gold);font-weight:700}
+.bet-match{background:#0d1225;border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px}
+.bet-match-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px}
+.bet-match-title{font-size:.78rem;font-weight:600}
+.bet-match-meta{font-size:.55rem;color:var(--muted)}
+.bet-pick{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.bet-pick-cell{flex:1;min-width:60px;background:#080c18;border:1px solid var(--border);border-radius:6px;padding:6px;text-align:center}
+.bet-pick-cell.recom{border-color:var(--accent);background:#0a1e2a}
+.bet-pick-cell .lab{font-size:.5rem;color:var(--muted);text-transform:uppercase}
+.bet-pick-cell .pr{font-size:.95rem;font-weight:700;color:var(--text)}
+.bet-pick-cell.recom .pr{color:var(--accent)}
+.bet-pick-cell .od{font-size:.6rem;color:var(--gold);margin-top:1px}
+.bet-pick-cell .vl{font-size:.55rem;margin-top:2px;font-weight:600}
+.bet-extra{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+.bet-extra-cell{background:#080c18;border-radius:4px;padding:4px;text-align:center}
+.bet-extra-cell .l{font-size:.45rem;color:var(--muted);text-transform:uppercase}
+.bet-extra-cell .v{font-size:.75rem;font-weight:600}
+.bet-reason{font-size:.65rem;color:var(--muted);padding:6px 8px;background:#080c18;border-radius:4px;border-left:2px solid var(--accent);line-height:1.5}
+.bet-risk-low{color:var(--green)}
+.bet-risk-medium{color:var(--orange)}
+.bet-risk-high{color:var(--red)}
+.bet-banker-tag{background:var(--gold);color:#000;font-size:.5rem;padding:1px 6px;border-radius:8px;font-weight:700;margin-left:4px}
+.bet-disclaimer{font-size:.55rem;color:var(--muted);text-align:center;padding:10px;margin-top:8px;line-height:1.5;border-top:1px solid var(--border)}
+.bet-renx9-card{background:linear-gradient(135deg,#0d1225,#1a2340);border:1px solid var(--gold);border-radius:8px;padding:10px}
+.bet-renx9-title{color:var(--gold);font-size:.7rem;font-weight:700;margin-bottom:6px}
+.bet-renx9-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:6px}
+.bet-renx9-stat{text-align:center;font-size:.6rem}
+.bet-renx9-stat .l{color:var(--muted);font-size:.5rem;text-transform:uppercase}
+.bet-renx9-stat .v{color:var(--text);font-weight:600}
+.value-pos{color:var(--green)}
+.value-neg{color:var(--red)}
+.value-zero{color:var(--muted)}
+@media(max-width:640px){.bet-summary{grid-template-columns:repeat(2,1fr)}.bet-extra{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -92,6 +136,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
   <div class="card">
     <div class="tabs">
       <div class="tab active" data-tab="prediccion">📊 Predicción</div>
+      <div class="tab" data-tab="apuestas">💰 Apuestas</div>
       <div class="tab" data-tab="simulacion">🏆 Simulación</div>
       <div class="tab" data-tab="estadisticas">📈 Estadísticas</div>
       <div class="tab" data-tab="calendario">📅 Calendario</div>
@@ -103,6 +148,22 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
       <div class="output" id="output">Seleccioná dos equipos y presioná <b>Predecir</b></div>
       <div id="team-compare" style="display:none;margin-top:10px"></div>
       <div id="key-players" style="display:none;margin-top:10px"></div>
+    </div>
+
+    <!-- APUESTAS -->
+    <div id="tab-apuestas" style="display:none">
+      <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+        <button class="strat-btn active-strat" data-strat="conservative">🛡️ Conservador</button>
+        <button class="strat-btn" data-strat="balanced">⚖️ Equilibrado</button>
+        <button class="strat-btn" data-strat="aggressive">⚡ Agresivo</button>
+      </div>
+
+      <div id="bet-summary" class="bet-summary"></div>
+      <div id="bet-match-destacado" style="margin-bottom:12px"></div>
+      <div id="bet-bankers" style="margin-bottom:10px"></div>
+      <div id="bet-matches"></div>
+      <div id="bet-renxuan9" style="margin-top:14px"></div>
+      <div id="bet-disclaimer" class="bet-disclaimer"></div>
     </div>
 
     <!-- SIMULACIÓN -->
@@ -162,7 +223,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
 
 <script>
 const $=id=>document.getElementById(id),Q=s=>document.querySelector(s),QA=s=>document.querySelectorAll(s);
-let teams=[], simData=null, statsData=null;
+let teams=[], simData=null, statsData=null, lastHome=null, lastAway=null;
 
 function pct(v){return (v*100).toFixed(1)+'%'}
 function bar(v,w){return '█'.repeat(Math.round(v*w))+'░'.repeat(Math.max(0,w-Math.round(v*w)))}
@@ -171,10 +232,7 @@ function pd(s,n){return String(s).padEnd(n)}
 // ── Cargar equipos ──
 fetch('/api/teams').then(r=>r.json()).then(t=>{
   teams=t;
-  const top=['ARG','BRA','ENG','FRA','GER','ESP','NED','POR','BEL'];
-  teams.sort((a,b)=>{const ai=top.indexOf(a.code),bi=top.indexOf(b.code);
-    if(ai>-1&&bi>-1)return ai-bi;if(ai>-1)return -1;if(bi>-1)return 1;
-    return a.esName.localeCompare(b.esName)});
+  teams.sort((a,b)=>a.esName.localeCompare(b.esName));
   teams.forEach(tm=>{
     [$('home'),$('away')].forEach(sel=>{
       const o=document.createElement('option');
@@ -319,6 +377,7 @@ function renderVisualPrediction(p,h,a){
 $('swap').onclick=()=>{const t=$('home').value;$('home').value=$('away').value;$('away').value=t};
 $('predict').onclick=()=>{
   const h=$('home').value,a=$('away').value;
+  lastHome=h; lastAway=a;
   if(!h||!a)return;
   if(h===a){$('output').innerHTML='<span class=error>Los equipos deben ser distintos</span>';return}
   $('output').innerHTML='<span style="color:var(--muted)">🔮 Calculando predicción...</span>';
@@ -618,13 +677,111 @@ function loadSchedule(){
   el.innerHTML=html;
 }
 
+// ── Apuestas ──
+let currentBetStrat = 'balanced';
+
+function loadBetting(strat){
+  strat = strat || currentBetStrat;
+  currentBetStrat = strat;
+  QA('.strat-btn').forEach(b => b.classList.toggle('active-strat', b.dataset.strat === strat));
+  ['bet-summary','bet-match-destacado','bet-bankers','bet-matches','bet-renxuan9'].forEach(id => $(id).innerHTML = '');
+  $('bet-disclaimer').textContent = '';
+  let url = '/api/betting?strategy=' + strat;
+  if(lastHome && lastAway) url += '&home=' + lastHome + '&away=' + lastAway;
+  fetch(url).then(r => r.json()).then(d => renderBetting(d))
+  .catch(() => $('bet-summary').innerHTML = '<span style="color:var(--red);font-size:.7rem">Error al cargar apuestas</span>');
+}
+
+function buildBetCardHtml(m, sel, tags){
+  if(!sel) return '';
+  const pickSet = new Set(sel.label310);
+  const labels = {'3':'1 (Local)','1':'X (Empate)','0':'2 (Visitante)'};
+  const pLetters = {'3':'1','1':'X','0':'2'};
+  const pKey = {'3':'homeWin90Prob','1':'draw90Prob','0':'awayWin90Prob'};
+  const oKey = {'3':'homeOdds','1':'drawOdds','0':'awayOdds'};
+  const fKey = {'3':'homeFair','1':'drawFair','0':'awayFair'};
+  const vKey = {'3':'homeValue','1':'drawValue','0':'awayValue'};
+  const cell = (k) => {
+    const pr = m[pKey[k]]*100, od = m.market[oKey[k]], vl = m.market[vKey[k]];
+    const cls = vl > 0.02 ? 'value-pos' : vl < -0.02 ? 'value-neg' : 'value-zero';
+    const txt = (vl > 0 ? '+' : '') + (vl*100).toFixed(0) + '%';
+    return '<div class="bet-pick-cell'+(pickSet.has(k)?' recom':'')+'">'+
+      '<div class="lab">'+labels[k]+'</div><div class="pr">'+pr.toFixed(0)+'%</div>'+
+      '<div class="od">@ '+od.toFixed(2)+' <span style="color:var(--muted)">(justa '+m.market[fKey[k]].toFixed(2)+')</span></div>'+
+      '<div class="vl '+cls+'">valor '+txt+'</div></div>';
+  };
+  const ex = (l, v) => '<div class="bet-extra-cell"><div class="l">'+l+'</div><div class="v">'+v+'</div></div>';
+  const tgs = (tags||[]).map(t=>'<span class="bet-banker-tag">'+t+'</span>').join('');
+  const conf = (sel.confidenceScore*100).toFixed(0);
+  return '<div class="bet-match">'+
+    '<div class="bet-match-head"><div class="bet-match-title">'+m.homeTeam+' <span style="color:var(--muted)">vs</span> '+m.awayTeam+tgs+'</div>'+
+    '<div class="bet-match-meta">Grupo '+m.groupCode+' · '+m.round+' · '+(m.venueCountryCode||'')+
+    ' · <span class="bet-risk-'+sel.riskTag+'">'+sel.riskTag.toUpperCase()+'</span> · conf '+conf+'%</div></div>'+
+    '<div class="bet-pick">'+cell('3')+cell('1')+cell('0')+'</div>'+
+    '<div class="bet-extra">'+
+    ex('xG Local',m.expectedGoalsHome.toFixed(2))+ex('xG Visit',m.expectedGoalsAway.toFixed(2))+
+    ex('Total xG',m.totalXG.toFixed(2))+ex('Over 2.5',(m.over25*100).toFixed(0)+'%')+
+    ex('Over 1.5',(m.over15*100).toFixed(0)+'%')+ex('Over 3.5',(m.over35*100).toFixed(0)+'%')+
+    ex('BTTS',(m.btts*100).toFixed(0)+'%')+ex('Margen',m.market.margin+'%')+
+    '</div>'+
+    '<div class="bet-reason">📌 Pick: <b style="color:var(--accent)">'+sel.selection.split('').map(c=>pLetters[c]).join('+')+'</b> · '+sel.reason+'</div></div>';
+}
+
+function renderBetting(d){
+  if(!d || !d.slip){ $('bet-summary').innerHTML = '<span style="color:var(--muted)">Sin datos</span>'; return; }
+  const slip = d.slip, issue = d.issue;
+  const rd = {low:0,medium:0,high:0};
+  slip.selections.forEach(s => rd[s.riskTag]++);
+  const bc = (slip.bankerMatches||[]).length;
+  $('bet-summary').innerHTML =
+    '<div class="bet-stat"><div class="l">Partidos</div><div class="v">'+d.matchCount+'</div><div class="s">de '+d.totalAvailable+'</div></div>'+
+    '<div class="bet-stat"><div class="l">Apuestas</div><div class="v">'+slip.stakeCount+'</div><div class="s">$'+slip.estimatedAmount+' ($'+slip.unitStake+' c/u)</div></div>'+
+    '<div class="bet-stat"><div class="l">Bankers</div><div class="v">'+bc+'</div><div class="s">alta confianza</div></div>'+
+    '<div class="bet-stat"><div class="l">Riesgo</div><div class="v">'+slip.riskLevel+'</div><div class="s">🟢'+rd.low+' 🟡'+rd.medium+' 🔴'+rd.high+'</div></div>';
+
+  if(d.matchBetting)
+    $('bet-match-destacado').innerHTML = buildBetCardHtml(d.matchBetting.match, d.matchBetting.selection, ['★ DESTACADO · Partido seleccionado']);
+
+  let bkHtml = '';
+  if(slip.bankerMatches && slip.bankerMatches.length){
+    bkHtml = '<div class="card-title" style="margin-top:0">⭐ Bankers</div>';
+    slip.bankerMatches.forEach(id => {
+      const m = issue.matches.find(x => x.matchId === id);
+      if(m) bkHtml += '<div class="bet-bank-row"><span class="bk">★</span><span><b>'+m.homeTeam+' vs '+m.awayTeam+'</b></span><span style="color:var(--muted);margin-left:auto">Grupo '+m.groupCode+' · '+m.round+'</span></div>';
+    });
+  }
+  $('bet-bankers').innerHTML = bkHtml;
+
+  $('bet-matches').innerHTML = issue.matches.map(m => {
+    const sel = slip.selections.find(s => s.matchId === m.matchId);
+    if(!sel) return '';
+    return buildBetCardHtml(m, sel, slip.bankerMatches.includes(m.matchId)?['★ BANKER']:[]);
+  }).join('<div style="height:6px"></div>');
+
+  const r9 = slip.renxuan9;
+  if(r9 && r9.matchCount){
+    let r9h = '<div class="bet-renx9-card"><div class="bet-renx9-title">🎯 任选九 (Renxuan 9)</div>'+
+      '<div class="bet-renx9-meta"><div class="bet-renx9-stat"><div class="l">Partidos</div><div class="v">'+r9.matchCount+'</div></div>'+
+      '<div class="bet-renx9-stat"><div class="l">Apuestas</div><div class="v">'+r9.stakeCount+'</div></div>'+
+      '<div class="bet-renx9-stat"><div class="l">Costo</div><div class="v">$'+r9.estimatedAmount+'</div></div></div>';
+    if(r9.selections) r9h += '<div style="font-size:.65rem">'+r9.selections.map(s => '· #'+s.matchNo+' '+s.homeTeam+' vs '+s.awayTeam+' → <b style="color:var(--accent)">'+s.selection+'</b>').join('<br>')+'</div>';
+    r9h += '</div>';
+    $('bet-renxuan9').innerHTML = r9h;
+  }
+
+  $('bet-disclaimer').textContent = slip.disclaimer || '';
+}
+
+QA('.strat-btn').forEach(b => { b.onclick = () => loadBetting(b.dataset.strat); });
+
 // ── Tabs ──
 function showTab(v){
-  ['prediccion','simulacion','estadisticas','calendario','modelo'].forEach(t=>{
+  ['prediccion','apuestas','simulacion','estadisticas','calendario','modelo'].forEach(t=>{
     const el=$('tab-'+t);
     if(el)el.style.display=t===v?'':'none';
   });
   if(v==='estadisticas')loadStats();
+  if(v==='apuestas')loadBetting();
 }
 
 QA('.tab').forEach(tab=>{

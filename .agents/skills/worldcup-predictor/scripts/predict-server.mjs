@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { predictMatch } from "../core/index.mjs";
+import { predictMatch, generateBettingSlip, scoreDistribution } from "../core/index.mjs";
 import { simulateTournament } from "../core/index.mjs";
 import { auditSnapshot, findTeam, readJson } from "./audit-input.mjs";
 
@@ -386,6 +386,196 @@ const server = http.createServer((req, res) => {
     res.end();
     return;
   }
+
+  if (path === "/api/betting") {
+    try {
+      const strategy = url.searchParams.get("strategy") || "balanced";
+      if (!["conservative", "balanced", "aggressive"].includes(strategy)) {
+        res.writeHead(400); res.end("Invalid strategy"); return;
+      }
+
+      const completedKeys = new Set(
+        snapshot.matchStates
+          .filter((m) => m.status === "final")
+          .map((m) => m.homeTeamId + "-" + m.awayTeamId)
+      );
+
+      const groups = new Map();
+      for (const t of snapshot.teams) {
+        if (!groups.has(t.groupCode)) groups.set(t.groupCode, []);
+        groups.get(t.groupCode).push(t);
+      }
+      const groupPairs = [[0,1],[2,3],[0,2],[1,3],[1,2],[0,3]];
+      const mdLabels = ["MD1", "MD2", "MD3"];
+      const upcoming = [];
+      let matchNo = 1;
+      const sortedGroups = [...groups.entries()].sort((a,b) => a[0].localeCompare(b[0]));
+      for (const [gc, list] of sortedGroups) {
+        if (list.length !== 4) continue;
+        for (let md = 0; md < 3; md++) {
+          const [hi, ai] = groupPairs[md * 2];
+          const [hi2, ai2] = groupPairs[md * 2 + 1];
+          for (const [ha, aa] of [[hi, ai], [hi2, ai2]]) {
+            const h = list[ha], a = list[aa];
+            const key = h.code + "-" + a.code;
+            if (completedKeys.has(key)) continue;
+            const ms = snapshot.matchStates.find(m => m.homeTeamId === h.code && m.awayTeamId === a.code);
+            const venue = (ms && ms.venueCountryCode) || "USA";
+            upcoming.push({
+              matchNo: matchNo++,
+              matchId: h.code + "-" + a.code,
+              homeCode: h.code, awayCode: a.code,
+              homeTeam: esName(h), awayTeam: esName(a),
+              groupCode: gc, round: mdLabels[md],
+              venueCountryCode: venue,
+            });
+          }
+        }
+      }
+
+      function enrichMatch(m) {
+        const ht = findTeam(snapshot.teams, m.homeCode);
+        const at = findTeam(snapshot.teams, m.awayCode);
+        if (!ht || !at) return null;
+        const pred = predictMatch({
+          matchId: m.matchId,
+          homeTeam: ht, awayTeam: at, stage: "group",
+          modelVersion: snapshot.metadata.modelVersion,
+          dataVersion: snapshot.metadata.dataVersion,
+          generatedAt: snapshot.metadata.generatedAt,
+          venueCountryCode: m.venueCountryCode,
+          contextAdjustments: snapshot.contextAdjustments,
+        });
+        const dist = scoreDistribution(
+          { ...ht, isHost: ht.countryCode === m.venueCountryCode },
+          { ...at, isHost: at.countryCode === m.venueCountryCode }
+        );
+        const totalGoals = dist.reduce((s, x) => s + (x.home + x.away) * x.probability, 0);
+        return {
+          ...m,
+          homeWin90Prob: pred.homeWin90Prob,
+          draw90Prob: pred.draw90Prob,
+          awayWin90Prob: pred.awayWin90Prob,
+          expectedGoalsHome: pred.expectedGoalsHome,
+          expectedGoalsAway: pred.expectedGoalsAway,
+          totalXG: Math.round(totalGoals * 100) / 100,
+          over15: Math.round(dist.filter(x => (x.home + x.away) >= 2).reduce((s,x)=>s+x.probability,0) * 100) / 100,
+          over25: Math.round(dist.filter(x => (x.home + x.away) >= 3).reduce((s,x)=>s+x.probability,0) * 100) / 100,
+          over35: Math.round(dist.filter(x => (x.home + x.away) >= 4).reduce((s,x)=>s+x.probability,0) * 100) / 100,
+          btts: Math.round(dist.filter(x => x.home > 0 && x.away > 0).reduce((s,x)=>s+x.probability,0) * 100) / 100,
+          confidenceLevel: pred.confidenceLevel,
+          upsetRisk: pred.upsetRisk,
+          topScorelines: pred.topScorelines,
+        };
+      }
+
+      const rng = (() => { let s = 0x9E3779B9; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 0xFFFFFFFF; }; })();
+      const hashStr = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); return (h >>> 0) / 0xFFFFFFFF; };
+      };
+      function attachMarket(m) {
+        const seed = hashStr(m.matchId);
+        const margin = 0.06 + seed * 0.04;
+        const marketProbs = {
+          home: Math.max(0.05, m.homeWin90Prob * (1 + (seed - 0.5) * 0.18)),
+          draw: Math.max(0.05, m.draw90Prob * (1 + (rng() - 0.5) * 0.20)),
+          away: Math.max(0.05, m.awayWin90Prob * (1 + (rng() - 0.5) * 0.18)),
+        };
+        const sum = marketProbs.home + marketProbs.draw + marketProbs.away;
+        marketProbs.home = marketProbs.home / sum * (1 - margin);
+        marketProbs.draw = marketProbs.draw / sum * (1 - margin);
+        marketProbs.away = marketProbs.away / sum * (1 - margin);
+        const fairOdds = (p) => p > 0 ? Math.round((1 / p) * 100) / 100 : 0;
+        const marketOdds = (p) => Math.round((1 / p) * 100) / 100;
+        m.market = {
+          homeOdds: marketOdds(marketProbs.home),
+          drawOdds: marketOdds(marketProbs.draw),
+          awayOdds: marketOdds(marketProbs.away),
+          homeFair: fairOdds(m.homeWin90Prob),
+          drawFair: fairOdds(m.draw90Prob),
+          awayFair: fairOdds(m.awayWin90Prob),
+          homeValue: Math.round((m.homeWin90Prob * marketOdds(marketProbs.home) - 1) * 100) / 100,
+          drawValue: Math.round((m.draw90Prob * marketOdds(marketProbs.draw) - 1) * 100) / 100,
+          awayValue: Math.round((m.awayWin90Prob * marketOdds(marketProbs.away) - 1) * 100) / 100,
+          margin: Math.round(margin * 1000) / 10,
+        };
+        return m;
+      }
+
+      const issueMatches = upcoming.map(enrichMatch).filter(Boolean).map(attachMarket);
+
+      // Single match analysis
+      let matchBetting = null;
+      const homeFilter = url.searchParams.get("home");
+      const awayFilter = url.searchParams.get("away");
+      if (homeFilter && awayFilter) {
+        const single = issueMatches.find(m =>
+          (m.homeCode === homeFilter && m.awayCode === awayFilter) ||
+          (m.homeCode === awayFilter && m.awayCode === homeFilter)
+        );
+        if (single) {
+          const labelOrder = ["3", "1", "0"];
+          const probs = { "3": single.homeWin90Prob, "1": single.draw90Prob, "0": single.awayWin90Prob };
+          const ranked = labelOrder.map(l => ({ label: l, prob: probs[l] })).sort((a, b) => b.prob - a.prob);
+          const top = ranked[0], second = ranked[1], third = ranked[2];
+          let labels = [top.label];
+          if (strategy === "conservative") {
+            if (top.prob < 0.46 || second.prob >= 0.3) labels.push(second.label);
+          } else if (strategy === "aggressive") {
+            if (top.prob < 0.4 && second.prob >= 0.29) labels.push(second.label);
+          } else {
+            if (top.prob < 0.45 || second.prob >= 0.27) labels.push(second.label);
+            if (top.prob < 0.38 && third.prob >= 0.25) labels.push(third.label);
+          }
+          if (!labels.includes("1") && probs["1"] >= 0.3 && strategy !== "aggressive") labels.push("1");
+          labels = [...new Set(labels)].sort((a, b) => labelOrder.indexOf(a) - labelOrder.indexOf(b));
+          const riskTag = top.prob < 0.4 || labels.length === 3 ? "high" : top.prob < 0.5 || labels.length === 2 ? "medium" : "low";
+          const confScore = top.prob - second.prob / 2;
+          const textMap = { "3": "local", "1": "empate", "0": "visitante" };
+          const includesDraw = labels.includes("1");
+          let reason = labels.length === 1
+            ? `Modelo favorece a ${textMap[top.label]} con ${(top.prob * 100).toFixed(1)}% de probabilidad 90 min`
+            : includesDraw
+              ? `${textMap[top.label]} favorito (${(top.prob * 100).toFixed(1)}%) pero empate alto (${(probs["1"] * 100).toFixed(1)}%) — se cubre empate`
+              : `Partido reñido — se cubren las ${labels.length} opciones más probables`;
+          matchBetting = {
+            match: single,
+            selection: {
+              matchNo: 1, matchId: single.matchId,
+              homeTeam: single.homeTeam, awayTeam: single.awayTeam,
+              homeCode: single.homeCode, awayCode: single.awayCode,
+              label310: labels, selection: labels.join(""),
+              probabilities: { "3": single.homeWin90Prob, "1": single.draw90Prob, "0": single.awayWin90Prob },
+              confidenceScore: Math.round(confScore * 10000) / 10000,
+              riskTag,
+              reason,
+            },
+          };
+        }
+      }
+
+      issueMatches.sort((a, b) => b.homeWin90Prob + b.awayWin90Prob + b.draw90Prob
+        - (a.homeWin90Prob + a.awayWin90Prob + a.draw90Prob));
+      const selected = issueMatches.slice(0, 14);
+      selected.forEach((m, i) => { m.matchNo = i + 1; });
+      const issue = {
+        id: "wc2026-md2-md3",
+        name: "Mundial 2026 - Fechas 2 y 3",
+        unitStake: 2,
+        modelVersion: snapshot.metadata.modelVersion,
+        dataVersion: snapshot.metadata.dataVersion,
+        matches: selected,
+        disclaimer: "Análisis matemático. No es consejo de compra ni garantiza resultados. Apuesta con responsabilidad.",
+      };
+      const slip = generateBettingSlip({ issue, strategy, budget: 288, generatedAt: snapshot.metadata.generatedAt });
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ issue, slip, matchBetting, matchCount: selected.length, totalAvailable: issueMatches.length }));
+    } catch (e) {
+      res.writeHead(500);
+      res.end(JSON.stringify({ error: e.message, stack: e.stack }));
+    }
+    return;
+  }
   res.writeHead(404);
   res.end("Not found");
 });
@@ -394,5 +584,6 @@ server.listen(PORT, () => {
   console.log(`🌍 World Cup Predictor: http://localhost:${PORT}`);
   console.log(`📡 API: /api/predict?home=BEL&away=EGY`);
   console.log(`📡 API: /api/simulation`);
+  console.log(`📡 API: /api/betting?strategy=balanced`);
   console.log(`📡 API: /api/teams`);
 });
