@@ -32,7 +32,7 @@ npm run simulate -- --simulations 10000 --seed 2026
 ```
 
 ## 📡 API REST
-
+ñ
 | Endpoint | Descripción |
 |----------|-------------|
 | `GET /` | Frontend web |

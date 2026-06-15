@@ -5,6 +5,8 @@
   "type": "module",
   "private": false,
   "scripts": {
+    "start": "node scripts/enrich-snapshot.mjs 2>&1 && node scripts/predict-server.mjs",
+    "server:start": "npm start",
     "test": "node --test tests/*.test.mjs",
     "smoke": "node scripts/predict-match.mjs --home MEX --away KOR > /dev/null && node scripts/simulate-tournament.mjs --simulations 2 --seed smoke > /dev/null && node scripts/generate-lottery-slip.mjs --strategy balanced --budget 288 > /dev/null"
   },
