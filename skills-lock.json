@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "worldcup-predictor": {
+      "source": "qqyule/worldcup-predictor-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "04c11bc85d94f0ccf5a5d7b81a4d7616882c50fb27b2a1157fc268424e256ada"
+    }
+  }
+}

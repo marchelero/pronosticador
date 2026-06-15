@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mundial 2026 · Predictor</title>
+<style>
+:root{--bg:#0a0e1a;--card:#121829;--border:#1e2942;--text:#c8d6e5;--muted:#576574;--accent:#48dbfb;--gold:#ffd32a;--green:#0be881;--red:#ff6b6b;--orange:#ffa502}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);padding:0;min-height:100vh}
+.header{background:linear-gradient(135deg,#0a0e1a 0%,#121829 100%);border-bottom:1px solid var(--border);padding:16px 20px;text-align:center}
+.header h1{font-size:1rem;color:var(--accent);text-transform:uppercase;letter-spacing:3px;font-weight:700}
+.header h1 span{color:var(--gold)}
+.header small{display:block;font-size:.6rem;color:var(--muted);letter-spacing:0;margin-top:4px}
+.acc-badge{display:inline-block;background:var(--gold);color:#000;border-radius:10px;padding:1px 8px;font-size:.55rem;font-weight:700;margin-left:6px;vertical-align:middle}
+.container{max-width:960px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px}
+.card-title{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.grid select{padding:10px 12px;background:#0d1225;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.85rem;width:100%;cursor:pointer}
+.grid select:focus{outline:none;border-color:var(--accent)}
+.vs-badge{font-size:1.2rem;font-weight:800;color:var(--accent);text-align:center;padding:0 8px}
+.btn-group{display:flex;gap:6px;margin-top:10px}
+.btn{flex:1;padding:10px;border:none;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.2s}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{background:#0abde3}
+.btn-secondary{background:var(--border);color:var(--text)}
+.btn-secondary:hover{background:#2d3a5e}
+.swap-btn{background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;padding:8px 12px;border-radius:8px;font-size:.75rem}
+.swap-btn:hover{border-color:var(--accent);color:var(--accent)}
+.tabs{display:flex;gap:3px;margin-bottom:12px;overflow-x:auto}
+.tab{padding:7px 16px;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.7rem;background:transparent;color:var(--muted);white-space:nowrap;font-weight:500}
+.tab.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.tab:hover:not(.active){border-color:var(--accent);color:var(--text)}
+.output{white-space:pre;font-size:.65rem;line-height:1.45;overflow-x:auto;min-height:80px;font-family:'Courier New',monospace;background:#080c18;border-radius:8px;padding:12px;border:1px solid var(--border)}
+.team-card{display:flex;align-items:center;gap:12px;padding:12px;background:#0d1225;border-radius:8px;border:1px solid var(--border)}
+.team-card .flag{width:40px;height:28px;border-radius:4px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.team-card .info{flex:1}
+.team-card .name{font-size:.85rem;font-weight:600}
+.team-card .sub{font-size:.65rem;color:var(--muted)}
+.gauge-row{display:flex;gap:4px;align-items:center;margin:2px 0}
+.gauge-label{font-size:.65rem;color:var(--muted);width:60px;flex-shrink:0}
+.gauge-bg{flex:1;height:6px;background:#1a2340;border-radius:3px;overflow:hidden}
+.gauge-fill{height:100%;border-radius:3px;transition:width .5s}
+.gauge-val{font-size:.65rem;width:32px;text-align:right;font-weight:600}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.stat-item{display:flex;justify-content:space-between;padding:4px 8px;background:#0d1225;border-radius:4px;font-size:.72rem}
+.stat-item .l{color:var(--muted)}
+.stat-item .r{font-weight:600}
+.champ-list{display:flex;flex-wrap:wrap;gap:4px}
+.champ-item{background:#0d1225;border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:.7rem;white-space:nowrap}
+.champ-item .p{color:var(--gold);font-weight:700;margin-left:4px}
+.schedule-match{display:flex;align-items:center;padding:8px;background:#0d1225;border-radius:6px;margin-bottom:4px;font-size:.72rem}
+.schedule-match .vs-sm{color:var(--accent);font-weight:700;margin:0 8px}
+.schedule-match .score{color:var(--gold);font-weight:700;margin:0 8px;min-width:30px;text-align:center}
+.schedule-match .status-badge{font-size:.55rem;padding:2px 6px;border-radius:10px;text-transform:uppercase;margin-left:6px}
+.badge-final{background:var(--border);color:var(--muted)}
+.badge-live{background:var(--red);color:#fff}
+.badge-pending{background:var(--orange);color:#000}
+.player-list{font-size:.72rem}
+.player-row{display:flex;justify-content:space-between;padding:3px 6px;border-bottom:1px solid var(--border)}
+.player-row:last-child{border-bottom:none}
+.player-row .goals{color:var(--gold);font-weight:700}
+.player-row .cards{color:var(--red)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.vs-badge{font-size:.9rem;padding:4px 0}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚽ Mundial 2026 <span>·</span> Predictor</h1>
+  <small>Modelo Poisson + Dixon-Coles · 10.000 simulaciones Monte Carlo</small>
+</div>
+
+<div class="container">
+
+  <!-- SELECTORES -->
+  <div class="card">
+    <div class="card-title">Seleccionar Partido</div>
+    <div class="grid">
+      <div><label style="font-size:.6rem;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px">Local (1)</label><select id="home"></select></div>
+      <div class="vs-badge">VS</div>
+      <div><label style="font-size:.6rem;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px">Visitante (2)</label><select id="away"></select></div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="predict">🔮 Predecir</button>
+      <button class="swap-btn" id="swap" title="Intercambiar equipos">⇄ Intercambiar</button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="card">
+    <div class="tabs">
+      <div class="tab active" data-tab="prediccion">📊 Predicción</div>
+      <div class="tab" data-tab="simulacion">🏆 Simulación</div>
+      <div class="tab" data-tab="estadisticas">📈 Estadísticas</div>
+      <div class="tab" data-tab="calendario">📅 Calendario</div>
+      <div class="tab" data-tab="modelo">🧠 Modelo</div>
+    </div>
+
+    <!-- PREDICCIÓN -->
+    <div id="tab-prediccion">
+      <div class="output" id="output">Seleccioná dos equipos y presioná <b>Predecir</b></div>
+      <div id="team-compare" style="display:none;margin-top:10px"></div>
+      <div id="key-players" style="display:none;margin-top:10px"></div>
+    </div>
+
+    <!-- SIMULACIÓN -->
+    <div id="tab-simulacion" style="display:none">
+      <div class="card-title" style="margin-bottom:6px">Probabilidades de Campeón</div>
+      <div id="champion-list" style="margin-bottom:12px"><span style="color:var(--muted);font-size:.75rem">Cargando simulación...</span></div>
+      <div class="card-title" style="margin-bottom:6px">Probabilidades del Partido en el Torneo</div>
+      <div id="sim-match" style="font-size:.75rem;color:var(--muted)">Seleccioná un partido para ver sus probabilidades en el torneo</div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div id="tab-estadisticas" style="display:none">
+      <div class="card-title">Goleadores</div>
+      <div id="top-scorers" style="margin-bottom:12px"><span style="color:var(--muted);font-size:.75rem">Cargando...</span></div>
+      <div class="card-title">Tabla de Posiciones</div>
+      <div id="standings-table" style="font-size:.72rem"></div>
+    </div>
+
+    <!-- CALENDARIO -->
+    <div id="tab-calendario" style="display:none">
+      <div class="card-title">Partidos del Mundial 2026</div>
+      <div id="schedule-list" style="font-size:.72rem"><span style="color:var(--muted)">Cargando calendario...</span></div>
+    </div>
+
+    <!-- MODELO -->
+    <div id="tab-modelo" style="display:none">
+      <div style="font-size:.75rem;color:var(--text);line-height:1.7;padding:4px;border-left:2px solid var(--accent);padding-left:12px">
+        <strong style="color:var(--accent)">Modelo Predictivo</strong><br><br>
+        <strong>1. Distribución Poisson</strong><br>
+        Los goles de cada equipo se modelan como una distribución Poisson independiente con un parámetro λ (lambda) que representa los goles esperados.<br><br>
+        <strong>2. Corrección Dixon-Coles</strong><br>
+        Ajusta las probabilidades para partidos de baja anotación. Los resultados 0-0, 1-0 y 1-1 son más frecuentes de lo que un Poisson puro predice.<br><br>
+        <strong>3. Expected Goals (xG)</strong><br>
+        λ se calcula combinando:<br>
+        &nbsp;&nbsp;• <strong>Rating</strong> del equipo (basado en Elo/FIFA ranking)<br>
+        &nbsp;&nbsp;• <strong>attackStrength</strong> y <strong>defenseStrength</strong> (poder ofensivo/defensivo)<br>
+        &nbsp;&nbsp;• <strong>formScore</strong> (estado de forma reciente)<br>
+        &nbsp;&nbsp;• <strong>Ventaja local</strong> (solo si país sede = país del equipo)<br><br>
+        <strong>4. Simulación Monte Carlo</strong><br>
+        Se ejecutan 10.000 torneos completos. En cada simulación:<br>
+        &nbsp;&nbsp;• Los partidos ya jugados se usan tal cual<br>
+        &nbsp;&nbsp;• Los partidos restantes se generan con el modelo Poisson<br>
+        &nbsp;&nbsp;• Se aplican las reglas de clasificación (top 2 + 8 mejores terceros)<br>
+        &nbsp;&nbsp;• Se contabilizan avances por ronda<br><br>
+        <strong>5. Calibración post-Fecha 1</strong><br>
+        Los ratings se ajustaron automáticamente comparando goles reales vs xG esperados de la primera jornada. Ataques que rindieron por encima de lo esperado (Alemania 7 goles, EE.UU. 4) recibieron un boost; defensas que filtraron muchos goles (Curazao, Túnez) fueron ajustadas a la baja.<br><br>
+        <strong>6. Reproducibilidad</strong><br>
+        Misma semilla (2026) + mismos datos = mismos resultados. 100% determinista.
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;font-size:.55rem;color:var(--muted);padding:12px;line-height:1.6">
+    Basado en snapshot auditado con 48 equipos y resultados oficiales de Fecha 1.<br>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id),Q=s=>document.querySelector(s),QA=s=>document.querySelectorAll(s);
+let teams=[], simData=null, statsData=null;
+
+function pct(v){return (v*100).toFixed(1)+'%'}
+function bar(v,w){return '█'.repeat(Math.round(v*w))+'░'.repeat(Math.max(0,w-Math.round(v*w)))}
+function pd(s,n){return String(s).padEnd(n)}
+
+// ── Cargar equipos ──
+fetch('/api/teams').then(r=>r.json()).then(t=>{
+  teams=t;
+  const top=['ARG','BRA','ENG','FRA','GER','ESP','NED','POR','BEL'];
+  teams.sort((a,b)=>{const ai=top.indexOf(a.code),bi=top.indexOf(b.code);
+    if(ai>-1&&bi>-1)return ai-bi;if(ai>-1)return -1;if(bi>-1)return 1;
+    return a.esName.localeCompare(b.esName)});
+  teams.forEach(tm=>{
+    [$('home'),$('away')].forEach(sel=>{
+      const o=document.createElement('option');
+      o.value=tm.code;o.textContent=tm.esName+(tm.isHost?' 🏠':'')+' (#'+tm.fifaRank+')';
+      sel.appendChild(o);
+    });
+  });
+  $('home').value='BEL';$('away').value='EGY';
+  $('predict').disabled=false;
+  loadSchedule();
+}).catch(()=>$('output').innerHTML='<span class=error>Error al cargar equipos</span>');
+
+// ── Cargar simulación ──
+fetch('/api/simulation').then(r=>r.json()).then(s=>{
+  simData=s;
+  renderChampions(s);
+}).catch(()=>{});
+
+// ── Cargar estadísticas ──
+function loadStats(){
+  fetch('/api/stats').then(r=>r.json()).then(d=>{
+    statsData=d;
+    renderTopScorers(d);
+    renderStandings(d);
+  }).catch(()=>{});
+}
+
+// ── Champions ──
+function renderChampions(s){
+  const el=$('champion-list');
+  if(!s||!s.championProbabilities){el.innerHTML='<span style="color:var(--muted)">Simulación no disponible</span>';return}
+  const top=Object.entries(s.championProbabilities).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  let html='<div class="champ-list">';
+  top.forEach(([code,prob])=>{
+    const tm=teams.find(t=>t.code===code);
+    const name=tm?.esName||code;
+    const barW=Math.round(prob*200);
+    html+='<div class="champ-item">'+name+' <span class="p">'+(prob*100).toFixed(1)+'%</span></div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
+// ── Visual Prediction ──
+function renderVisualPrediction(p,h,a){
+  const ht=teams.find(t=>t.code===h);
+  const at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+  const conf={low:'Baja',medium:'Media',high:'Alta'}[p.confidenceLevel]||p.confidenceLevel;
+  const upset={low:'Bajo',medium:'Medio',high:'Alto'}[p.upsetRisk]||p.upsetRisk;
+  const hPct=(p.homeWin90Prob*100).toFixed(1);
+  const dPct=(p.draw90Prob*100).toFixed(1);
+  const aPct=(p.awayWin90Prob*100).toFixed(1);
+  const hXG=p.expectedGoalsHome.toFixed(2);
+  const aXG=p.expectedGoalsAway.toFixed(2);
+  const totalXG=(p.expectedGoalsHome+p.expectedGoalsAway).toFixed(2);
+  const winner=p.homeWin90Prob>p.awayWin90Prob?hn:an;
+
+  // Color for probabilities
+  const barColor=(v,highColor,midColor)=>{
+    if(v>0.45)return highColor;
+    if(v>0.30)return midColor;
+    return '#2d3a5e';
+  };
+
+  let html='';
+
+  // Header
+  html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">'+
+    '<div><span style="font-size:.95rem;font-weight:700">'+hn+'</span><span style="font-size:.65rem;color:var(--muted);margin:0 8px">vs</span><span style="font-size:.95rem;font-weight:700">'+an+'</span></div>'+
+    '<div style="display:flex;gap:6px">'+
+    '<span style="font-size:.6rem;padding:2px 8px;border-radius:10px;background:'+(p.confidenceLevel==='high'?'var(--green)':p.confidenceLevel==='medium'?'var(--orange)':'var(--red)')+';color:#000;font-weight:600">'+conf+'</span></div></div>';
+
+  // 1/X/2 bars
+  html+='<div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:2px;margin-bottom:10px">'+
+    // Home
+    '<div style="background:#0d1225;border-radius:8px;padding:8px;text-align:center;border:2px solid '+barColor(p.homeWin90Prob,'var(--accent)','var(--border)')+'">'+
+    '<div style="font-size:.5rem;color:var(--muted);text-transform:uppercase">Local (1)</div>'+
+    '<div style="font-size:1.4rem;font-weight:800;color:var(--accent)">'+hPct+'%</div>'+
+    '<div style="height:4px;background:var(--border);border-radius:2px;margin:4px 0;overflow:hidden">'+
+    '<div style="height:100%;width:'+hPct+'%;background:var(--accent);border-radius:2px"></div></div>'+
+    '<div style="font-size:.6rem">'+hn+'</div></div>'+
+    // Draw
+    '<div style="background:#0d1225;border-radius:8px;padding:8px;text-align:center;display:flex;flex-direction:column;justify-content:center">'+
+    '<div style="font-size:.5rem;color:var(--muted);text-transform:uppercase">X</div>'+
+    '<div style="font-size:1.1rem;font-weight:700;color:var(--gold)">'+dPct+'%</div>'+
+    '<div style="height:3px;background:var(--border);border-radius:2px;margin:2px 0;overflow:hidden">'+
+    '<div style="height:100%;width:'+dPct+'%;background:var(--gold);border-radius:2px"></div></div>'+
+    '<div style="font-size:.5rem;color:var(--muted)">Empate</div></div>'+
+    // Away
+    '<div style="background:#0d1225;border-radius:8px;padding:8px;text-align:center;border:2px solid '+barColor(p.awayWin90Prob,'var(--gold)','var(--border)')+'">'+
+    '<div style="font-size:.5rem;color:var(--muted);text-transform:uppercase">Visitante (2)</div>'+
+    '<div style="font-size:1.4rem;font-weight:800;color:var(--gold)">'+aPct+'%</div>'+
+    '<div style="height:4px;background:var(--border);border-radius:2px;margin:4px 0;overflow:hidden">'+
+    '<div style="height:100%;width:'+aPct+'%;background:var(--gold);border-radius:2px"></div></div>'+
+    '<div style="font-size:.6rem">'+an+'</div></div></div>';
+
+  // xG row
+  html+='<div style="display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;background:#0d1225;border-radius:8px;padding:8px;margin-bottom:10px">'+
+    '<div><div style="font-size:.55rem;color:var(--muted)">'+hn+' xG</div><div style="font-size:1.1rem;font-weight:700;color:var(--accent)">'+hXG+'</div></div>'+
+    '<div style="text-align:center"><div style="font-size:.5rem;color:var(--muted)">Total</div><div style="font-size:.9rem;font-weight:600">'+totalXG+'</div><div style="font-size:.5rem;color:var(--muted)">'+(parseFloat(totalXG)>2.5?'Over 2.5 ✓':'Under 2.5')+'</div></div>'+
+    '<div style="text-align:right"><div style="font-size:.55rem;color:var(--muted)">'+an+' xG</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">'+aXG+'</div></div></div>';
+
+  // Scorelines
+  html+='<div style="background:#0d1225;border-radius:8px;padding:8px;margin-bottom:10px">'+
+    '<div style="font-size:.55rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Marcadores más probables</div>';
+  p.topScorelines.forEach(s=>{
+    const w=s.scoreline.home>s.scoreline.away?'🏠':s.scoreline.away>s.scoreline.home?'✈️':'🤝';
+    const wName=s.scoreline.home>s.scoreline.away?hn:s.scoreline.away>s.scoreline.home?an:'Empate';
+    html+='<div style="display:flex;align-items:center;padding:3px 0;border-bottom:1px solid var(--border)">'+
+      '<span style="font-size:.85rem;font-weight:700;min-width:40px">'+s.scoreline.home+'-'+s.scoreline.away+'</span>'+
+      '<div style="flex:1;height:6px;background:var(--border);border-radius:3px;margin:0 8px;overflow:hidden">'+
+      '<div style="height:100%;width:'+(s.probability*100)+'%;background:var(--accent);border-radius:3px"></div></div>'+
+      '<span style="font-size:.65rem;color:var(--muted);min-width:40px;text-align:right">'+(s.probability*100).toFixed(1)+'%</span>'+
+      '<span style="font-size:.55rem;margin-left:6px">'+w+' '+wName+'</span></div>';
+  });
+  html+='</div>';
+
+  // Extra stats row
+  const btts=p.topScorelines.filter(s=>s.scoreline.home>0&&s.scoreline.away>0).reduce((s,x)=>s+x.probability,0);
+  const hClean=p.topScorelines.filter(s=>s.scoreline.away===0).reduce((s,x)=>s+x.probability,0);
+  const aClean=p.topScorelines.filter(s=>s.scoreline.home===0).reduce((s,x)=>s+x.probability,0);
+
+  html+='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:10px">'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center">'+
+    '<div style="font-size:.5rem;color:var(--muted)">BTTS</div><div style="font-size:.8rem;font-weight:600">'+(btts*100).toFixed(0)+'%</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center">'+
+    '<div style="font-size:.5rem;color:var(--muted)">'+hn+' Clean</div><div style="font-size:.8rem;font-weight:600">'+(hClean*100).toFixed(0)+'%</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center">'+
+    '<div style="font-size:.5rem;color:var(--muted)">'+an+' Clean</div><div style="font-size:.8rem;font-weight:600">'+(aClean*100).toFixed(0)+'%</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center">'+
+    '<div style="font-size:.5rem;color:var(--muted)">Riesgo</div><div style="font-size:.8rem;font-weight:600">'+upset+'</div></div></div>';
+
+  // Favorito
+  html+='<div style="text-align:center;font-size:.7rem;padding:6px;background:linear-gradient(135deg,var(--accent),var(--gold));border-radius:8px;color:#000;font-weight:700">'+
+    '🏆 Favorito: '+winner+'  |  Confianza: '+conf+'</div>';
+
+  $('output').innerHTML=html;
+}
+
+// ── Predecir ──
+$('swap').onclick=()=>{const t=$('home').value;$('home').value=$('away').value;$('away').value=t};
+$('predict').onclick=()=>{
+  const h=$('home').value,a=$('away').value;
+  if(!h||!a)return;
+  if(h===a){$('output').innerHTML='<span class=error>Los equipos deben ser distintos</span>';return}
+  $('output').innerHTML='<span style="color:var(--muted)">🔮 Calculando predicción...</span>';
+  $('team-compare').style.display='none';
+  $('key-players').style.display='none';
+
+  fetch('/api/predict?home='+h+'&away='+a+'&format=json').then(r=>r.json()).then(p=>{
+    renderVisualPrediction(p,h,a);
+    renderTeamCompare(h,a);
+    renderKeyPlayers(h,a);
+    renderSimMatch(h,a);
+    // Enriched data
+    fetch('/api/enriched?home='+h+'&away='+a).then(r=>r.json()).then(ed=>{
+      renderEnriched(ed,h,a);
+    }).catch(()=>{});
+    // Switch to prediction tab
+    QA('.tab').forEach(t=>t.classList.remove('active'));
+    Q('.tab[data-tab=prediccion]').classList.add('active');
+    showTab('prediccion');
+
+    // Switch to prediction tab
+    QA('.tab').forEach(t=>t.classList.remove('active'));
+    Q('.tab[data-tab=prediccion]').classList.add('active');
+    showTab('prediccion');
+  }).catch(()=>$('output').innerHTML='<span class=error>Error al obtener predicción</span>');
+};
+
+// ── Team comparison ──
+function renderTeamCompare(h,a){
+  const ht=teams.find(t=>t.code===h),at=teams.find(t=>t.code===a);
+  if(!ht||!at)return;
+  const el=$('team-compare');el.style.display='block';
+  const maxR=Math.max(ht.ratingValue||2000,at.ratingValue||2000);
+
+  function gauge(v,label,color){
+    const pct=Math.min(100,((v||0)/1.4)*100);
+    return '<div class="gauge-row"><span class="gauge-label">'+label+'</span><div class="gauge-bg"><div class="gauge-fill" style="width:'+pct+'%;background:'+color+'"></div></div><span class="gauge-val">'+(v||'0').toFixed(3)+'</span></div>';
+  }
+
+  el.innerHTML='<div class="card-title" style="margin-top:8px">Comparativa de Fuerza</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
+    ['home','away'].map((side,i)=>{
+      const t=i===0?ht:at, tm=i===0?ht.esName:at.esName;
+      const color=i===0?'var(--accent)':'var(--gold)';
+      return '<div class="team-card"><div class="flag">'+(i===0?'🏠':'✈️')+'</div><div class="info">'+
+        '<div class="name">'+t.esName+'</div>'+
+        '<div style="margin-top:6px">'+
+        gauge(t.attackStrength,'Ataque',color)+
+        gauge(t.defenseStrength,'Defensa',i===0?'var(--green)':'var(--red)')+
+        gauge(t.formScore/90,'Forma','var(--gold)')+
+        '</div></div></div>';
+    }).join('')+
+    '</div>';
+}
+
+// ── Key Players (mock from MD1 data) ──
+function renderKeyPlayers(h,a){
+  const el=$('key-players');el.style.display='block';
+  const players={
+    MEX:['Julián Quiñones (DC)','Raúl Jiménez (DC)','César Montes (DF)'],
+    RSA:['Ronwen Williams (PO)','Lyle Foster (DC)','Teboho Mokoena (MC)'],
+    KOR:['Son Heung-min (DC)','Hwang In-beom (MC)','Kim Min-jae (DF)'],
+    CZE:['Patrik Schick (DC)','Tomáš Souček (MC)','Ladislav Krejčí (DF)'],
+    CAN:['Cyle Larin (DC)','Alphonso Davies (DF)','Jonathan David (DC)'],
+    BIH:['Edin Džeko (DC)','Miralem Pjanić (MC)','Sead Kolašinac (DF)'],
+    USA:['Folarin Balogun (DC)','Christian Pulisic (MC)','Giovanni Reyna (MC)'],
+    PAR:['Miguel Almirón (MC)','Julio Enciso (DC)','Gustavo Gómez (DF)'],
+    QAT:['Akram Afif (DC)','Almoez Ali (DC)','Abdelkarim Hassan (DF)'],
+    SUI:['Breel Embolo (DC)','Granit Xhaka (MC)','Manuel Akanji (DF)'],
+    BRA:['Vinícius Júnior (DC)','Neymar (MC)','Marquinhos (DF)'],
+    MAR:['Achraf Hakimi (DF)','Ismael Saibari (MC)','Yassine Bounou (PO)'],
+    HAI:['Duckens Nazon (DC)','Frantzdy Pierrot (DC)','Carlens Arcus (DF)'],
+    SCO:['John McGinn (MC)','Scott McTominay (MC)','Andrew Robertson (DF)'],
+    AUS:['Nestory Irankunda (DC)','Connor Metcalfe (MC)','Harry Souttar (DF)'],
+    TUR:['Hakan Çalhanoğlu (MC)','Kerem Aktürkoğlu (DC)','Çağlar Söyüncü (DF)'],
+    GER:['Kai Havertz (DC)','Jamal Musiala (MC)','Antonio Rüdiger (DF)'],
+    CUR:['Juninho Bacuna (MC)','Leandro Bacuna (MC)','Jurien Gaari (DF)'],
+    CIV:['Sébastien Haller (DC)','Franck Kessié (MC)','Serge Aurier (DF)'],
+    ECU:['Enner Valencia (DC)','Moisés Caicedo (MC)','Pervis Estupiñán (DF)'],
+    SWE:['Alexander Isak (DC)','Viktor Gyökeres (DC)','Dejan Kulusevski (MC)'],
+    JPN:['Daichi Kamada (MC)','Takefusa Kubo (DC)','Wataru Endō (MC)'],
+    NED:['Virgil van Dijk (DF)','Frenkie de Jong (MC)','Memphis Depay (DC)'],
+    TUN:['Wahbi Khazri (DC)','Ellyes Skhiri (MC)','Dylan Bronn (DF)'],
+    BEL:['Kevin De Bruyne (MC)','Romelu Lukaku (DC)','Thibaut Courtois (PO)'],
+    EGY:['Mohamed Salah (DC)','Mahmoud Trézéguet (DC)','Mohamed Elneny (MC)'],
+    IRN:['Mehdi Taremi (DC)','Sardar Azmoun (DC)','Alireza Beiranvand (PO)'],
+    NZL:['Chris Wood (DC)','Ryan Thomas (MC)','Winston Reid (DF)'],
+    ESP:['Lamine Yamal (DC)','Pedri (MC)','Rodri (MC)'],
+    CPV:['Ryan Mendes (DC)','Jamiro Monteiro (MC)','Roberto Lopes (DF)'],
+    KSA:['Salem Al-Dawsari (DC)','Firas Al-Buraikan (DC)','Ali Al-Bulaihi (DF)'],
+    URU:['Darwin Núñez (DC)','Federico Valverde (MC)','Ronald Araújo (DF)'],
+    FRA:['Kylian Mbappé (DC)','Antoine Griezmann (DC)','William Saliba (DF)'],
+    SEN:['Sadio Mané (DC)','Idrissa Gueye (MC)','Kalidou Koulibaly (DF)'],
+    IRQ:['Aymen Hussein (DC)','Ali Adnan (DF)','Jalal Hassan (PO)'],
+    NOR:['Erling Haaland (DC)','Martin Ødegaard (MC)','Marius Lode (DF)'],
+    ARG:['Lionel Messi (DC)','Julián Álvarez (DC)','Enzo Fernández (MC)'],
+    ALG:['Riyad Mahrez (DC)','Islam Slimani (DC)','Ramy Bensebaini (DF)'],
+    AUT:['Marko Arnautović (DC)','Marcel Sabitzer (MC)','David Alaba (DF)'],
+    JOR:['Musa Al-Taamari (DC)','Ali Olwan (DC)','Abdallah Nasib (DF)'],
+    POR:['Cristiano Ronaldo (DC)','Bruno Fernandes (MC)','Rúben Dias (DF)'],
+    COD:['Cédric Bakambu (DC)','Yoane Wissa (DC)','Chancel Mbemba (DF)'],
+    UZB:['Eldor Shomurodov (DC)','Otabek Shukurov (MC)','Rustam Ashurmatov (DF)'],
+    COL:['Luis Díaz (DC)','James Rodríguez (MC)','Davinson Sánchez (DF)'],
+    ENG:['Harry Kane (DC)','Jude Bellingham (MC)','John Stones (DF)'],
+    CRO:['Luka Modrić (MC)','Mateo Kovačić (MC)','Joško Gvardiol (DF)'],
+    GHA:['Mohammed Kudus (MC)','Iñaki Williams (DC)','Alexander Djiku (DF)'],
+    PAN:['Ismael Díaz (DC)','Adalberto Carrasquilla (MC)','Fidel Escobar (DF)'],
+  };
+  const hp=players[h]||['Jugador clave'],ap=players[a]||['Jugador clave'];
+  el.innerHTML='<div class="card-title">Jugadores Clave</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
+    ['home','away'].map((side,i)=>{
+      const list=i===0?hp:ap;
+      const tm=i===0?teams.find(t=>t.code===h)?.esName||h:teams.find(t=>t.code===a)?.esName||a;
+      return '<div style="background:#0d1225;border-radius:6px;padding:8px;border:1px solid var(--border)">'+
+        '<div style="font-size:.65rem;color:var(--muted);margin-bottom:4px">'+tm+'</div>'+
+        list.map(p=>'<div style="font-size:.72rem;padding:2px 0">⚽ '+p+'</div>').join('')+
+        '</div>';
+    }).join('')+
+    '</div>';
+}
+
+// ── Sim Match ──
+function renderSimMatch(h,a){
+  if(!simData||!simData.teamStageProbabilities){$('sim-match').textContent='Simulación no disponible';return}
+  const hs=simData.teamStageProbabilities.find(t=>t.teamCode===h);
+  const as_=simData.teamStageProbabilities.find(t=>t.teamCode===a);
+  if(!hs&&!as_){$('sim-match').textContent='Sin datos de simulación para estos equipos';return}
+  const items=[
+    ['Ganar grupo','groupWinnerProb'],['Clasificar a 32vos','qualify32Prob'],
+    ['Llegar a 8vos','qualify16Prob'],['Llegar a 4tos','qualify8Prob'],
+    ['Semifinal','qualify4Prob'],['Final','finalProb'],['Campeón','championProb']
+  ];
+  const htm=teams.find(t=>t.code===h)?.esName||h;
+  const an=teams.find(t=>t.code===a)?.esName||a;
+  let html='<div style="display:grid;grid-template-columns:repeat(3,auto);gap:2px 16px;margin-top:6px">'+
+    '<div></div><div style="font-weight:600;color:var(--accent);font-size:.65rem">'+htm+'</div><div style="font-weight:600;color:var(--gold);font-size:.65rem">'+an+'</div>';
+  for(const [label,key] of items){
+    const hv=hs?.[key]||0, av=as_?.[key]||0;
+    html+='<div style="color:var(--muted);font-size:.65rem">'+label+'</div>'+
+      '<div style="font-size:.7rem;font-weight:600;text-align:right">'+(hv*100).toFixed(1)+'%</div>'+
+      '<div style="font-size:.7rem;font-weight:600;text-align:right">'+(av*100).toFixed(1)+'%</div>';
+  }
+  html+='</div>';
+  $('sim-match').innerHTML=html;
+}
+
+// ── Enriched data render ──
+function renderEnriched(ed,h,a){
+  const el=document.createElement('div');
+  el.id='enriched-panel';
+  const old=$('enriched-panel');
+  if(old)old.remove();
+
+  const ht=teams.find(t=>t.code===h);
+  const at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+
+  let html='<div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+
+  // H2H
+  if(ed.h2h&&ed.h2h.length){
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Historial</div>';
+    ed.h2h.forEach(m=>{
+      const parts=m.score.split('-');
+      const hWon=parseInt(parts[0])>parseInt(parts[1]);
+      const aWon=parseInt(parts[1])>parseInt(parts[0]);
+      const hl=hWon?'color:var(--green)':'';
+      const al=aWon?'color:var(--green)':'';
+      html+='<div style="font-size:.68rem;padding:2px 0">'+m.year+' <span style="'+hl+'">'+hn+' '+m.score+'</span> '+an+' <span style="color:var(--muted)">('+m.comp+')</span></div>';
+    });
+    html+='</div>';
+  }
+
+  // Recent form
+  if(ed.homeForm&&ed.homeForm.length){
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Forma Reciente</div>'+
+      '<div style="font-size:.65rem"><strong>'+hn+':</strong></div>';
+    ed.homeForm.forEach(f=>{
+      const isG=f.startsWith('G');
+      html+='<div style="font-size:.65rem;padding:1px 0"><span style="color:'+(isG?'var(--green)':'var(--red)')+'">'+(isG?'▲':'△')+'</span> '+f+'</div>';
+    });
+    html+='<div style="font-size:.65rem;margin-top:4px"><strong>'+an+':</strong></div>';
+    ed.awayForm.forEach(f=>{
+      const isG=f.startsWith('G');
+      html+='<div style="font-size:.65rem;padding:1px 0"><span style="color:'+(isG?'var(--green)':'var(--red)')+'">'+(isG?'▲':'△')+'</span> '+f+'</div>';
+    });
+    html+='</div>';
+  }
+
+  // Squad
+  if(ed.homeSquad&&ed.homeSquad.value){
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Plantilla</div>'+
+      '<div style="font-size:.65rem">'+hn+'</div>'+
+      '<div style="font-size:.7rem">💰 '+(ed.homeSquad.value)+'M €</div>'+
+      '<div style="font-size:.65rem;color:var(--muted)">Edad: '+ed.homeSquad.avgAge+' · Cap: '+ed.homeSquad.captain+'</div>'+
+      '<div style="font-size:.65rem;margin-top:4px">'+an+'</div>'+
+      '<div style="font-size:.7rem">💰 '+(ed.awaySquad?.value||'?')+'M €</div>'+
+      '<div style="font-size:.65rem;color:var(--muted)">Edad: '+(ed.awaySquad?.avgAge||'?')+' · Cap: '+(ed.awaySquad?.captain||'?')+'</div>'+
+      '</div>';
+  }
+
+  // Weather
+  if(ed.weather){
+    const w=ed.weather;
+    const icon=w.code===0?'☀️':w.code<=3?'⛅':'🌧️';
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Clima en Sede</div>'+
+      '<div style="font-size:.7rem">'+icon+' '+w.temp+'°C · '+w.desc+'</div>'+
+      '<div style="font-size:.65rem;color:var(--muted)">Viento: '+w.wind+' km/h</div>'+
+      '<div style="font-size:.6rem;color:var(--muted);margin-top:4px">Sede: '+ed.venue+'</div>'+
+      '</div>';
+  }
+
+  // Accuracy y scenarios
+  let accHtml='';
+  if(ed.accuracy){
+    accHtml+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Precisión del Modelo</div>'+
+      '<div style="font-size:.85rem;font-weight:700;color:var(--gold)">'+(ed.accuracy.pct*100).toFixed(0)+'%</div>'+
+      '<div style="font-size:.65rem;color:var(--muted)">'+ed.accuracy.correct+'/'+ed.accuracy.total+' aciertos en dirección</div>'+
+      '</div>';
+  }
+  if(ed.groupScenario){
+    const gs=ed.groupScenario;
+    let sHtml='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Grupo '+gs.group+'</div>';
+    gs.teams.forEach(t=>{
+      const isH=t.code===h, isA=t.code===a;
+      const hl=isH?'color:var(--accent);font-weight:700':isA?'color:var(--gold);font-weight:700':'';
+      const tm=teams.find(x=>x.code===t.code);
+      sHtml+='<div style="font-size:.65rem;padding:2px 0;'+hl+'">'+(tm?.esName||t.code)+' · '+t.pts+' pts</div>';
+    });
+    sHtml+='</div>';
+    html+=accHtml+sHtml;
+  } else {
+    html+=accHtml+'<div></div>';
+  }
+
+  html+='</div>';
+  el.innerHTML=html;
+  $('team-compare').parentNode.appendChild(el);
+}
+function renderTopScorers(d){
+  const el=$('top-scorers');
+  if(!d.topScorers||!d.topScorers.length){el.innerHTML='<span style="color:var(--muted)">Sin datos</span>';return}
+  let html='<div class="player-list">';
+  d.topScorers.slice(0,15).forEach((s,i)=>{
+    const tm=teams.find(t=>t.code===s.team);
+    const name=tm?.esName||s.team;
+    html+='<div class="player-row"><span>'+(i+1)+'. '+s.player+' ('+name+')</span><span class="goals">'+s.goals+' gol'+(s.goals>1?'es':'')+'</span></div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
+// ── Standings ──
+function renderStandings(d){
+  const el=$('standings-table');
+  if(!d.standings){el.innerHTML='<span style="color:var(--muted)">Sin datos</span>';return}
+  let html='';
+  Object.entries(d.standings).forEach(([gc,table]) => {
+    html+='<div style="margin-bottom:10px"><strong style="color:var(--accent);font-size:.7rem">Grupo '+gc+'</strong></div>'+
+      '<table style="width:100%;border-collapse:collapse;font-size:.75rem">'+
+      '<tr style="border-bottom:1px solid var(--border);color:var(--muted)"><td style="padding:3px 4px">#</td><td>Equipo</td><td style="text-align:center">PJ</td><td style="text-align:center">G</td><td style="text-align:center">E</td><td style="text-align:center">P</td><td style="text-align:center">GF</td><td style="text-align:center">GC</td><td style="text-align:center">DG</td><td style="text-align:right">Pts</td></tr>';
+    table.forEach((r,i)=>{
+      const tm=teams.find(t=>t.code===r.code);
+      const name=tm?.esName||r.name;
+      const bg=i%2===0?'background:#0d1225':'';
+      const pos=i<2?'color:var(--green)':i===2?'color:var(--orange)':'color:var(--red)';
+      html+='<tr style="'+bg+'"><td style="padding:3px 4px;'+pos+'">'+(i+1)+'</td><td>'+name+'</td><td style="text-align:center">'+r.played+'</td><td style="text-align:center">'+r.w+'</td><td style="text-align:center">'+r.d+'</td><td style="text-align:center">'+r.l+'</td><td style="text-align:center">'+r.gf+'</td><td style="text-align:center">'+r.ga+'</td><td style="text-align:center">'+(r.gd>0?'+':'')+r.gd+'</td><td style="text-align:right;font-weight:700;color:var(--gold)">'+r.pts+'</td></tr>';
+    });
+    html+='</table>';
+  });
+  el.innerHTML=html;
+}
+
+// ── Schedule ──
+function loadSchedule(){
+  const el=$('schedule-list');
+  if(!teams.length){setTimeout(loadSchedule,500);return}
+  const groups='ABCDEFGHIJKL';
+  let html='';
+  for(const gc of groups){
+    const gTeams=teams.filter(t=>t.groupCode===gc);
+    if(gTeams.length!==4)continue;
+    html+='<div style="margin-bottom:8px"><strong style="color:var(--accent);font-size:.7rem">Grupo '+gc+'</strong></div>';
+    const pairs=[[0,1],[2,3],[0,2],[1,3],[1,2],[0,3]];
+    pairs.forEach(([hi,ai])=>{
+      const h=gTeams[hi],a=gTeams[ai];
+      html+='<div class="schedule-match"><span>'+h.esName+'</span><span class="vs-sm">vs</span><span>'+a.esName+'</span><span class="status-badge badge-pending">Programado</span></div>';
+    });
+  }
+  el.innerHTML=html;
+}
+
+// ── Tabs ──
+function showTab(v){
+  ['prediccion','simulacion','estadisticas','calendario','modelo'].forEach(t=>{
+    const el=$('tab-'+t);
+    if(el)el.style.display=t===v?'':'none';
+  });
+  if(v==='estadisticas')loadStats();
+}
+
+QA('.tab').forEach(tab=>{
+  tab.onclick=()=>{
+    QA('.tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    showTab(tab.dataset.tab);
+  };
+});
+</script>
+</body>
+</html>

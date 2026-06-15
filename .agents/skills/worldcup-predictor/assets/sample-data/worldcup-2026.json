@@ -1,0 +1,3267 @@
+{
+  "metadata": {
+    "name": "World Cup 2026 - Recalibrated 48-Team Snapshot (post-MD1)",
+    "modelVersion": "model-v0.2-elo-dc",
+    "dataVersion": "official-f56326ca0248fd52",
+    "sourceVersions": {
+      "fifa-calendar-2026": "wc2026-calibrated-v0.2",
+      "fifa-qualification-2026": "wc2026-qualifiers-v1.0"
+    },
+    "strengthSnapshotVersion": "wc2026-calibrated-v0.2",
+    "expectedTeamCount": 48,
+    "generatedAt": "2026-06-15T12:00:00.000Z",
+    "sampleScope": "Complete 48-team snapshot."
+  },
+  "format": {
+    "groupCount": 12,
+    "teamsPerGroup": 4,
+    "qualificationRule": "top_two_plus_best_eight_thirds",
+    "matchCount": 104
+  },
+  "teams": [
+    {
+      "id": "MEX",
+      "code": "MEX",
+      "name": "Mexico",
+      "countryCode": "MEX",
+      "groupCode": "A",
+      "fifaRank": 14,
+      "eloRating": 1835,
+      "isHost": false,
+      "formScore": 65,
+      "attackStrength": 1.0846,
+      "defenseStrength": 1.1445,
+      "ratingValue": 1859,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "KOR",
+      "code": "KOR",
+      "name": "Korea Republic",
+      "countryCode": "KOR",
+      "groupCode": "A",
+      "fifaRank": 25,
+      "eloRating": 1782,
+      "isHost": false,
+      "formScore": 62,
+      "attackStrength": 1.1021,
+      "defenseStrength": 1.0219,
+      "ratingValue": 1794,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CZE",
+      "code": "CZE",
+      "name": "Czech Republic",
+      "countryCode": "CZE",
+      "groupCode": "A",
+      "fifaRank": 40,
+      "eloRating": 1715,
+      "isHost": false,
+      "formScore": 56,
+      "attackStrength": 0.9279,
+      "defenseStrength": 0.9692,
+      "ratingValue": 1703,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "RSA",
+      "code": "RSA",
+      "name": "South Africa",
+      "countryCode": "RSA",
+      "groupCode": "A",
+      "fifaRank": 60,
+      "eloRating": 1648,
+      "isHost": false,
+      "formScore": 51,
+      "attackStrength": 0.78,
+      "defenseStrength": 0.9544,
+      "ratingValue": 1624,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "SUI",
+      "code": "SUI",
+      "name": "Switzerland",
+      "countryCode": "SUI",
+      "groupCode": "B",
+      "fifaRank": 19,
+      "eloRating": 1844,
+      "isHost": false,
+      "formScore": 62,
+      "attackStrength": 0.935,
+      "defenseStrength": 1.0774,
+      "ratingValue": 1844,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CAN",
+      "code": "CAN",
+      "name": "Canada",
+      "countryCode": "CAN",
+      "groupCode": "B",
+      "fifaRank": 30,
+      "eloRating": 1760,
+      "isHost": false,
+      "formScore": 60,
+      "attackStrength": 0.9215,
+      "defenseStrength": 1.0013,
+      "ratingValue": 1760,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "QAT",
+      "code": "QAT",
+      "name": "Qatar",
+      "countryCode": "QAT",
+      "groupCode": "B",
+      "fifaRank": 56,
+      "eloRating": 1655,
+      "isHost": false,
+      "formScore": 55,
+      "attackStrength": 0.9287,
+      "defenseStrength": 1.0113,
+      "ratingValue": 1655,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "BIH",
+      "code": "BIH",
+      "name": "Bosnia and Herzegovina",
+      "countryCode": "BIH",
+      "groupCode": "B",
+      "fifaRank": 64,
+      "eloRating": 1628,
+      "isHost": false,
+      "formScore": 53,
+      "attackStrength": 0.9284,
+      "defenseStrength": 1.003,
+      "ratingValue": 1628,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "SCO",
+      "code": "SCO",
+      "name": "Scotland",
+      "countryCode": "SCO",
+      "groupCode": "C",
+      "fifaRank": 42,
+      "eloRating": 1722,
+      "isHost": false,
+      "formScore": 56,
+      "attackStrength": 0.9151,
+      "defenseStrength": 1.1331,
+      "ratingValue": 1734,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "MAR",
+      "code": "MAR",
+      "name": "Morocco",
+      "countryCode": "MAR",
+      "groupCode": "C",
+      "fifaRank": 7,
+      "eloRating": 1868,
+      "isHost": false,
+      "formScore": 64,
+      "attackStrength": 0.9671,
+      "defenseStrength": 1.1385,
+      "ratingValue": 1868,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "BRA",
+      "code": "BRA",
+      "name": "Brazil",
+      "countryCode": "BRA",
+      "groupCode": "C",
+      "fifaRank": 6,
+      "eloRating": 1972,
+      "isHost": false,
+      "formScore": 66,
+      "attackStrength": 1.0197,
+      "defenseStrength": 1.1289,
+      "ratingValue": 1972,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "HAI",
+      "code": "HAI",
+      "name": "Haiti",
+      "countryCode": "HAI",
+      "groupCode": "C",
+      "fifaRank": 83,
+      "eloRating": 1560,
+      "isHost": false,
+      "formScore": 48,
+      "attackStrength": 0.78,
+      "defenseStrength": 0.951,
+      "ratingValue": 1548,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "USA",
+      "code": "USA",
+      "name": "United States",
+      "countryCode": "USA",
+      "groupCode": "D",
+      "fifaRank": 17,
+      "eloRating": 1835,
+      "isHost": false,
+      "formScore": 71,
+      "attackStrength": 1.35,
+      "defenseStrength": 1.0125,
+      "ratingValue": 1871,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "AUS",
+      "code": "AUS",
+      "name": "Australia",
+      "countryCode": "AUS",
+      "groupCode": "D",
+      "fifaRank": 27,
+      "eloRating": 1768,
+      "isHost": false,
+      "formScore": 62,
+      "attackStrength": 1.1354,
+      "defenseStrength": 1.1445,
+      "ratingValue": 1792,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "TUR",
+      "code": "TUR",
+      "name": "Turkey",
+      "countryCode": "TUR",
+      "groupCode": "D",
+      "fifaRank": 22,
+      "eloRating": 1790,
+      "isHost": false,
+      "formScore": 55,
+      "attackStrength": 0.78,
+      "defenseStrength": 0.9106,
+      "ratingValue": 1766,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "PAR",
+      "code": "PAR",
+      "name": "Paraguay",
+      "countryCode": "PAR",
+      "groupCode": "D",
+      "fifaRank": 41,
+      "eloRating": 1700,
+      "isHost": false,
+      "formScore": 56,
+      "attackStrength": 0.9265,
+      "defenseStrength": 0.8223,
+      "ratingValue": 1664,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "GER",
+      "code": "GER",
+      "name": "Germany",
+      "countryCode": "GER",
+      "groupCode": "E",
+      "fifaRank": 10,
+      "eloRating": 1930,
+      "isHost": false,
+      "formScore": 84,
+      "attackStrength": 1.35,
+      "defenseStrength": 1.0177,
+      "ratingValue": 2002,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CIV",
+      "code": "CIV",
+      "name": "Ivory Coast",
+      "countryCode": "CIV",
+      "groupCode": "E",
+      "fifaRank": 33,
+      "eloRating": 1740,
+      "isHost": false,
+      "formScore": 57,
+      "attackStrength": 0.9375,
+      "defenseStrength": 1.1331,
+      "ratingValue": 1752,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "ECU",
+      "code": "ECU",
+      "name": "Ecuador",
+      "countryCode": "ECU",
+      "groupCode": "E",
+      "fifaRank": 23,
+      "eloRating": 1785,
+      "isHost": false,
+      "formScore": 55,
+      "attackStrength": 0.78,
+      "defenseStrength": 0.9913,
+      "ratingValue": 1773,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CUR",
+      "code": "CUR",
+      "name": "Curaçao",
+      "countryCode": "CUR",
+      "groupCode": "E",
+      "fifaRank": 82,
+      "eloRating": 1530,
+      "isHost": false,
+      "formScore": 50,
+      "attackStrength": 0.935,
+      "defenseStrength": 0.78,
+      "ratingValue": 1458,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "SWE",
+      "code": "SWE",
+      "name": "Sweden",
+      "countryCode": "SWE",
+      "groupCode": "F",
+      "fifaRank": 38,
+      "eloRating": 1710,
+      "isHost": false,
+      "formScore": 68,
+      "attackStrength": 1.35,
+      "defenseStrength": 1.0134,
+      "ratingValue": 1758,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "JPN",
+      "code": "JPN",
+      "name": "Japan",
+      "countryCode": "JPN",
+      "groupCode": "F",
+      "fifaRank": 18,
+      "eloRating": 1848,
+      "isHost": false,
+      "formScore": 68,
+      "attackStrength": 1.1819,
+      "defenseStrength": 1.0225,
+      "ratingValue": 1848,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "NED",
+      "code": "NED",
+      "name": "Netherlands",
+      "countryCode": "NED",
+      "groupCode": "F",
+      "fifaRank": 8,
+      "eloRating": 1950,
+      "isHost": false,
+      "formScore": 69,
+      "attackStrength": 1.1794,
+      "defenseStrength": 1.0155,
+      "ratingValue": 1950,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "TUN",
+      "code": "TUN",
+      "name": "Tunisia",
+      "countryCode": "TUN",
+      "groupCode": "F",
+      "fifaRank": 45,
+      "eloRating": 1695,
+      "isHost": false,
+      "formScore": 55,
+      "attackStrength": 0.9056,
+      "defenseStrength": 0.78,
+      "ratingValue": 1647,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "BEL",
+      "code": "BEL",
+      "name": "Belgium",
+      "countryCode": "BEL",
+      "groupCode": "G",
+      "fifaRank": 9,
+      "eloRating": 1940,
+      "isHost": false,
+      "formScore": 69,
+      "attackStrength": 1.11,
+      "defenseStrength": 1.04,
+      "ratingValue": 1940,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "EGY",
+      "code": "EGY",
+      "name": "Egypt",
+      "countryCode": "EGY",
+      "groupCode": "G",
+      "fifaRank": 29,
+      "eloRating": 1750,
+      "isHost": false,
+      "formScore": 60,
+      "attackStrength": 0.98,
+      "defenseStrength": 1.02,
+      "ratingValue": 1750,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "IRN",
+      "code": "IRN",
+      "name": "Iran",
+      "countryCode": "IRN",
+      "groupCode": "G",
+      "fifaRank": 20,
+      "eloRating": 1805,
+      "isHost": false,
+      "formScore": 62,
+      "attackStrength": 1,
+      "defenseStrength": 1.03,
+      "ratingValue": 1805,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "NZL",
+      "code": "NZL",
+      "name": "New Zealand",
+      "countryCode": "NZL",
+      "groupCode": "G",
+      "fifaRank": 85,
+      "eloRating": 1540,
+      "isHost": false,
+      "formScore": 48,
+      "attackStrength": 0.9,
+      "defenseStrength": 0.91,
+      "ratingValue": 1540,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "ESP",
+      "code": "ESP",
+      "name": "Spain",
+      "countryCode": "ESP",
+      "groupCode": "H",
+      "fifaRank": 2,
+      "eloRating": 2010,
+      "isHost": false,
+      "formScore": 75,
+      "attackStrength": 1.15,
+      "defenseStrength": 1.1,
+      "ratingValue": 2010,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CPV",
+      "code": "CPV",
+      "name": "Cape Verde",
+      "countryCode": "CPV",
+      "groupCode": "H",
+      "fifaRank": 67,
+      "eloRating": 1610,
+      "isHost": false,
+      "formScore": 50,
+      "attackStrength": 0.93,
+      "defenseStrength": 0.94,
+      "ratingValue": 1610,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "KSA",
+      "code": "KSA",
+      "name": "Saudi Arabia",
+      "countryCode": "KSA",
+      "groupCode": "H",
+      "fifaRank": 61,
+      "eloRating": 1640,
+      "isHost": false,
+      "formScore": 51,
+      "attackStrength": 0.92,
+      "defenseStrength": 0.95,
+      "ratingValue": 1640,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "URU",
+      "code": "URU",
+      "name": "Uruguay",
+      "countryCode": "URU",
+      "groupCode": "H",
+      "fifaRank": 16,
+      "eloRating": 1855,
+      "isHost": false,
+      "formScore": 66,
+      "attackStrength": 1.05,
+      "defenseStrength": 1.06,
+      "ratingValue": 1855,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "FRA",
+      "code": "FRA",
+      "name": "France",
+      "countryCode": "FRA",
+      "groupCode": "I",
+      "fifaRank": 3,
+      "eloRating": 2028,
+      "isHost": false,
+      "formScore": 76,
+      "attackStrength": 1.16,
+      "defenseStrength": 1.11,
+      "ratingValue": 2028,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "SEN",
+      "code": "SEN",
+      "name": "Senegal",
+      "countryCode": "SEN",
+      "groupCode": "I",
+      "fifaRank": 15,
+      "eloRating": 1860,
+      "isHost": false,
+      "formScore": 67,
+      "attackStrength": 1.04,
+      "defenseStrength": 1.02,
+      "ratingValue": 1860,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "IRQ",
+      "code": "IRQ",
+      "name": "Iraq",
+      "countryCode": "IRQ",
+      "groupCode": "I",
+      "fifaRank": 57,
+      "eloRating": 1650,
+      "isHost": false,
+      "formScore": 52,
+      "attackStrength": 0.93,
+      "defenseStrength": 0.96,
+      "ratingValue": 1650,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "NOR",
+      "code": "NOR",
+      "name": "Norway",
+      "countryCode": "NOR",
+      "groupCode": "I",
+      "fifaRank": 31,
+      "eloRating": 1755,
+      "isHost": false,
+      "formScore": 59,
+      "attackStrength": 1,
+      "defenseStrength": 0.97,
+      "ratingValue": 1755,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "ARG",
+      "code": "ARG",
+      "name": "Argentina",
+      "countryCode": "ARG",
+      "groupCode": "J",
+      "fifaRank": 1,
+      "eloRating": 2045,
+      "isHost": false,
+      "formScore": 78,
+      "attackStrength": 1.18,
+      "defenseStrength": 1.12,
+      "ratingValue": 2045,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "ALG",
+      "code": "ALG",
+      "name": "Algeria",
+      "countryCode": "ALG",
+      "groupCode": "J",
+      "fifaRank": 28,
+      "eloRating": 1770,
+      "isHost": false,
+      "formScore": 60,
+      "attackStrength": 0.99,
+      "defenseStrength": 1,
+      "ratingValue": 1770,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "AUT",
+      "code": "AUT",
+      "name": "Austria",
+      "countryCode": "AUT",
+      "groupCode": "J",
+      "fifaRank": 24,
+      "eloRating": 1795,
+      "isHost": false,
+      "formScore": 58,
+      "attackStrength": 1.01,
+      "defenseStrength": 0.98,
+      "ratingValue": 1795,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "JOR",
+      "code": "JOR",
+      "name": "Jordan",
+      "countryCode": "JOR",
+      "groupCode": "J",
+      "fifaRank": 63,
+      "eloRating": 1635,
+      "isHost": false,
+      "formScore": 50,
+      "attackStrength": 0.92,
+      "defenseStrength": 0.93,
+      "ratingValue": 1635,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "POR",
+      "code": "POR",
+      "name": "Portugal",
+      "countryCode": "POR",
+      "groupCode": "K",
+      "fifaRank": 5,
+      "eloRating": 1980,
+      "isHost": false,
+      "formScore": 74,
+      "attackStrength": 1.13,
+      "defenseStrength": 1.08,
+      "ratingValue": 1980,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "COD",
+      "code": "COD",
+      "name": "DR Congo",
+      "countryCode": "COD",
+      "groupCode": "K",
+      "fifaRank": 46,
+      "eloRating": 1690,
+      "isHost": false,
+      "formScore": 53,
+      "attackStrength": 0.95,
+      "defenseStrength": 0.97,
+      "ratingValue": 1690,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "UZB",
+      "code": "UZB",
+      "name": "Uzbekistan",
+      "countryCode": "UZB",
+      "groupCode": "K",
+      "fifaRank": 50,
+      "eloRating": 1675,
+      "isHost": false,
+      "formScore": 52,
+      "attackStrength": 0.94,
+      "defenseStrength": 0.96,
+      "ratingValue": 1675,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "COL",
+      "code": "COL",
+      "name": "Colombia",
+      "countryCode": "COL",
+      "groupCode": "K",
+      "fifaRank": 13,
+      "eloRating": 1875,
+      "isHost": false,
+      "formScore": 65,
+      "attackStrength": 1.06,
+      "defenseStrength": 1.03,
+      "ratingValue": 1875,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "ENG",
+      "code": "ENG",
+      "name": "England",
+      "countryCode": "ENG",
+      "groupCode": "L",
+      "fifaRank": 4,
+      "eloRating": 1995,
+      "isHost": false,
+      "formScore": 73,
+      "attackStrength": 1.14,
+      "defenseStrength": 1.09,
+      "ratingValue": 1995,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "CRO",
+      "code": "CRO",
+      "name": "Croatia",
+      "countryCode": "CRO",
+      "groupCode": "L",
+      "fifaRank": 11,
+      "eloRating": 1920,
+      "isHost": false,
+      "formScore": 68,
+      "attackStrength": 1.08,
+      "defenseStrength": 1.06,
+      "ratingValue": 1920,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "GHA",
+      "code": "GHA",
+      "name": "Ghana",
+      "countryCode": "GHA",
+      "groupCode": "L",
+      "fifaRank": 73,
+      "eloRating": 1595,
+      "isHost": false,
+      "formScore": 49,
+      "attackStrength": 0.92,
+      "defenseStrength": 0.94,
+      "ratingValue": 1595,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    },
+    {
+      "id": "PAN",
+      "code": "PAN",
+      "name": "Panama",
+      "countryCode": "PAN",
+      "groupCode": "L",
+      "fifaRank": 34,
+      "eloRating": 1730,
+      "isHost": false,
+      "formScore": 55,
+      "attackStrength": 0.96,
+      "defenseStrength": 0.95,
+      "ratingValue": 1730,
+      "ratingSource": "legacy_elo",
+      "strengthVersion": "wc2026-calibrated-v0.2"
+    }
+  ],
+  "matchStates": [
+    {
+      "matchId": "wc2026-group-a-1",
+      "matchNumber": 1,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "MEX",
+      "awayTeamId": "RSA",
+      "venueCountryCode": "MEX",
+      "status": "final",
+      "actualScore90min": {
+        "home": 2,
+        "away": 0
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "MEX",
+            "player": "Julián Quiñones",
+            "min": 9
+          },
+          {
+            "team": "MEX",
+            "player": "Raúl Jiménez",
+            "min": 67
+          }
+        ],
+        "cards": [
+          {
+            "team": "MEX",
+            "player": "Brian Gutiérrez",
+            "type": "yellow",
+            "min": 23
+          },
+          {
+            "team": "RSA",
+            "player": "Teboho Mokoena",
+            "type": "yellow",
+            "min": 17
+          },
+          {
+            "team": "RSA",
+            "player": "Nkosinathi Sibisi",
+            "type": "yellow",
+            "min": 74
+          },
+          {
+            "team": "RSA",
+            "player": "Sphephelo Sithole",
+            "type": "red",
+            "min": 49
+          },
+          {
+            "team": "RSA",
+            "player": "Themba Zwane",
+            "type": "red",
+            "min": 84
+          },
+          {
+            "team": "MEX",
+            "player": "César Montes",
+            "type": "red",
+            "min": 90.2
+          }
+        ],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-a-2",
+      "matchNumber": 2,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "KOR",
+      "awayTeamId": "CZE",
+      "venueCountryCode": "MEX",
+      "status": "final",
+      "actualScore90min": {
+        "home": 2,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "CZE",
+            "player": "Ladislav Krejčí",
+            "min": 59
+          },
+          {
+            "team": "KOR",
+            "player": "Hwang In-beom",
+            "min": 67
+          },
+          {
+            "team": "KOR",
+            "player": "Oh Hyeon-gyu",
+            "min": 80
+          }
+        ],
+        "cards": [
+          {
+            "team": "KOR",
+            "player": "Lee Gi-hyuk",
+            "type": "yellow",
+            "min": 90.6
+          }
+        ],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-b-3",
+      "matchNumber": 3,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "CAN",
+      "awayTeamId": "BIH",
+      "venueCountryCode": "CAN",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "BIH",
+            "player": "Lukić",
+            "min": 21
+          },
+          {
+            "team": "CAN",
+            "player": "Cyle Larin",
+            "min": 78
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-b-5",
+      "matchNumber": 5,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "QAT",
+      "awayTeamId": "SUI",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "SUI",
+            "player": "Breel Embolo",
+            "min": 17,
+            "note": "pen"
+          },
+          {
+            "team": "QAT",
+            "player": "Muheim (o.g.)",
+            "min": 90.4
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-c-6",
+      "matchNumber": 6,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "BRA",
+      "awayTeamId": "MAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "MAR",
+            "player": "Ismael Saibari",
+            "min": 21
+          },
+          {
+            "team": "BRA",
+            "player": "Vinícius Júnior",
+            "min": 32
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-c-7",
+      "matchNumber": 7,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "HAI",
+      "awayTeamId": "SCO",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 0,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "SCO",
+            "player": "John McGinn",
+            "min": 28
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-d-4",
+      "matchNumber": 4,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "USA",
+      "awayTeamId": "PAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 4,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "PAR",
+            "player": "Bobadilla (o.g.)",
+            "min": 7
+          },
+          {
+            "team": "USA",
+            "player": "Folarin Balogun",
+            "min": 31
+          },
+          {
+            "team": "USA",
+            "player": "Folarin Balogun",
+            "min": 45.5
+          },
+          {
+            "team": "PAR",
+            "player": "Maurício",
+            "min": 73
+          },
+          {
+            "team": "USA",
+            "player": "Giovanni Reyna",
+            "min": 90.8
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-d-8",
+      "matchNumber": 8,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "AUS",
+      "awayTeamId": "TUR",
+      "venueCountryCode": "CAN",
+      "status": "final",
+      "actualScore90min": {
+        "home": 2,
+        "away": 0
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "AUS",
+            "player": "Nestory Irankunda",
+            "min": 27
+          },
+          {
+            "team": "AUS",
+            "player": "Connor Metcalfe",
+            "min": 75
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-e-9",
+      "matchNumber": 9,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "GER",
+      "awayTeamId": "CUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 7,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "GER",
+            "player": "Felix Nmecha",
+            "min": 6
+          },
+          {
+            "team": "CUR",
+            "player": "Comenencia",
+            "min": 21
+          },
+          {
+            "team": "GER",
+            "player": "Nico Schlotterbeck",
+            "min": 38
+          },
+          {
+            "team": "GER",
+            "player": "Kai Havertz",
+            "min": 45.5,
+            "note": "pen"
+          },
+          {
+            "team": "GER",
+            "player": "Jamal Musiala",
+            "min": 47
+          },
+          {
+            "team": "GER",
+            "player": "Nathaniel Brown",
+            "min": 68
+          },
+          {
+            "team": "GER",
+            "player": "Deniz Undav",
+            "min": 78
+          },
+          {
+            "team": "GER",
+            "player": "Kai Havertz",
+            "min": 88
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-e-10",
+      "matchNumber": 10,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "CIV",
+      "awayTeamId": "ECU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "CIV",
+            "player": "Diallo",
+            "min": 90
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-f-11",
+      "matchNumber": 11,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "NED",
+      "awayTeamId": "JPN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 2,
+        "away": 2
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "NED",
+            "player": "Virgil van Dijk",
+            "min": 50
+          },
+          {
+            "team": "JPN",
+            "player": "Nakamura",
+            "min": 57
+          },
+          {
+            "team": "NED",
+            "player": "Crysencio Summerville",
+            "min": 64
+          },
+          {
+            "team": "JPN",
+            "player": "Daichi Kamada",
+            "min": 88
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    },
+    {
+      "matchId": "wc2026-group-f-12",
+      "matchNumber": 12,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "SWE",
+      "awayTeamId": "TUN",
+      "venueCountryCode": "MEX",
+      "status": "final",
+      "actualScore90min": {
+        "home": 5,
+        "away": 1
+      },
+      "details": {
+        "scorers": [
+          {
+            "team": "SWE",
+            "player": "Yasin Ayari",
+            "min": 7
+          },
+          {
+            "team": "TUN",
+            "player": "Rekik",
+            "min": 43
+          },
+          {
+            "team": "SWE",
+            "player": "Alexander Isak",
+            "min": 30
+          },
+          {
+            "team": "SWE",
+            "player": "Viktor Gyökeres",
+            "min": 59
+          },
+          {
+            "team": "SWE",
+            "player": "Mattias Svanberg",
+            "min": 84
+          },
+          {
+            "team": "SWE",
+            "player": "Yasin Ayari",
+            "min": 90.6
+          }
+        ],
+        "cards": [],
+        "attendance": null
+      }
+    }
+  ],
+  "contextAdjustments": [
+    {
+      "id": "cal-md1-mex",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "MEX",
+      "title": "MD1: GF 2 (xG 1.6) GA 0 (opp xG 1.1) → atk 1.030→1.085 def 1.010→1.145",
+      "impact": {
+        "attackStrengthDelta": 0.0546,
+        "defenseStrengthDelta": 0.1345,
+        "formScoreDelta": 1
+      }
+    },
+    {
+      "id": "cal-md1-kor",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "KOR",
+      "title": "MD1: GF 2 (xG 1.4) GA 1 (opp xG 1.2) → atk 1.000→1.102 def 1.000→1.022",
+      "impact": {
+        "attackStrengthDelta": 0.1021,
+        "defenseStrengthDelta": 0.0219,
+        "formScoreDelta": 2
+      }
+    },
+    {
+      "id": "cal-md1-cze",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "CZE",
+      "title": "MD1: GF 1 (xG 1.2) GA 2 (opp xG 1.4) → atk 0.970→0.928 def 1.020→0.969",
+      "impact": {
+        "attackStrengthDelta": -0.0421,
+        "defenseStrengthDelta": -0.0508,
+        "formScoreDelta": 1
+      }
+    },
+    {
+      "id": "cal-md1-rsa",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "RSA",
+      "title": "MD1: GF 0 (xG 1.1) GA 2 (opp xG 1.6) → atk 0.940→0.780 def 0.980→0.954",
+      "impact": {
+        "attackStrengthDelta": -0.16,
+        "defenseStrengthDelta": -0.0256,
+        "formScoreDelta": -1
+      }
+    },
+    {
+      "id": "cal-md1-sui",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "SUI",
+      "title": "MD1: GF 1 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.020→0.935 def 1.060→1.077",
+      "impact": {
+        "attackStrengthDelta": -0.085,
+        "defenseStrengthDelta": 0.0174,
+        "formScoreDelta": -3
+      }
+    },
+    {
+      "id": "cal-md1-can",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "CAN",
+      "title": "MD1: GF 1 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.010→0.921 def 0.990→1.001",
+      "impact": {
+        "attackStrengthDelta": -0.0885,
+        "defenseStrengthDelta": 0.0113,
+        "formScoreDelta": -1
+      }
+    },
+    {
+      "id": "cal-md1-qat",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "QAT",
+      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.5) → atk 0.960→0.929 def 0.970→1.011",
+      "impact": {
+        "attackStrengthDelta": -0.0313,
+        "defenseStrengthDelta": 0.0413,
+        "formScoreDelta": 2
+      }
+    },
+    {
+      "id": "cal-md1-bih",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "BIH",
+      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.5) → atk 0.950→0.928 def 0.960→1.003",
+      "impact": {
+        "attackStrengthDelta": -0.0216,
+        "defenseStrengthDelta": 0.043,
+        "formScoreDelta": 4
+      }
+    },
+    {
+      "id": "cal-md1-sco",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "SCO",
+      "title": "MD1: GF 1 (xG 1.4) GA 0 (opp xG 1.0) → atk 0.980→0.915 def 1.000→1.133",
+      "impact": {
+        "attackStrengthDelta": -0.0649,
+        "defenseStrengthDelta": 0.1331,
+        "formScoreDelta": 1
+      }
+    },
+    {
+      "id": "cal-md1-mar",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "MAR",
+      "title": "MD1: GF 1 (xG 1.4) GA 1 (opp xG 1.7) → atk 1.040→0.967 def 1.080→1.139",
+      "impact": {
+        "attackStrengthDelta": -0.0729,
+        "defenseStrengthDelta": 0.0585,
+        "formScoreDelta": -4
+      }
+    },
+    {
+      "id": "cal-md1-bra",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "BRA",
+      "title": "MD1: GF 1 (xG 1.7) GA 1 (opp xG 1.4) → atk 1.140→1.020 def 1.090→1.129",
+      "impact": {
+        "attackStrengthDelta": -0.1203,
+        "defenseStrengthDelta": 0.0389,
+        "formScoreDelta": -6
+      }
+    },
+    {
+      "id": "cal-md1-hai",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "HAI",
+      "title": "MD1: GF 0 (xG 1.0) GA 1 (opp xG 1.4) → atk 0.910→0.780 def 0.920→0.951",
+      "impact": {
+        "attackStrengthDelta": -0.13,
+        "defenseStrengthDelta": 0.031,
+        "formScoreDelta": 1
+      }
+    },
+    {
+      "id": "cal-md1-usa",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "USA",
+      "title": "MD1: GF 4 (xG 1.6) GA 1 (opp xG 1.1) → atk 1.030→1.350 def 1.000→1.012",
+      "impact": {
+        "attackStrengthDelta": 0.32,
+        "defenseStrengthDelta": 0.0125,
+        "formScoreDelta": 8
+      }
+    },
+    {
+      "id": "cal-md1-aus",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "AUS",
+      "title": "MD1: GF 2 (xG 1.3) GA 0 (opp xG 1.4) → atk 0.990→1.135 def 1.010→1.145",
+      "impact": {
+        "attackStrengthDelta": 0.1454,
+        "defenseStrengthDelta": 0.1345,
+        "formScoreDelta": 3
+      }
+    },
+    {
+      "id": "cal-md1-tur",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "TUR",
+      "title": "MD1: GF 0 (xG 1.4) GA 2 (opp xG 1.3) → atk 1.010→0.780 def 0.980→0.911",
+      "impact": {
+        "attackStrengthDelta": -0.23,
+        "defenseStrengthDelta": -0.0694,
+        "formScoreDelta": -3
+      }
+    },
+    {
+      "id": "cal-md1-par",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "PAR",
+      "title": "MD1: GF 1 (xG 1.1) GA 4 (opp xG 1.6) → atk 0.950→0.926 def 0.990→0.822",
+      "impact": {
+        "attackStrengthDelta": -0.0235,
+        "defenseStrengthDelta": -0.1677,
+        "formScoreDelta": 2
+      }
+    },
+    {
+      "id": "cal-md1-ger",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "GER",
+      "title": "MD1: GF 7 (xG 1.7) GA 1 (opp xG 0.8) → atk 1.100→1.350 def 1.050→1.018",
+      "impact": {
+        "attackStrengthDelta": 0.25,
+        "defenseStrengthDelta": -0.0323,
+        "formScoreDelta": 14
+      }
+    },
+    {
+      "id": "cal-md1-civ",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "CIV",
+      "title": "MD1: GF 1 (xG 1.2) GA 0 (opp xG 1.4) → atk 0.980→0.938 def 1.000→1.133",
+      "impact": {
+        "attackStrengthDelta": -0.0425,
+        "defenseStrengthDelta": 0.1331,
+        "formScoreDelta": 0
+      }
+    },
+    {
+      "id": "cal-md1-ecu",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "ECU",
+      "title": "MD1: GF 0 (xG 1.4) GA 1 (opp xG 1.2) → atk 1.000→0.780 def 0.970→0.991",
+      "impact": {
+        "attackStrengthDelta": -0.22,
+        "defenseStrengthDelta": 0.0213,
+        "formScoreDelta": -3
+      }
+    },
+    {
+      "id": "cal-md1-cur",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "CUR",
+      "title": "MD1: GF 1 (xG 0.8) GA 7 (opp xG 1.7) → atk 0.880→0.935 def 0.900→0.780",
+      "impact": {
+        "attackStrengthDelta": 0.055,
+        "defenseStrengthDelta": -0.12,
+        "formScoreDelta": 5
+      }
+    },
+    {
+      "id": "cal-md1-swe",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "SWE",
+      "title": "MD1: GF 5 (xG 1.3) GA 1 (opp xG 1.2) → atk 0.970→1.350 def 0.990→1.013",
+      "impact": {
+        "attackStrengthDelta": 0.38,
+        "defenseStrengthDelta": 0.0234,
+        "formScoreDelta": 14
+      }
+    },
+    {
+      "id": "cal-md1-jpn",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "JPN",
+      "title": "MD1: GF 2 (xG 1.4) GA 2 (opp xG 1.6) → atk 1.070→1.182 def 1.050→1.022",
+      "impact": {
+        "attackStrengthDelta": 0.1119,
+        "defenseStrengthDelta": -0.0275,
+        "formScoreDelta": -2
+      }
+    },
+    {
+      "id": "cal-md1-ned",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "NED",
+      "title": "MD1: GF 2 (xG 1.6) GA 2 (opp xG 1.4) → atk 1.120→1.179 def 1.070→1.016",
+      "impact": {
+        "attackStrengthDelta": 0.0594,
+        "defenseStrengthDelta": -0.0545,
+        "formScoreDelta": -2
+      }
+    },
+    {
+      "id": "cal-md1-tun",
+      "derivation": "manual_review",
+      "scope": "team",
+      "type": "manual",
+      "target": "home",
+      "teamCode": "TUN",
+      "title": "MD1: GF 1 (xG 1.2) GA 5 (opp xG 1.3) → atk 0.950→0.906 def 1.010→0.780",
+      "impact": {
+        "attackStrengthDelta": -0.0444,
+        "defenseStrengthDelta": -0.23,
+        "formScoreDelta": 2
+      }
+    }
+  ],
+  "officialFacts": [],
+  "topScorers": [
+    {
+      "player": "Folarin Balogun",
+      "team": "USA",
+      "goals": 2,
+      "matches": [
+        "wc2026-group-d-4",
+        "wc2026-group-d-4"
+      ]
+    },
+    {
+      "player": "Kai Havertz",
+      "team": "GER",
+      "goals": 2,
+      "matches": [
+        "wc2026-group-e-9",
+        "wc2026-group-e-9"
+      ]
+    },
+    {
+      "player": "Yasin Ayari",
+      "team": "SWE",
+      "goals": 2,
+      "matches": [
+        "wc2026-group-f-12",
+        "wc2026-group-f-12"
+      ]
+    },
+    {
+      "player": "Julián Quiñones",
+      "team": "MEX",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-a-1"
+      ]
+    },
+    {
+      "player": "Raúl Jiménez",
+      "team": "MEX",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-a-1"
+      ]
+    },
+    {
+      "player": "Ladislav Krejčí",
+      "team": "CZE",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-a-2"
+      ]
+    },
+    {
+      "player": "Hwang In-beom",
+      "team": "KOR",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-a-2"
+      ]
+    },
+    {
+      "player": "Oh Hyeon-gyu",
+      "team": "KOR",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-a-2"
+      ]
+    },
+    {
+      "player": "Lukić",
+      "team": "BIH",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-b-3"
+      ]
+    },
+    {
+      "player": "Cyle Larin",
+      "team": "CAN",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-b-3"
+      ]
+    },
+    {
+      "player": "Bobadilla (o.g.)",
+      "team": "PAR",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-d-4"
+      ]
+    },
+    {
+      "player": "Maurício",
+      "team": "PAR",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-d-4"
+      ]
+    },
+    {
+      "player": "Giovanni Reyna",
+      "team": "USA",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-d-4"
+      ]
+    },
+    {
+      "player": "Breel Embolo",
+      "team": "SUI",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-b-5"
+      ]
+    },
+    {
+      "player": "Muheim (o.g.)",
+      "team": "QAT",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-b-5"
+      ]
+    },
+    {
+      "player": "Ismael Saibari",
+      "team": "MAR",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-c-6"
+      ]
+    },
+    {
+      "player": "Vinícius Júnior",
+      "team": "BRA",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-c-6"
+      ]
+    },
+    {
+      "player": "John McGinn",
+      "team": "SCO",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-c-7"
+      ]
+    },
+    {
+      "player": "Nestory Irankunda",
+      "team": "AUS",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-d-8"
+      ]
+    },
+    {
+      "player": "Connor Metcalfe",
+      "team": "AUS",
+      "goals": 1,
+      "matches": [
+        "wc2026-group-d-8"
+      ]
+    }
+  ],
+  "standings": {
+    "A": [
+      {
+        "code": "MEX",
+        "name": "Mexico",
+        "pts": 3,
+        "gf": 2,
+        "ga": 0,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 2
+      },
+      {
+        "code": "KOR",
+        "name": "Korea Republic",
+        "pts": 3,
+        "gf": 2,
+        "ga": 1,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 1
+      },
+      {
+        "code": "CZE",
+        "name": "Czech Republic",
+        "pts": 0,
+        "gf": 1,
+        "ga": 2,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -1
+      },
+      {
+        "code": "RSA",
+        "name": "South Africa",
+        "pts": 0,
+        "gf": 0,
+        "ga": 2,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -2
+      }
+    ],
+    "B": [
+      {
+        "code": "SUI",
+        "name": "Switzerland",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "CAN",
+        "name": "Canada",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "QAT",
+        "name": "Qatar",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "BIH",
+        "name": "Bosnia and Herzegovina",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      }
+    ],
+    "C": [
+      {
+        "code": "SCO",
+        "name": "Scotland",
+        "pts": 3,
+        "gf": 1,
+        "ga": 0,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 1
+      },
+      {
+        "code": "MAR",
+        "name": "Morocco",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "BRA",
+        "name": "Brazil",
+        "pts": 1,
+        "gf": 1,
+        "ga": 1,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "HAI",
+        "name": "Haiti",
+        "pts": 0,
+        "gf": 0,
+        "ga": 1,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -1
+      }
+    ],
+    "D": [
+      {
+        "code": "USA",
+        "name": "United States",
+        "pts": 3,
+        "gf": 4,
+        "ga": 1,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 3
+      },
+      {
+        "code": "AUS",
+        "name": "Australia",
+        "pts": 3,
+        "gf": 2,
+        "ga": 0,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 2
+      },
+      {
+        "code": "TUR",
+        "name": "Turkey",
+        "pts": 0,
+        "gf": 0,
+        "ga": 2,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -2
+      },
+      {
+        "code": "PAR",
+        "name": "Paraguay",
+        "pts": 0,
+        "gf": 1,
+        "ga": 4,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -3
+      }
+    ],
+    "E": [
+      {
+        "code": "GER",
+        "name": "Germany",
+        "pts": 3,
+        "gf": 7,
+        "ga": 1,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 6
+      },
+      {
+        "code": "CIV",
+        "name": "Ivory Coast",
+        "pts": 3,
+        "gf": 1,
+        "ga": 0,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 1
+      },
+      {
+        "code": "ECU",
+        "name": "Ecuador",
+        "pts": 0,
+        "gf": 0,
+        "ga": 1,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -1
+      },
+      {
+        "code": "CUR",
+        "name": "Curaçao",
+        "pts": 0,
+        "gf": 1,
+        "ga": 7,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -6
+      }
+    ],
+    "F": [
+      {
+        "code": "SWE",
+        "name": "Sweden",
+        "pts": 3,
+        "gf": 5,
+        "ga": 1,
+        "w": 1,
+        "d": 0,
+        "l": 0,
+        "played": 1,
+        "gd": 4
+      },
+      {
+        "code": "JPN",
+        "name": "Japan",
+        "pts": 1,
+        "gf": 2,
+        "ga": 2,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "NED",
+        "name": "Netherlands",
+        "pts": 1,
+        "gf": 2,
+        "ga": 2,
+        "w": 0,
+        "d": 1,
+        "l": 0,
+        "played": 1,
+        "gd": 0
+      },
+      {
+        "code": "TUN",
+        "name": "Tunisia",
+        "pts": 0,
+        "gf": 1,
+        "ga": 5,
+        "w": 0,
+        "d": 0,
+        "l": 1,
+        "played": 1,
+        "gd": -4
+      }
+    ],
+    "G": [
+      {
+        "code": "BEL",
+        "name": "Belgium",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "EGY",
+        "name": "Egypt",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "IRN",
+        "name": "Iran",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "NZL",
+        "name": "New Zealand",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ],
+    "H": [
+      {
+        "code": "ESP",
+        "name": "Spain",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "CPV",
+        "name": "Cape Verde",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "KSA",
+        "name": "Saudi Arabia",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "URU",
+        "name": "Uruguay",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ],
+    "I": [
+      {
+        "code": "FRA",
+        "name": "France",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "SEN",
+        "name": "Senegal",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "IRQ",
+        "name": "Iraq",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "NOR",
+        "name": "Norway",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ],
+    "J": [
+      {
+        "code": "ARG",
+        "name": "Argentina",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "ALG",
+        "name": "Algeria",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "AUT",
+        "name": "Austria",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "JOR",
+        "name": "Jordan",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ],
+    "K": [
+      {
+        "code": "POR",
+        "name": "Portugal",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "COD",
+        "name": "DR Congo",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "UZB",
+        "name": "Uzbekistan",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "COL",
+        "name": "Colombia",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ],
+    "L": [
+      {
+        "code": "ENG",
+        "name": "England",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "CRO",
+        "name": "Croatia",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "GHA",
+        "name": "Ghana",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      },
+      {
+        "code": "PAN",
+        "name": "Panama",
+        "pts": 0,
+        "gf": 0,
+        "ga": 0,
+        "w": 0,
+        "d": 0,
+        "l": 0,
+        "played": 0,
+        "gd": 0
+      }
+    ]
+  },
+  "h2h": {
+    "MEX-RSA": [
+      {
+        "year": 2010,
+        "score": "1-1",
+        "comp": "Mundial 2010"
+      }
+    ],
+    "MEX-KOR": [
+      {
+        "year": 2018,
+        "score": "1-2",
+        "comp": "Mundial 2018"
+      }
+    ],
+    "KOR-CZE": [
+      {
+        "year": 2016,
+        "score": "2-1",
+        "comp": "Amistoso"
+      }
+    ],
+    "BRA-MAR": [
+      {
+        "year": 2024,
+        "score": "1-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "USA-PAR": [
+      {
+        "year": 2022,
+        "score": "3-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "NED-JPN": [
+      {
+        "year": 2022,
+        "score": "2-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "GER-CUR": [],
+    "BEL-EGY": [
+      {
+        "year": 2022,
+        "score": "2-1",
+        "comp": "Amistoso"
+      },
+      {
+        "year": 2021,
+        "score": "1-0",
+        "comp": "Amistoso"
+      },
+      {
+        "year": 1999,
+        "score": "2-0",
+        "comp": "Amistoso"
+      },
+      {
+        "year": 1998,
+        "score": "1-1",
+        "comp": "Amistoso"
+      }
+    ],
+    "IRN-NZL": [
+      {
+        "year": 2003,
+        "score": "3-0",
+        "comp": "Copa Desafío AFC-OFC"
+      }
+    ],
+    "ENG-CRO": [
+      {
+        "year": 2024,
+        "score": "2-2",
+        "comp": "Eurocopa 2024"
+      },
+      {
+        "year": 2021,
+        "score": "1-0",
+        "comp": "Eurocopa 2021"
+      },
+      {
+        "year": 2018,
+        "score": "2-1",
+        "comp": "Mundial 2018"
+      }
+    ],
+    "ARG-ALG": [
+      {
+        "year": 2023,
+        "score": "3-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "FRA-SEN": [
+      {
+        "year": 2022,
+        "score": "2-0",
+        "comp": "Mundial 2022"
+      },
+      {
+        "year": 2018,
+        "score": "1-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "POR-COL": [
+      {
+        "year": 2022,
+        "score": "4-0",
+        "comp": "Amistoso"
+      }
+    ],
+    "SUI-CAN": [],
+    "QAT-SUI": [
+      {
+        "year": 2024,
+        "score": "1-1",
+        "comp": "Amistoso"
+      }
+    ],
+    "CAN-BIH": [],
+    "AUS-TUR": [],
+    "HAI-SCO": [],
+    "CIV-ECU": [],
+    "SWE-TUN": [
+      {
+        "year": 2022,
+        "score": "1-1",
+        "comp": "Amistoso"
+      }
+    ],
+    "ESP-URU": [
+      {
+        "year": 2022,
+        "score": "1-0",
+        "comp": "Amistoso"
+      },
+      {
+        "year": 2019,
+        "score": "1-1",
+        "comp": "Amistoso"
+      }
+    ],
+    "BEL-IRN": [],
+    "EGY-IRN": [
+      {
+        "year": 2000,
+        "score": "1-1",
+        "comp": "LG Cup",
+        "note": "8-7 pen"
+      }
+    ],
+    "NZL-BEL": [],
+    "NZL-EGY": [
+      {
+        "year": 2024,
+        "score": "1-0",
+        "comp": "FIFA Series"
+      }
+    ]
+  },
+  "recentForm": {
+    "ARG": [
+      "G 3-0 vs URU",
+      "G 1-0 vs BRA",
+      "E 1-1 vs COL",
+      "G 4-1 vs PAR",
+      "G 2-0 vs PER"
+    ],
+    "BRA": [
+      "G 2-1 vs COL",
+      "E 1-1 vs ARG",
+      "G 3-0 vs VEN",
+      "G 2-0 vs PAR",
+      "E 1-1 vs ECU"
+    ],
+    "FRA": [
+      "G 3-1 vs NED",
+      "G 2-0 vs POR",
+      "E 1-1 vs GER",
+      "G 4-0 vs SCO",
+      "G 2-1 vs CRO"
+    ],
+    "ENG": [
+      "G 3-0 vs ITA",
+      "G 2-1 vs BEL",
+      "E 2-2 vs GER",
+      "G 4-0 vs WAL",
+      "G 2-0 vs IRL"
+    ],
+    "ESP": [
+      "G 2-1 vs ITA",
+      "G 3-0 vs NOR",
+      "E 1-1 vs GER",
+      "G 4-0 vs CYP",
+      "G 2-0 vs SUI"
+    ],
+    "GER": [
+      "E 1-1 vs FRA",
+      "G 3-0 vs ITA",
+      "G 2-1 vs NED",
+      "G 4-1 vs UKR",
+      "G 2-0 vs AUT"
+    ],
+    "BEL": [
+      "G 2-1 vs ITA",
+      "G 3-1 vs WAL",
+      "E 1-1 vs AUT",
+      "G 2-0 vs SWE",
+      "E 2-2 vs GER"
+    ],
+    "NED": [
+      "G 2-1 vs POL",
+      "E 1-1 vs GER",
+      "G 3-0 vs GIB",
+      "G 2-0 vs IRL",
+      "E 0-0 vs FRA"
+    ],
+    "POR": [
+      "G 4-0 vs LIE",
+      "G 3-2 vs SVK",
+      "G 2-0 vs LUX",
+      "E 1-1 vs CRO",
+      "G 3-0 vs BIH"
+    ],
+    "CRO": [
+      "G 2-1 vs TUR",
+      "E 1-1 vs POR",
+      "G 3-0 vs LVA",
+      "G 2-0 vs ARM",
+      "E 2-2 vs ITA"
+    ],
+    "SUI": [
+      "G 2-1 vs AND",
+      "G 3-0 vs BUL",
+      "E 1-1 vs KOS",
+      "G 2-0 vs ISR",
+      "E 1-1 vs ROU"
+    ],
+    "MEX": [
+      "G 2-0 vs USA",
+      "G 3-1 vs PAN",
+      "G 4-0 vs HON",
+      "E 1-1 vs CRC",
+      "G 2-0 vs JAM"
+    ],
+    "USA": [
+      "E 1-1 vs MEX",
+      "G 2-0 vs CRC",
+      "G 3-0 vs PAN",
+      "G 2-1 vs JAM",
+      "G 4-0 vs GRN"
+    ],
+    "CAN": [
+      "G 2-0 vs CRC",
+      "E 1-1 vs USA",
+      "G 3-1 vs HON",
+      "G 2-0 vs SLV",
+      "G 4-1 vs CUW"
+    ],
+    "JPN": [
+      "G 2-0 vs TUN",
+      "E 1-1 vs KOR",
+      "G 3-0 vs CHN",
+      "G 2-1 vs AUS",
+      "G 4-0 vs MYA"
+    ],
+    "KOR": [
+      "G 2-0 vs CHN",
+      "E 1-1 vs JPN",
+      "G 3-0 vs THA",
+      "G 2-1 vs IRQ",
+      "G 4-0 vs SIN"
+    ],
+    "AUS": [
+      "G 2-0 vs IND",
+      "E 1-1 vs KSA",
+      "G 3-0 vs LBN",
+      "G 2-1 vs BHR",
+      "G 4-0 vs BAN"
+    ],
+    "MAR": [
+      "G 2-0 vs TAN",
+      "G 3-1 vs ZAM",
+      "E 1-1 vs CIV",
+      "G 2-0 vs LES",
+      "G 4-0 vs CAF"
+    ],
+    "SEN": [
+      "G 2-0 vs BEN",
+      "G 3-0 vs RWA",
+      "E 1-1 vs CMR",
+      "G 2-1 vs GAM",
+      "G 3-0 vs SSD"
+    ],
+    "EGY": [
+      "G 2-0 vs BWA",
+      "G 3-0 vs BFA",
+      "E 1-1 vs CIV",
+      "G 2-1 vs GNB",
+      "G 4-0 vs SLE"
+    ],
+    "IRN": [
+      "G 2-0 vs HKG",
+      "G 3-1 vs UZB",
+      "E 1-1 vs QAT",
+      "G 2-0 vs KGZ",
+      "G 4-0 vs TKM"
+    ],
+    "URU": [
+      "G 2-0 vs CHI",
+      "E 1-1 vs COL",
+      "G 3-0 vs BOL",
+      "G 2-1 vs PER",
+      "E 2-2 vs ECU"
+    ],
+    "COL": [
+      "G 2-1 vs BRA",
+      "E 1-1 vs URU",
+      "G 3-0 vs BOL",
+      "G 2-0 vs PAR",
+      "G 4-0 vs CHI"
+    ],
+    "ECU": [
+      "G 2-0 vs BOL",
+      "E 1-1 vs VEN",
+      "G 3-1 vs PER",
+      "E 2-2 vs URU",
+      "G 2-0 vs CHI"
+    ],
+    "PAR": [
+      "E 1-1 vs PER",
+      "G 2-0 vs BOL",
+      "G 3-1 vs VEN",
+      "E 2-2 vs CHI",
+      "G 2-1 vs BOL"
+    ],
+    "TUR": [
+      "G 2-1 vs CRO",
+      "E 1-1 vs ITA",
+      "G 3-0 vs LAT",
+      "G 2-0 vs WAL",
+      "E 2-2 vs AUT"
+    ],
+    "AUT": [
+      "G 2-0 vs SWE",
+      "E 1-1 vs BEL",
+      "G 3-1 vs EST",
+      "G 2-0 vs AZE",
+      "G 4-0 vs MOL"
+    ],
+    "NOR": [
+      "G 2-1 vs GEO",
+      "E 1-1 vs SCO",
+      "G 3-0 vs CYP",
+      "G 2-0 vs ESP",
+      "E 2-2 vs TUR"
+    ],
+    "SWE": [
+      "G 2-0 vs EST",
+      "E 1-1 vs AUT",
+      "G 3-0 vs AZE",
+      "G 2-1 vs ALB",
+      "G 4-0 vs MOL"
+    ],
+    "SCO": [
+      "G 2-0 vs CYP",
+      "E 1-1 vs NOR",
+      "G 3-0 vs GEO",
+      "G 2-1 vs ESP",
+      "E 1-1 vs ENG"
+    ],
+    "CZE": [
+      "G 2-1 vs POL",
+      "E 1-1 vs ALB",
+      "G 3-0 vs MOL",
+      "G 2-0 vs FAR",
+      "G 4-0 vs GIB"
+    ],
+    "RSA": [
+      "G 2-0 vs CGO",
+      "G 3-0 vs ERI",
+      "E 1-1 vs NGA",
+      "G 2-1 vs ZIM",
+      "G 4-0 vs LES"
+    ],
+    "TUN": [
+      "G 2-0 vs EQG",
+      "E 1-1 vs NAM",
+      "G 3-0 vs LBR",
+      "G 2-1 vs MWI",
+      "E 2-2 vs CMR"
+    ],
+    "ALG": [
+      "G 2-0 vs GNB",
+      "G 3-1 vs TOG",
+      "E 1-1 vs CMR",
+      "G 2-0 vs UGA",
+      "G 4-0 vs KEN"
+    ],
+    "CIV": [
+      "G 2-0 vs SEY",
+      "G 3-0 vs GAM",
+      "E 1-1 vs MAR",
+      "G 2-1 vs BFA",
+      "G 4-0 vs BEN"
+    ],
+    "NGA": [
+      "G 2-1 vs GHA",
+      "E 1-1 vs RSA",
+      "G 3-0 vs ZIM",
+      "G 2-0 vs BEN",
+      "G 3-1 vs LES"
+    ],
+    "CMR": [
+      "G 2-0 vs KEN",
+      "E 1-1 vs SEN",
+      "G 3-0 vs ERI",
+      "E 2-2 vs TUN",
+      "G 2-1 vs LBY"
+    ],
+    "GHA": [
+      "G 2-0 vs MAD",
+      "G 3-0 vs COM",
+      "E 1-1 vs CTA",
+      "G 2-1 vs MAW",
+      "G 4-0 vs CHA"
+    ],
+    "JOR": [
+      "G 2-0 vs PAK",
+      "G 3-0 vs TJK",
+      "E 1-1 vs KSA",
+      "G 2-1 vs OMA",
+      "E 2-2 vs QAT"
+    ],
+    "IRQ": [
+      "G 2-0 vs PHI",
+      "G 3-0 vs IDN",
+      "E 1-1 vs VIE",
+      "G 2-1 vs KUW",
+      "G 4-0 vs NEP"
+    ],
+    "QAT": [
+      "G 2-0 vs IND",
+      "E 1-1 vs IRN",
+      "G 3-0 vs KGZ",
+      "G 2-1 vs CHN",
+      "E 2-2 vs JOR"
+    ],
+    "KSA": [
+      "G 2-0 vs YEM",
+      "E 1-1 vs JOR",
+      "G 3-0 vs PAK",
+      "G 2-1 vs TJK",
+      "G 4-0 vs HKG"
+    ],
+    "UZB": [
+      "G 2-0 vs TKM",
+      "G 3-0 vs PNG",
+      "E 1-1 vs IRN",
+      "G 2-1 vs UAE",
+      "G 4-0 vs BAN"
+    ],
+    "NZL": [
+      "G 2-0 vs TAH",
+      "G 3-0 vs NCL",
+      "G 4-0 vs SOL",
+      "G 2-0 vs FIJ",
+      "G 5-0 vs SAM"
+    ],
+    "BIH": [
+      "G 2-1 vs LIE",
+      "E 1-1 vs SVK",
+      "G 3-0 vs ISL",
+      "G 2-0 vs LUX",
+      "E 2-2 vs POR"
+    ],
+    "HAI": [
+      "G 2-0 vs BER",
+      "G 3-1 vs GUY",
+      "E 1-1 vs SKN",
+      "G 2-0 vs BLZ",
+      "G 4-0 vs VGB"
+    ],
+    "PAN": [
+      "G 2-0 vs MSR",
+      "G 3-0 vs NCA",
+      "E 1-1 vs CRC",
+      "G 2-1 vs JAM",
+      "G 4-0 vs DOM"
+    ],
+    "CUR": [
+      "G 2-0 vs VIN",
+      "G 3-0 vs LCA",
+      "E 1-1 vs PUR",
+      "G 2-1 vs ANT",
+      "G 4-0 vs BON"
+    ],
+    "CPV": [
+      "G 2-0 vs STP",
+      "G 3-0 vs LBR",
+      "E 1-1 vs CGO",
+      "G 2-1 vs SWZ",
+      "G 4-0 vs MRI"
+    ],
+    "COD": [
+      "G 2-0 vs SSD",
+      "G 3-0 vs MAW",
+      "E 1-1 vs CTA",
+      "G 2-1 vs SUD",
+      "G 4-0 vs CHA"
+    ]
+  },
+  "squadInfo": {
+    "ARG": {
+      "value": 852,
+      "avgAge": 27.8,
+      "captain": "Lionel Messi",
+      "star": "Lionel Messi"
+    },
+    "BRA": {
+      "value": 980,
+      "avgAge": 26.5,
+      "captain": "Casemiro",
+      "star": "Vinícius Júnior"
+    },
+    "FRA": {
+      "value": 1120,
+      "avgAge": 25.8,
+      "captain": "Kylian Mbappé",
+      "star": "Kylian Mbappé"
+    },
+    "ENG": {
+      "value": 1250,
+      "avgAge": 26.2,
+      "captain": "Harry Kane",
+      "star": "Jude Bellingham"
+    },
+    "ESP": {
+      "value": 920,
+      "avgAge": 26,
+      "captain": "Rodri",
+      "star": "Lamine Yamal"
+    },
+    "GER": {
+      "value": 860,
+      "avgAge": 27.1,
+      "captain": "İlkay Gündoğan",
+      "star": "Jamal Musiala"
+    },
+    "BEL": {
+      "value": 680,
+      "avgAge": 28.4,
+      "captain": "Kevin De Bruyne",
+      "star": "Kevin De Bruyne"
+    },
+    "NED": {
+      "value": 790,
+      "avgAge": 26.8,
+      "captain": "Virgil van Dijk",
+      "star": "Frenkie de Jong"
+    },
+    "POR": {
+      "value": 880,
+      "avgAge": 27.3,
+      "captain": "Cristiano Ronaldo",
+      "star": "Bruno Fernandes"
+    },
+    "CRO": {
+      "value": 380,
+      "avgAge": 28.6,
+      "captain": "Luka Modrić",
+      "star": "Luka Modrić"
+    },
+    "SUI": {
+      "value": 290,
+      "avgAge": 27.5,
+      "captain": "Granit Xhaka",
+      "star": "Manuel Akanji"
+    },
+    "MEX": {
+      "value": 210,
+      "avgAge": 27.9,
+      "captain": "Edson Álvarez",
+      "star": "Raúl Jiménez"
+    },
+    "USA": {
+      "value": 340,
+      "avgAge": 26.1,
+      "captain": "Christian Pulisic",
+      "star": "Christian Pulisic"
+    },
+    "CAN": {
+      "value": 185,
+      "avgAge": 26.4,
+      "captain": "Alphonso Davies",
+      "star": "Alphonso Davies"
+    },
+    "JPN": {
+      "value": 220,
+      "avgAge": 27.2,
+      "captain": "Wataru Endō",
+      "star": "Takefusa Kubo"
+    },
+    "KOR": {
+      "value": 195,
+      "avgAge": 27.8,
+      "captain": "Son Heung-min",
+      "star": "Son Heung-min"
+    },
+    "AUS": {
+      "value": 95,
+      "avgAge": 28.1,
+      "captain": "Mathew Ryan",
+      "star": "Nestory Irankunda"
+    },
+    "MAR": {
+      "value": 275,
+      "avgAge": 26.9,
+      "captain": "Achraf Hakimi",
+      "star": "Achraf Hakimi"
+    },
+    "SEN": {
+      "value": 210,
+      "avgAge": 27.4,
+      "captain": "Kalidou Koulibaly",
+      "star": "Sadio Mané"
+    },
+    "EGY": {
+      "value": 165,
+      "avgAge": 28.2,
+      "captain": "Mohamed Salah",
+      "star": "Mohamed Salah"
+    },
+    "IRN": {
+      "value": 85,
+      "avgAge": 28.5,
+      "captain": "Mehdi Taremi",
+      "star": "Mehdi Taremi"
+    },
+    "URU": {
+      "value": 420,
+      "avgAge": 26.7,
+      "captain": "Federico Valverde",
+      "star": "Federico Valverde"
+    },
+    "COL": {
+      "value": 310,
+      "avgAge": 27,
+      "captain": "James Rodríguez",
+      "star": "Luis Díaz"
+    },
+    "ECU": {
+      "value": 195,
+      "avgAge": 26.3,
+      "captain": "Enner Valencia",
+      "star": "Moisés Caicedo"
+    },
+    "PAR": {
+      "value": 78,
+      "avgAge": 28,
+      "captain": "Gustavo Gómez",
+      "star": "Miguel Almirón"
+    },
+    "TUR": {
+      "value": 325,
+      "avgAge": 25.9,
+      "captain": "Hakan Çalhanoğlu",
+      "star": "Arda Güler"
+    },
+    "AUT": {
+      "value": 245,
+      "avgAge": 27.1,
+      "captain": "David Alaba",
+      "star": "David Alaba"
+    },
+    "NOR": {
+      "value": 410,
+      "avgAge": 25.5,
+      "captain": "Martin Ødegaard",
+      "star": "Erling Haaland"
+    },
+    "SWE": {
+      "value": 185,
+      "avgAge": 27.3,
+      "captain": "Victor Lindelöf",
+      "star": "Alexander Isak"
+    },
+    "SCO": {
+      "value": 198,
+      "avgAge": 27.6,
+      "captain": "Andrew Robertson",
+      "star": "John McGinn"
+    },
+    "CZE": {
+      "value": 140,
+      "avgAge": 27.9,
+      "captain": "Tomáš Souček",
+      "star": "Patrik Schick"
+    },
+    "RSA": {
+      "value": 55,
+      "avgAge": 28.3,
+      "captain": "Ronwen Williams",
+      "star": "Lyle Foster"
+    },
+    "TUN": {
+      "value": 68,
+      "avgAge": 28.1,
+      "captain": "Wahbi Khazri",
+      "star": "Ellyes Skhiri"
+    },
+    "ALG": {
+      "value": 120,
+      "avgAge": 27.8,
+      "captain": "Riyad Mahrez",
+      "star": "Riyad Mahrez"
+    },
+    "CIV": {
+      "value": 175,
+      "avgAge": 27.4,
+      "captain": "Serge Aurier",
+      "star": "Sébastien Haller"
+    },
+    "GHA": {
+      "value": 95,
+      "avgAge": 26.8,
+      "captain": "André Ayew",
+      "star": "Mohammed Kudus"
+    },
+    "JOR": {
+      "value": 28,
+      "avgAge": 28.5,
+      "captain": "Musa Al-Taamari",
+      "star": "Musa Al-Taamari"
+    },
+    "IRQ": {
+      "value": 35,
+      "avgAge": 27.9,
+      "captain": "Jalal Hassan",
+      "star": "Aymen Hussein"
+    },
+    "QAT": {
+      "value": 22,
+      "avgAge": 28.7,
+      "captain": "Akram Afif",
+      "star": "Akram Afif"
+    },
+    "KSA": {
+      "value": 32,
+      "avgAge": 28.4,
+      "captain": "Salem Al-Dawsari",
+      "star": "Salem Al-Dawsari"
+    },
+    "UZB": {
+      "value": 25,
+      "avgAge": 27.6,
+      "captain": "Eldor Shomurodov",
+      "star": "Eldor Shomurodov"
+    },
+    "NZL": {
+      "value": 18,
+      "avgAge": 28.2,
+      "captain": "Winston Reid",
+      "star": "Chris Wood"
+    },
+    "BIH": {
+      "value": 62,
+      "avgAge": 28.8,
+      "captain": "Edin Džeko",
+      "star": "Edin Džeko"
+    },
+    "HAI": {
+      "value": 8,
+      "avgAge": 27.5,
+      "captain": "Johnny Placide",
+      "star": "Duckens Nazon"
+    },
+    "PAN": {
+      "value": 15,
+      "avgAge": 28.1,
+      "captain": "Aníbal Godoy",
+      "star": "Ismael Díaz"
+    },
+    "CUR": {
+      "value": 5,
+      "avgAge": 27.3,
+      "captain": "Juninho Bacuna",
+      "star": "Juninho Bacuna"
+    },
+    "CPV": {
+      "value": 12,
+      "avgAge": 27.7,
+      "captain": "Ryan Mendes",
+      "star": "Jamiro Monteiro"
+    },
+    "COD": {
+      "value": 45,
+      "avgAge": 27.2,
+      "captain": "Chancel Mbemba",
+      "star": "Cédric Bakambu"
+    }
+  },
+  "weather": {
+    "Estadio Azteca": {
+      "temp": 22.3,
+      "desc": "Tormenta",
+      "wind": 5.3,
+      "code": 95
+    },
+    "Estadio Akron": {
+      "temp": 24,
+      "desc": "Llovizna ligera",
+      "wind": 10.9,
+      "code": 51
+    },
+    "SoFi Stadium": {
+      "temp": 21.7,
+      "desc": "Mayormente despejado",
+      "wind": 12,
+      "code": 1
+    },
+    "BMO Field": {
+      "temp": 17.9,
+      "desc": "Nublado",
+      "wind": 5.2,
+      "code": 3
+    },
+    "Levi's Stadium": {
+      "temp": 18.9,
+      "desc": "Mayormente despejado",
+      "wind": 12.7,
+      "code": 1
+    },
+    "MetLife Stadium": {
+      "temp": 24.3,
+      "desc": "Despejado",
+      "wind": 21.3,
+      "code": 0
+    },
+    "Gillette Stadium": {
+      "temp": 25.2,
+      "desc": "Mayormente despejado",
+      "wind": 14.2,
+      "code": 1
+    },
+    "BC Place": {
+      "temp": 25.7,
+      "desc": "Nublado",
+      "wind": 8.4,
+      "code": 3
+    },
+    "Lincoln Financial Field": {
+      "temp": 22.7,
+      "desc": "Despejado",
+      "wind": 16.8,
+      "code": 0
+    },
+    "NRG Stadium": {
+      "temp": 26.4,
+      "desc": "Llovizna densa",
+      "wind": 15,
+      "code": 55
+    },
+    "Estadio BBVA": {
+      "temp": 28.5,
+      "desc": "Nublado",
+      "wind": 9.2,
+      "code": 3
+    },
+    "AT&T Stadium": {
+      "temp": 25.9,
+      "desc": "Parcialmente nublado",
+      "wind": 15.8,
+      "code": 2
+    },
+    "Lumen Field": {
+      "temp": 24.9,
+      "desc": "Nublado",
+      "wind": 4.7,
+      "code": 3
+    }
+  },
+  "accuracy": {
+    "total": 12,
+    "correct": 8,
+    "pct": 0.6666666666666666
+  }
+}

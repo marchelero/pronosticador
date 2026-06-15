@@ -1,0 +1,1772 @@
+{
+  "metadata": {
+    "name": "World Cup Predictor synthetic 48-team audited sample",
+    "modelVersion": "model-v0.2-elo-dc",
+    "dataVersion": "official-8ded82ac0dd77550",
+    "sourceVersions": {
+      "sample-calendar": "synthetic-48-calendar-v0.2"
+    },
+    "strengthSnapshotVersion": "synthetic-48-strength-v0.2",
+    "expectedTeamCount": 48,
+    "generatedAt": "2026-06-15T00:00:00.000Z",
+    "sampleScope": "Synthetic 48-team data for official-format and completed-result continuation tests. Uses real 2026 World Cup teams with synthetic strength ratings and artificial match results. Not an official data feed."
+  },
+  "format": {
+    "groupCount": 12,
+    "teamsPerGroup": 4,
+    "qualificationRule": "top_two_plus_best_eight_thirds",
+    "matchCount": 104
+  },
+  "teams": [
+    {
+      "id": "MEX",
+      "code": "MEX",
+      "name": "Mexico",
+      "countryCode": "MEX",
+      "groupCode": "A",
+      "fifaRank": 14,
+      "ratingValue": 1835,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": true,
+      "formScore": 70,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "KOR",
+      "code": "KOR",
+      "name": "Korea Republic",
+      "countryCode": "KOR",
+      "groupCode": "A",
+      "fifaRank": 25,
+      "ratingValue": 1782,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 66,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CZE",
+      "code": "CZE",
+      "name": "Czech Republic",
+      "countryCode": "CZE",
+      "groupCode": "A",
+      "fifaRank": 40,
+      "ratingValue": 1715,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 61,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "RSA",
+      "code": "RSA",
+      "name": "South Africa",
+      "countryCode": "RSA",
+      "groupCode": "A",
+      "fifaRank": 60,
+      "ratingValue": 1648,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 54,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "SUI",
+      "code": "SUI",
+      "name": "Switzerland",
+      "countryCode": "SUI",
+      "groupCode": "B",
+      "fifaRank": 19,
+      "ratingValue": 1844,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 68,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CAN",
+      "code": "CAN",
+      "name": "Canada",
+      "countryCode": "CAN",
+      "groupCode": "B",
+      "fifaRank": 30,
+      "ratingValue": 1760,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": true,
+      "formScore": 65,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "QAT",
+      "code": "QAT",
+      "name": "Qatar",
+      "countryCode": "QAT",
+      "groupCode": "B",
+      "fifaRank": 56,
+      "ratingValue": 1655,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 55,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "BIH",
+      "code": "BIH",
+      "name": "Bosnia and Herzegovina",
+      "countryCode": "BIH",
+      "groupCode": "B",
+      "fifaRank": 64,
+      "ratingValue": 1628,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 53,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "SCO",
+      "code": "SCO",
+      "name": "Scotland",
+      "countryCode": "SCO",
+      "groupCode": "C",
+      "fifaRank": 42,
+      "ratingValue": 1722,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 60,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "MAR",
+      "code": "MAR",
+      "name": "Morocco",
+      "countryCode": "MAR",
+      "groupCode": "C",
+      "fifaRank": 7,
+      "ratingValue": 1868,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 73,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "BRA",
+      "code": "BRA",
+      "name": "Brazil",
+      "countryCode": "BRA",
+      "groupCode": "C",
+      "fifaRank": 6,
+      "ratingValue": 1972,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 73,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "HAI",
+      "code": "HAI",
+      "name": "Haiti",
+      "countryCode": "HAI",
+      "groupCode": "C",
+      "fifaRank": 83,
+      "ratingValue": 1560,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 46,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "USA",
+      "code": "USA",
+      "name": "United States",
+      "countryCode": "USA",
+      "groupCode": "D",
+      "fifaRank": 17,
+      "ratingValue": 1835,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": true,
+      "formScore": 69,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "AUS",
+      "code": "AUS",
+      "name": "Australia",
+      "countryCode": "AUS",
+      "groupCode": "D",
+      "fifaRank": 27,
+      "ratingValue": 1768,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 66,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "TUR",
+      "code": "TUR",
+      "name": "Turkey",
+      "countryCode": "TUR",
+      "groupCode": "D",
+      "fifaRank": 22,
+      "ratingValue": 1790,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 67,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "PAR",
+      "code": "PAR",
+      "name": "Paraguay",
+      "countryCode": "PAR",
+      "groupCode": "D",
+      "fifaRank": 41,
+      "ratingValue": 1700,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 61,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "GER",
+      "code": "GER",
+      "name": "Germany",
+      "countryCode": "GER",
+      "groupCode": "E",
+      "fifaRank": 10,
+      "ratingValue": 1930,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 72,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CIV",
+      "code": "CIV",
+      "name": "Ivory Coast",
+      "countryCode": "CIV",
+      "groupCode": "E",
+      "fifaRank": 33,
+      "ratingValue": 1740,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 63,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "ECU",
+      "code": "ECU",
+      "name": "Ecuador",
+      "countryCode": "ECU",
+      "groupCode": "E",
+      "fifaRank": 23,
+      "ratingValue": 1785,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 67,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CUR",
+      "code": "CUR",
+      "name": "Curaçao",
+      "countryCode": "CUR",
+      "groupCode": "E",
+      "fifaRank": 82,
+      "ratingValue": 1530,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 46,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "SWE",
+      "code": "SWE",
+      "name": "Sweden",
+      "countryCode": "SWE",
+      "groupCode": "F",
+      "fifaRank": 38,
+      "ratingValue": 1710,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 62,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "JPN",
+      "code": "JPN",
+      "name": "Japan",
+      "countryCode": "JPN",
+      "groupCode": "F",
+      "fifaRank": 18,
+      "ratingValue": 1848,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 69,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "NED",
+      "code": "NED",
+      "name": "Netherlands",
+      "countryCode": "NED",
+      "groupCode": "F",
+      "fifaRank": 8,
+      "ratingValue": 1950,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 72,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "TUN",
+      "code": "TUN",
+      "name": "Tunisia",
+      "countryCode": "TUN",
+      "groupCode": "F",
+      "fifaRank": 45,
+      "ratingValue": 1695,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 59,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "BEL",
+      "code": "BEL",
+      "name": "Belgium",
+      "countryCode": "BEL",
+      "groupCode": "G",
+      "fifaRank": 9,
+      "ratingValue": 1940,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 72,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "EGY",
+      "code": "EGY",
+      "name": "Egypt",
+      "countryCode": "EGY",
+      "groupCode": "G",
+      "fifaRank": 29,
+      "ratingValue": 1750,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 65,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "IRN",
+      "code": "IRN",
+      "name": "Iran",
+      "countryCode": "IRN",
+      "groupCode": "G",
+      "fifaRank": 20,
+      "ratingValue": 1805,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 68,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "NZL",
+      "code": "NZL",
+      "name": "New Zealand",
+      "countryCode": "NZL",
+      "groupCode": "G",
+      "fifaRank": 85,
+      "ratingValue": 1540,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 45,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "ESP",
+      "code": "ESP",
+      "name": "Spain",
+      "countryCode": "ESP",
+      "groupCode": "H",
+      "fifaRank": 2,
+      "ratingValue": 2010,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 74,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CPV",
+      "code": "CPV",
+      "name": "Cape Verde",
+      "countryCode": "CPV",
+      "groupCode": "H",
+      "fifaRank": 67,
+      "ratingValue": 1610,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 52,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "KSA",
+      "code": "KSA",
+      "name": "Saudi Arabia",
+      "countryCode": "KSA",
+      "groupCode": "H",
+      "fifaRank": 61,
+      "ratingValue": 1640,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 54,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "URU",
+      "code": "URU",
+      "name": "Uruguay",
+      "countryCode": "URU",
+      "groupCode": "H",
+      "fifaRank": 16,
+      "ratingValue": 1855,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 69,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "FRA",
+      "code": "FRA",
+      "name": "France",
+      "countryCode": "FRA",
+      "groupCode": "I",
+      "fifaRank": 3,
+      "ratingValue": 2028,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 74,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "SEN",
+      "code": "SEN",
+      "name": "Senegal",
+      "countryCode": "SEN",
+      "groupCode": "I",
+      "fifaRank": 15,
+      "ratingValue": 1860,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 70,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "IRQ",
+      "code": "IRQ",
+      "name": "Iraq",
+      "countryCode": "IRQ",
+      "groupCode": "I",
+      "fifaRank": 57,
+      "ratingValue": 1650,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 55,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "NOR",
+      "code": "NOR",
+      "name": "Norway",
+      "countryCode": "NOR",
+      "groupCode": "I",
+      "fifaRank": 31,
+      "ratingValue": 1755,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 64,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "ARG",
+      "code": "ARG",
+      "name": "Argentina",
+      "countryCode": "ARG",
+      "groupCode": "J",
+      "fifaRank": 1,
+      "ratingValue": 2045,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 75,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "ALG",
+      "code": "ALG",
+      "name": "Algeria",
+      "countryCode": "ALG",
+      "groupCode": "J",
+      "fifaRank": 28,
+      "ratingValue": 1770,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 65,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "AUT",
+      "code": "AUT",
+      "name": "Austria",
+      "countryCode": "AUT",
+      "groupCode": "J",
+      "fifaRank": 24,
+      "ratingValue": 1795,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 67,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "JOR",
+      "code": "JOR",
+      "name": "Jordan",
+      "countryCode": "JOR",
+      "groupCode": "J",
+      "fifaRank": 63,
+      "ratingValue": 1635,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 53,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "POR",
+      "code": "POR",
+      "name": "Portugal",
+      "countryCode": "POR",
+      "groupCode": "K",
+      "fifaRank": 5,
+      "ratingValue": 1980,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 73,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "COD",
+      "code": "COD",
+      "name": "DR Congo",
+      "countryCode": "COD",
+      "groupCode": "K",
+      "fifaRank": 46,
+      "ratingValue": 1690,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 59,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "UZB",
+      "code": "UZB",
+      "name": "Uzbekistan",
+      "countryCode": "UZB",
+      "groupCode": "K",
+      "fifaRank": 50,
+      "ratingValue": 1675,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 58,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "COL",
+      "code": "COL",
+      "name": "Colombia",
+      "countryCode": "COL",
+      "groupCode": "K",
+      "fifaRank": 13,
+      "ratingValue": 1875,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 70,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "ENG",
+      "code": "ENG",
+      "name": "England",
+      "countryCode": "ENG",
+      "groupCode": "L",
+      "fifaRank": 4,
+      "ratingValue": 1995,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 74,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "CRO",
+      "code": "CRO",
+      "name": "Croatia",
+      "countryCode": "CRO",
+      "groupCode": "L",
+      "fifaRank": 11,
+      "ratingValue": 1920,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 71,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "GHA",
+      "code": "GHA",
+      "name": "Ghana",
+      "countryCode": "GHA",
+      "groupCode": "L",
+      "fifaRank": 73,
+      "ratingValue": 1595,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 49,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    },
+    {
+      "id": "PAN",
+      "code": "PAN",
+      "name": "Panama",
+      "countryCode": "PAN",
+      "groupCode": "L",
+      "fifaRank": 34,
+      "ratingValue": 1730,
+      "ratingSource": "fifa_rank_fallback",
+      "strengthVersion": "synthetic-48-strength-v0.2",
+      "isHost": false,
+      "formScore": 63,
+      "goalsPerMatch": 1.2,
+      "goalsAgainstPerMatch": 1.2
+    }
+  ],
+  "matchStates": [
+    {
+      "matchId": "synthetic-group-a-1",
+      "matchNumber": 1,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "MEX",
+      "awayTeamId": "KOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-a-2",
+      "matchNumber": 2,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "MEX",
+      "awayTeamId": "CZE",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-a-3",
+      "matchNumber": 3,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "MEX",
+      "awayTeamId": "RSA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-a-4",
+      "matchNumber": 4,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "KOR",
+      "awayTeamId": "CZE",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-a-5",
+      "matchNumber": 5,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "KOR",
+      "awayTeamId": "RSA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-a-6",
+      "matchNumber": 6,
+      "stage": "group",
+      "groupCode": "A",
+      "homeTeamId": "CZE",
+      "awayTeamId": "RSA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-7",
+      "matchNumber": 7,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "SUI",
+      "awayTeamId": "CAN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-8",
+      "matchNumber": 8,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "SUI",
+      "awayTeamId": "QAT",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-9",
+      "matchNumber": 9,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "SUI",
+      "awayTeamId": "BIH",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-10",
+      "matchNumber": 10,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "CAN",
+      "awayTeamId": "QAT",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-11",
+      "matchNumber": 11,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "CAN",
+      "awayTeamId": "BIH",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-b-12",
+      "matchNumber": 12,
+      "stage": "group",
+      "groupCode": "B",
+      "homeTeamId": "QAT",
+      "awayTeamId": "BIH",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-13",
+      "matchNumber": 13,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "SCO",
+      "awayTeamId": "MAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-14",
+      "matchNumber": 14,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "SCO",
+      "awayTeamId": "BRA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-15",
+      "matchNumber": 15,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "SCO",
+      "awayTeamId": "HAI",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-16",
+      "matchNumber": 16,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "MAR",
+      "awayTeamId": "BRA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-17",
+      "matchNumber": 17,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "MAR",
+      "awayTeamId": "HAI",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-c-18",
+      "matchNumber": 18,
+      "stage": "group",
+      "groupCode": "C",
+      "homeTeamId": "BRA",
+      "awayTeamId": "HAI",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-19",
+      "matchNumber": 19,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "USA",
+      "awayTeamId": "AUS",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-20",
+      "matchNumber": 20,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "USA",
+      "awayTeamId": "TUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-21",
+      "matchNumber": 21,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "USA",
+      "awayTeamId": "PAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-22",
+      "matchNumber": 22,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "AUS",
+      "awayTeamId": "TUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-23",
+      "matchNumber": 23,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "AUS",
+      "awayTeamId": "PAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-d-24",
+      "matchNumber": 24,
+      "stage": "group",
+      "groupCode": "D",
+      "homeTeamId": "TUR",
+      "awayTeamId": "PAR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-25",
+      "matchNumber": 25,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "GER",
+      "awayTeamId": "CIV",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-26",
+      "matchNumber": 26,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "GER",
+      "awayTeamId": "ECU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-27",
+      "matchNumber": 27,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "GER",
+      "awayTeamId": "CUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-28",
+      "matchNumber": 28,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "CIV",
+      "awayTeamId": "ECU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-29",
+      "matchNumber": 29,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "CIV",
+      "awayTeamId": "CUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-e-30",
+      "matchNumber": 30,
+      "stage": "group",
+      "groupCode": "E",
+      "homeTeamId": "ECU",
+      "awayTeamId": "CUR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-31",
+      "matchNumber": 31,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "SWE",
+      "awayTeamId": "JPN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-32",
+      "matchNumber": 32,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "SWE",
+      "awayTeamId": "NED",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-33",
+      "matchNumber": 33,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "SWE",
+      "awayTeamId": "TUN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-34",
+      "matchNumber": 34,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "JPN",
+      "awayTeamId": "NED",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-35",
+      "matchNumber": 35,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "JPN",
+      "awayTeamId": "TUN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-f-36",
+      "matchNumber": 36,
+      "stage": "group",
+      "groupCode": "F",
+      "homeTeamId": "NED",
+      "awayTeamId": "TUN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-37",
+      "matchNumber": 37,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "BEL",
+      "awayTeamId": "EGY",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-38",
+      "matchNumber": 38,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "BEL",
+      "awayTeamId": "IRN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-39",
+      "matchNumber": 39,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "BEL",
+      "awayTeamId": "NZL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-40",
+      "matchNumber": 40,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "EGY",
+      "awayTeamId": "IRN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-41",
+      "matchNumber": 41,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "EGY",
+      "awayTeamId": "NZL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-g-42",
+      "matchNumber": 42,
+      "stage": "group",
+      "groupCode": "G",
+      "homeTeamId": "IRN",
+      "awayTeamId": "NZL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-43",
+      "matchNumber": 43,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "ESP",
+      "awayTeamId": "CPV",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-44",
+      "matchNumber": 44,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "ESP",
+      "awayTeamId": "KSA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-45",
+      "matchNumber": 45,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "ESP",
+      "awayTeamId": "URU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-46",
+      "matchNumber": 46,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "CPV",
+      "awayTeamId": "KSA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-47",
+      "matchNumber": 47,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "CPV",
+      "awayTeamId": "URU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-h-48",
+      "matchNumber": 48,
+      "stage": "group",
+      "groupCode": "H",
+      "homeTeamId": "KSA",
+      "awayTeamId": "URU",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-49",
+      "matchNumber": 49,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "FRA",
+      "awayTeamId": "SEN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-50",
+      "matchNumber": 50,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "FRA",
+      "awayTeamId": "IRQ",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-51",
+      "matchNumber": 51,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "FRA",
+      "awayTeamId": "NOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-52",
+      "matchNumber": 52,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "SEN",
+      "awayTeamId": "IRQ",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-53",
+      "matchNumber": 53,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "SEN",
+      "awayTeamId": "NOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-i-54",
+      "matchNumber": 54,
+      "stage": "group",
+      "groupCode": "I",
+      "homeTeamId": "IRQ",
+      "awayTeamId": "NOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-55",
+      "matchNumber": 55,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "ARG",
+      "awayTeamId": "ALG",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-56",
+      "matchNumber": 56,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "ARG",
+      "awayTeamId": "AUT",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-57",
+      "matchNumber": 57,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "ARG",
+      "awayTeamId": "JOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-58",
+      "matchNumber": 58,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "ALG",
+      "awayTeamId": "AUT",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-59",
+      "matchNumber": 59,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "ALG",
+      "awayTeamId": "JOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-j-60",
+      "matchNumber": 60,
+      "stage": "group",
+      "groupCode": "J",
+      "homeTeamId": "AUT",
+      "awayTeamId": "JOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-61",
+      "matchNumber": 61,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "POR",
+      "awayTeamId": "COD",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-62",
+      "matchNumber": 62,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "POR",
+      "awayTeamId": "UZB",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-63",
+      "matchNumber": 63,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "POR",
+      "awayTeamId": "COL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-64",
+      "matchNumber": 64,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "COD",
+      "awayTeamId": "UZB",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-65",
+      "matchNumber": 65,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "COD",
+      "awayTeamId": "COL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-k-66",
+      "matchNumber": 66,
+      "stage": "group",
+      "groupCode": "K",
+      "homeTeamId": "UZB",
+      "awayTeamId": "COL",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-67",
+      "matchNumber": 67,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "ENG",
+      "awayTeamId": "CRO",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-68",
+      "matchNumber": 68,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "ENG",
+      "awayTeamId": "GHA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-69",
+      "matchNumber": 69,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "ENG",
+      "awayTeamId": "PAN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-70",
+      "matchNumber": 70,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "CRO",
+      "awayTeamId": "GHA",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-71",
+      "matchNumber": 71,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "CRO",
+      "awayTeamId": "PAN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-group-l-72",
+      "matchNumber": 72,
+      "stage": "group",
+      "groupCode": "L",
+      "homeTeamId": "GHA",
+      "awayTeamId": "PAN",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "matchId": "synthetic-rd32-1",
+      "matchNumber": 73,
+      "stage": "round_of_32",
+      "homeTeamId": "CAN",
+      "awayTeamId": "KOR",
+      "venueCountryCode": "USA",
+      "status": "final",
+      "actualScore90min": {
+        "home": 0,
+        "away": 0
+      },
+      "actualScoreExtraTime": {
+        "home": 1,
+        "away": 0
+      },
+      "advanceTeamId": "CAN"
+    }
+  ],
+  "contextAdjustments": [],
+  "officialFacts": []
+}
