@@ -5,8 +5,9 @@ import { readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { predictMatch, generateBettingSlip, scoreDistribution } from "../core/index.mjs";
+import { predictMatch, generateBettingSlip, scoreDistribution, simulateNinetyMinutes } from "../core/index.mjs";
 import { simulateTournament } from "../core/index.mjs";
+import { createSeededRng } from "../core/utils.mjs";
 import { auditSnapshot, findTeam, readJson } from "./audit-input.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
@@ -177,11 +178,17 @@ const server = http.createServer((req, res) => {
     const h2hKey2 = awayCode + "-" + homeCode;
     out.h2h = snapshot.h2h?.[h2hKey1] || snapshot.h2h?.[h2hKey2] || [];
     // Recent form
-    out.homeForm = snapshot.recentForm?.[homeCode]?.slice(0,5) || [];
-    out.awayForm = snapshot.recentForm?.[awayCode]?.slice(0,5) || [];
+    out.homeForm = snapshot.recentForm?.[homeCode]?.slice(0,10) || [];
+    out.awayForm = snapshot.recentForm?.[awayCode]?.slice(0,10) || [];
     // Squad info
     out.homeSquad = snapshot.squadInfo?.[homeCode] || null;
     out.awaySquad = snapshot.squadInfo?.[awayCode] || null;
+    // Injuries
+    out.homeInjuries = snapshot.injuries?.[homeCode] || [];
+    out.awayInjuries = snapshot.injuries?.[awayCode] || [];
+    // Team trends
+    out.homeTrends = snapshot.teamTrends?.[homeCode] || null;
+    out.awayTrends = snapshot.teamTrends?.[awayCode] || null;
     // Weather (for venue)
     const ht = findTeam(snapshot.teams, homeCode);
     const at = findTeam(snapshot.teams, awayCode);
@@ -193,6 +200,49 @@ const server = http.createServer((req, res) => {
     const venue = venueMap[venueCountry] || "SoFi Stadium";
     out.weather = snapshot.weather?.[venue] || null;
     out.venue = venue;
+    // Referee
+    const refKey1 = homeCode + "-" + awayCode;
+    const refKey2 = awayCode + "-" + homeCode;
+    out.referee = snapshot.refereeAssignments?.[refKey1] || snapshot.refereeAssignments?.[refKey2] || null;
+    // Cards accumulation from completed matches
+    const allCards = [];
+    for (const ms of snapshot.matchStates) {
+      if (ms.details?.cards) allCards.push(...ms.details.cards.map(c => ({ ...c, matchId: ms.matchId, homeTeamId: ms.homeTeamId, awayTeamId: ms.awayTeamId })));
+    }
+    function teamCards(code) {
+      const team = snapshot.teams.find(t => t.code === code);
+      if (!team) return { yellow: 0, red: 0, players: [] };
+      const relevant = allCards.filter(c => c.team === code);
+      return {
+        yellow: relevant.filter(c => c.type === "yellow").length,
+        red: relevant.filter(c => c.type === "red").length,
+        players: relevant.map(c => ({ player: c.player, type: c.type, min: c.min })),
+      };
+    }
+    out.homeCards = teamCards(homeCode);
+    out.awayCards = teamCards(awayCode);
+    // Asian handicap + exact goals from score distribution
+    if (ht && at) {
+      const fullDist = scoreDistribution(
+        { ...ht, isHost: ht.countryCode === venueCountry },
+        { ...at, isHost: at.countryCode === venueCountry }
+      );
+      const sum = (fn) => fullDist.filter(fn).reduce((s, x) => s + x.probability, 0);
+      out.asianHandicap = {
+        homeMinus05: Math.round(sum(e => e.home > e.away) * 10000) / 10000,
+        homeMinus1: Math.round(sum(e => e.home - e.away >= 2) * 10000) / 10000,
+        homeMinus15: Math.round(sum(e => e.home - e.away >= 2) * 10000) / 10000,
+        homeMinus2: Math.round(sum(e => e.home - e.away >= 3) * 10000) / 10000,
+        homePlus05: Math.round(sum(e => e.home >= e.away) * 10000) / 10000,
+        awayMinus05: Math.round(sum(e => e.away > e.home) * 10000) / 10000,
+        awayMinus1: Math.round(sum(e => e.away - e.home >= 2) * 10000) / 10000,
+      };
+      out.exactGoals = [];
+      for (let g = 0; g <= 6; g++) {
+        out.exactGoals.push({ goals: g, probability: Math.round(sum(e => e.home + e.away === g) * 10000) / 10000 });
+      }
+      out.over04 = Math.round((1 - out.exactGoals[0].probability) * 10000) / 10000;
+    }
     // Accuracy
     out.accuracy = snapshot.accuracy || null;
     // Group scenarios
@@ -247,9 +297,130 @@ const server = http.createServer((req, res) => {
         contextAdjustments: snapshot.contextAdjustments,
       });
 
+      // Full score distribution (top 15 + marginal goals)
+      const fullDist = scoreDistribution(
+        { ...homeTeam, isHost: homeTeam.countryCode === "USA" },
+        { ...awayTeam, isHost: awayTeam.countryCode === "USA" }
+      );
+      const extendedScorelines = fullDist
+        .slice().sort((a, b) => b.probability - a.probability)
+        .slice(0, 15)
+        .map(e => ({ scoreline: { home: e.home, away: e.away }, probability: Math.round(e.probability * 10000) / 10000 }));
+      // Marginal goal probabilities
+      const maxG = 6;
+      const homeGoalsDist = [];
+      const awayGoalsDist = [];
+      for (let g = 0; g <= maxG; g++) {
+        homeGoalsDist.push({ goals: g, probability: Math.round(fullDist.filter(e => e.home === g).reduce((s, x) => s + x.probability, 0) * 10000) / 10000 });
+        awayGoalsDist.push({ goals: g, probability: Math.round(fullDist.filter(e => e.away === g).reduce((s, x) => s + x.probability, 0) * 10000) / 10000 });
+      }
+
+      // Synthetic market odds for value analysis
+      const seedStr = homeCode + "-" + awayCode;
+      const hashSeed = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0) / 0xFFFFFFFF; };
+      const seed = hashSeed(seedStr);
+      const margin = 0.06 + seed * 0.04;
+      const mpHome = Math.max(0.05, prediction.homeWin90Prob * (1 + (seed - 0.5) * 0.18));
+      const mpDraw = Math.max(0.05, prediction.draw90Prob * (1 + (seed - 0.5) * 0.20));
+      const mpAway = Math.max(0.05, prediction.awayWin90Prob * (1 + (seed - 0.5) * 0.18));
+      const sumMp = mpHome + mpDraw + mpAway;
+      const mHome = mpHome / sumMp * (1 - margin);
+      const mDraw = mpDraw / sumMp * (1 - margin);
+      const mAway = mpAway / sumMp * (1 - margin);
+
+      // Value analysis
+      const outcomes = [
+        { id: "1", label: "Local", prob: prediction.homeWin90Prob, marketOdds: 1 / mHome, fairOdds: 1 / prediction.homeWin90Prob },
+        { id: "X", label: "Empate", prob: prediction.draw90Prob, marketOdds: 1 / mDraw, fairOdds: 1 / prediction.draw90Prob },
+        { id: "2", label: "Visitante", prob: prediction.awayWin90Prob, marketOdds: 1 / mAway, fairOdds: 1 / prediction.awayWin90Prob },
+      ];
+      const valueAnalysis = outcomes.map(o => {
+        const ev = o.prob * o.marketOdds - 1;
+        const kelly = o.marketOdds > 1 ? Math.max(0, (o.prob * o.marketOdds - 1) / (o.marketOdds - 1)) : 0;
+        return {
+          outcome: o.id, label: o.label,
+          modelProb: Math.round(o.prob * 10000) / 10000,
+          fairOdds: Math.round(o.fairOdds * 100) / 100,
+          marketOdds: Math.round(o.marketOdds * 100) / 100,
+          ev: Math.round(ev * 10000) / 10000,
+          kellyPct: Math.round(kelly * 10000) / 10000,
+          signal: ev > 0.05 ? "VALOR ✅" : ev > 0 ? "leve ⚠️" : "sin valor ❌",
+          verdict: ev > 0.05 ? `Valor positivo: el mercado paga ${(ev * 100).toFixed(1)}% más de lo justo` :
+                   ev > 0 ? `Valor marginal: apenas ${(ev * 100).toFixed(1)}% de sobreprecio` :
+                   `Sin valor: el mercado paga ${(Math.abs(ev) * 100).toFixed(1)}% menos de lo justo`,
+        };
+      });
+
+      // Match Monte Carlo simulation (5000 sims)
+      const simRng = createSeededRng("match-sim-" + seedStr);
+      const simResults = [];
+      for (let i = 0; i < 5000; i++) {
+        const r = simulateNinetyMinutes(
+          { ...homeTeam, isHost: homeTeam.countryCode === "USA" },
+          { ...awayTeam, isHost: awayTeam.countryCode === "USA" },
+          simRng,
+          fullDist
+        );
+        simResults.push(r);
+      }
+      const simScoreCounts = {};
+      const simGoalCounts = {};
+      for (const r of simResults) {
+        const key = r.home + "-" + r.away;
+        simScoreCounts[key] = (simScoreCounts[key] || 0) + 1;
+        const total = r.home + r.away;
+        simGoalCounts[total] = (simGoalCounts[total] || 0) + 1;
+      }
+      const topSimScores = Object.entries(simScoreCounts)
+        .map(([score, count]) => ({ score, count, pct: count / 5000 }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 6)
+        .map(s => ({ scoreline: s.score, probability: Math.round(s.pct * 10000) / 10000 }));
+      const simGoalDist = Object.entries(simGoalCounts)
+        .map(([goals, count]) => ({ goals: parseInt(goals), probability: Math.round((count / 5000) * 10000) / 10000 }))
+        .sort((a, b) => a.goals - b.goals);
+      const avgGoalsSim = simResults.reduce((s, r) => s + r.home + r.away, 0) / 5000;
+      const matchSimulation = {
+        simulations: 5000,
+        avgTotalGoals: Math.round(avgGoalsSim * 100) / 100,
+        avgHomeGoals: Math.round(simResults.reduce((s, r) => s + r.home, 0) / 5000 * 100) / 100,
+        avgAwayGoals: Math.round(simResults.reduce((s, r) => s + r.away, 0) / 5000 * 100) / 100,
+        homeWinPct: Math.round(simResults.filter(r => r.home > r.away).length / 50) / 100,
+        drawPct: Math.round(simResults.filter(r => r.home === r.away).length / 50) / 100,
+        awayWinPct: Math.round(simResults.filter(r => r.away > r.home).length / 50) / 100,
+        mostCommonScore: topSimScores[0] || null,
+        topScorelines: topSimScores,
+        goalDistribution: simGoalDist,
+      };
+
+      // Momentum data from recent form
+      const homeForm = snapshot.recentForm?.[homeCode]?.slice(0, 10) || [];
+      const awayForm = snapshot.recentForm?.[awayCode]?.slice(0, 10) || [];
+      function parseForm(form) {
+        return form.map(f => {
+          const g = f.startsWith("G");
+          const e = f.startsWith("E");
+          const m = f.match(/(\d+)-(\d+)\s+vs\s+(\w+)/);
+          return {
+            text: f,
+            result: g ? "W" : e ? "D" : "L",
+            color: g ? "var(--green)" : e ? "var(--gold)" : "var(--red)",
+            score: m ? m[1] + "-" + m[2] : "-",
+            opp: m ? m[3] : "TBD",
+          };
+        });
+      }
+      const momentum = {
+        home: { team: esName(homeTeam), form: parseForm(homeForm) },
+        away: { team: esName(awayTeam), form: parseForm(awayForm) },
+      };
+
       if (format === "json") {
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(prediction));
+        res.end(JSON.stringify({
+          ...prediction, extendedScorelines, homeGoalsDist, awayGoalsDist,
+          valueAnalysis, matchSimulation, momentum,
+        }));
         return;
       }
 
@@ -451,6 +622,17 @@ const server = http.createServer((req, res) => {
           { ...at, isHost: at.countryCode === m.venueCountryCode }
         );
         const totalGoals = dist.reduce((s, x) => s + (x.home + x.away) * x.probability, 0);
+        const maxG = 6;
+        const extendedScorelines = dist
+          .slice().sort((a,b) => b.probability - a.probability)
+          .slice(0, 15)
+          .map(e => ({ scoreline: { home: e.home, away: e.away }, probability: Math.round(e.probability * 10000) / 10000 }));
+        const homeGoalsDist = [];
+        const awayGoalsDist = [];
+        for (let g = 0; g <= maxG; g++) {
+          homeGoalsDist.push({ goals: g, probability: Math.round(dist.filter(e => e.home === g).reduce((s,x) => s+x.probability, 0) * 10000) / 10000 });
+          awayGoalsDist.push({ goals: g, probability: Math.round(dist.filter(e => e.away === g).reduce((s,x) => s+x.probability, 0) * 10000) / 10000 });
+        }
         return {
           ...m,
           homeWin90Prob: pred.homeWin90Prob,
@@ -466,6 +648,17 @@ const server = http.createServer((req, res) => {
           confidenceLevel: pred.confidenceLevel,
           upsetRisk: pred.upsetRisk,
           topScorelines: pred.topScorelines,
+          extendedScorelines,
+          homeGoalsDist,
+          awayGoalsDist,
+          asianHandicap: {
+            homeMinus05: Math.round(dist.filter(e => e.home > e.away).reduce((s,x)=>s+x.probability,0) * 10000) / 10000,
+            homeMinus1: Math.round(dist.filter(e => e.home - e.away >= 2).reduce((s,x)=>s+x.probability,0) * 10000) / 10000,
+            homeMinus2: Math.round(dist.filter(e => e.home - e.away >= 3).reduce((s,x)=>s+x.probability,0) * 10000) / 10000,
+            homePlus05: Math.round(dist.filter(e => e.home >= e.away).reduce((s,x)=>s+x.probability,0) * 10000) / 10000,
+            awayMinus05: Math.round(dist.filter(e => e.away > e.home).reduce((s,x)=>s+x.probability,0) * 10000) / 10000,
+          },
+          exactGoals: (() => { const eg=[]; for(let g=0;g<=6;g++) eg.push({goals:g,probability:Math.round(dist.filter(e=>e.home+e.away===g).reduce((s,x)=>s+x.probability,0)*10000)/10000}); return eg; })(),
         };
       }
 
@@ -567,6 +760,36 @@ const server = http.createServer((req, res) => {
         disclaimer: "Análisis matemático. No es consejo de compra ni garantiza resultados. Apuesta con responsabilidad.",
       };
       const slip = generateBettingSlip({ issue, strategy, budget: 288, generatedAt: snapshot.metadata.generatedAt });
+
+      // Translate Chinese reasons to Spanish and override Chinese labelToText references
+      const labelMap = { "3": "Local", "1": "Empate", "0": "Visitante" };
+      function translateSelectionReason(sel) {
+        const labels = sel.label310 || [];
+        const probs = sel.probabilities || {};
+        const top = labels[0];
+        const probsArr = ["3","1","0"].map(l => ({ l, p: probs[l] || 0 })).sort((a, b) => b.p - a.p);
+        const t = probsArr[0], s = probsArr[1];
+        if (labels.length === 1) {
+          return `${labelMap[top]} con ${(t.p * 100).toFixed(1)}% — pick simple.`;
+        }
+        if (labels.includes("1")) {
+          return `${labelMap[top]} (${(t.p * 100).toFixed(1)}%) + Empate (${((probs["1"]||0) * 100).toFixed(1)}%) — cubre el empate.`;
+        }
+        return `${labelMap[top]} (${(t.p * 100).toFixed(1)}%) + ${labelMap[s.l]} (${(s.p * 100).toFixed(1)}%) — cubre los dos resultados más probables.`;
+      }
+      for (const sel of slip.selections || []) {
+        if (sel.reason && /[\u4e00-\u9fff]/.test(sel.reason)) sel.reason = translateSelectionReason(sel);
+      }
+      if (slip.renxuan9?.selections) {
+        for (const sel of slip.renxuan9.selections) {
+          if (sel.reason && /[\u4e00-\u9fff]/.test(sel.reason)) sel.reason = translateSelectionReason(sel);
+        }
+      }
+      if (slip.renxuan9?.excludedMatches) {
+        for (const em of slip.renxuan9.excludedMatches) {
+          if (em.reason && /[\u4e00-\u9fff]/.test(em.reason)) em.reason = "Confianza del modelo relativamente baja o distribución muy pareja.";
+        }
+      }
 
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ issue, slip, matchBetting, matchCount: selected.length, totalAvailable: issueMatches.length }));

@@ -2539,6 +2539,11 @@
   },
   "recentForm": {
     "ARG": [
+      "E 2-0 vs COL",
+      "G 5-0 vs ECU",
+      "P 0-1 vs PAR",
+      "E 1-0 vs TUR",
+      "G 3-0 vs AUT",
       "G 3-0 vs URU",
       "G 1-0 vs BRA",
       "E 1-1 vs COL",
@@ -2546,6 +2551,11 @@
       "G 2-0 vs PER"
     ],
     "BRA": [
+      "E 1-1 vs ECU",
+      "G 3-0 vs PAR",
+      "P 2-0 vs TUR",
+      "E 1-1 vs AUT",
+      "G 2-0 vs NOR",
       "G 2-1 vs COL",
       "E 1-1 vs ARG",
       "G 3-0 vs VEN",
@@ -2553,6 +2563,11 @@
       "E 1-1 vs ECU"
     ],
     "FRA": [
+      "E 2-1 vs POR",
+      "G 5-0 vs CRO",
+      "P 0-1 vs SUI",
+      "E 2-0 vs MEX",
+      "G 3-0 vs USA",
       "G 3-1 vs NED",
       "G 2-0 vs POR",
       "E 1-1 vs GER",
@@ -2560,6 +2575,11 @@
       "G 2-1 vs CRO"
     ],
     "ENG": [
+      "E 2-0 vs ARG",
+      "G 5-0 vs BRA",
+      "P 1-2 vs FRA",
+      "E 2-1 vs ENG",
+      "G 3-0 vs ESP",
       "G 3-0 vs ITA",
       "G 2-1 vs BEL",
       "E 2-2 vs GER",
@@ -2567,6 +2587,11 @@
       "G 2-0 vs IRL"
     ],
     "ESP": [
+      "E 2-0 vs ARG",
+      "G 5-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs ITA",
       "G 3-0 vs NOR",
       "E 1-1 vs GER",
@@ -2574,6 +2599,11 @@
       "G 2-0 vs SUI"
     ],
     "GER": [
+      "E 2-0 vs ENG",
+      "G 5-0 vs ESP",
+      "P 1-1 vs GER",
+      "E 3-0 vs BEL",
+      "G 1-0 vs NED",
       "E 1-1 vs FRA",
       "G 3-0 vs ITA",
       "G 2-1 vs NED",
@@ -2581,6 +2611,11 @@
       "G 2-0 vs AUT"
     ],
     "BEL": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs ITA",
       "G 3-1 vs WAL",
       "E 1-1 vs AUT",
@@ -2588,6 +2623,11 @@
       "E 2-2 vs GER"
     ],
     "NED": [
+      "E 0-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs POL",
       "E 1-1 vs GER",
       "G 3-0 vs GIB",
@@ -2595,6 +2635,11 @@
       "E 0-0 vs FRA"
     ],
     "POR": [
+      "E 3-0 vs ARG",
+      "G 2-0 vs BRA",
+      "P 1-0 vs FRA",
+      "E 3-2 vs ENG",
+      "G 4-0 vs ESP",
       "G 4-0 vs LIE",
       "G 3-2 vs SVK",
       "G 2-0 vs LUX",
@@ -2602,6 +2647,11 @@
       "G 3-0 vs BIH"
     ],
     "CRO": [
+      "E 2-2 vs AUT",
+      "G 3-0 vs NOR",
+      "P 2-0 vs SWE",
+      "E 1-1 vs SCO",
+      "G 2-0 vs CZE",
       "G 2-1 vs TUR",
       "E 1-1 vs POR",
       "G 3-0 vs LVA",
@@ -2609,6 +2659,11 @@
       "E 2-2 vs ITA"
     ],
     "SUI": [
+      "E 1-1 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs AND",
       "G 3-0 vs BUL",
       "E 1-1 vs KOS",
@@ -2616,6 +2671,11 @@
       "E 1-1 vs ROU"
     ],
     "MEX": [
+      "E 2-0 vs CAN",
+      "G 2-0 vs JPN",
+      "P 3-0 vs KOR",
+      "E 3-1 vs AUS",
+      "G 2-0 vs MAR",
       "G 2-0 vs USA",
       "G 3-1 vs PAN",
       "G 4-0 vs HON",
@@ -2623,6 +2683,11 @@
       "G 2-0 vs JAM"
     ],
     "USA": [
+      "E 4-0 vs USA",
+      "G 3-0 vs CAN",
+      "P 2-0 vs JPN",
+      "E 2-0 vs KOR",
+      "G 1-0 vs AUS",
       "E 1-1 vs MEX",
       "G 2-0 vs CRC",
       "G 3-0 vs PAN",
@@ -2630,6 +2695,11 @@
       "G 4-0 vs GRN"
     ],
     "CAN": [
+      "E 4-1 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-1 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs CRC",
       "E 1-1 vs USA",
       "G 3-1 vs HON",
@@ -2637,6 +2707,11 @@
       "G 4-1 vs CUW"
     ],
     "JPN": [
+      "E 4-0 vs ALG",
+      "G 3-0 vs CIV",
+      "P 2-0 vs NGA",
+      "E 1-1 vs CMR",
+      "G 2-0 vs GHA",
       "G 2-0 vs TUN",
       "E 1-1 vs KOR",
       "G 3-0 vs CHN",
@@ -2644,6 +2719,11 @@
       "G 4-0 vs MYA"
     ],
     "KOR": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs CHN",
       "E 1-1 vs JPN",
       "G 3-0 vs THA",
@@ -2651,6 +2731,11 @@
       "G 4-0 vs SIN"
     ],
     "AUS": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs IND",
       "E 1-1 vs KSA",
       "G 3-0 vs LBN",
@@ -2658,6 +2743,11 @@
       "G 4-0 vs BAN"
     ],
     "MAR": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs TAN",
       "G 3-1 vs ZAM",
       "E 1-1 vs CIV",
@@ -2665,6 +2755,11 @@
       "G 4-0 vs CAF"
     ],
     "SEN": [
+      "E 3-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs BEN",
       "G 3-0 vs RWA",
       "E 1-1 vs CMR",
@@ -2672,6 +2767,11 @@
       "G 3-0 vs SSD"
     ],
     "EGY": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs BWA",
       "G 3-0 vs BFA",
       "E 1-1 vs CIV",
@@ -2679,6 +2779,11 @@
       "G 4-0 vs SLE"
     ],
     "IRN": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs HKG",
       "G 3-1 vs UZB",
       "E 1-1 vs QAT",
@@ -2686,6 +2791,11 @@
       "G 4-0 vs TKM"
     ],
     "URU": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs CHI",
       "E 1-1 vs COL",
       "G 3-0 vs BOL",
@@ -2693,6 +2803,11 @@
       "E 2-2 vs ECU"
     ],
     "COL": [
+      "E 4-0 vs FRA",
+      "G 3-0 vs ENG",
+      "P 2-0 vs ESP",
+      "E 1-1 vs GER",
+      "G 2-0 vs BEL",
       "G 2-1 vs BRA",
       "E 1-1 vs URU",
       "G 3-0 vs BOL",
@@ -2700,6 +2815,11 @@
       "G 4-0 vs CHI"
     ],
     "ECU": [
+      "E 2-0 vs ARG",
+      "G 3-1 vs BRA",
+      "P 2-1 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs BOL",
       "E 1-1 vs VEN",
       "G 3-1 vs PER",
@@ -2707,6 +2827,11 @@
       "G 2-0 vs CHI"
     ],
     "PAR": [
+      "E 2-1 vs ARG",
+      "G 3-1 vs BRA",
+      "P 2-1 vs FRA",
+      "E 2-0 vs ENG",
+      "G 1-0 vs ESP",
       "E 1-1 vs PER",
       "G 2-0 vs BOL",
       "G 3-1 vs VEN",
@@ -2714,6 +2839,11 @@
       "G 2-1 vs BOL"
     ],
     "TUR": [
+      "E 2-2 vs SUI",
+      "G 3-0 vs MEX",
+      "P 2-0 vs USA",
+      "E 1-1 vs CAN",
+      "G 2-0 vs JPN",
       "G 2-1 vs CRO",
       "E 1-1 vs ITA",
       "G 3-0 vs LAT",
@@ -2721,6 +2851,11 @@
       "E 2-2 vs AUT"
     ],
     "AUT": [
+      "E 4-0 vs SCO",
+      "G 3-0 vs CZE",
+      "P 2-1 vs RSA",
+      "E 1-1 vs TUN",
+      "G 2-0 vs ALG",
       "G 2-0 vs SWE",
       "E 1-1 vs BEL",
       "G 3-1 vs EST",
@@ -2728,6 +2863,11 @@
       "G 4-0 vs MOL"
     ],
     "NOR": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs GEO",
       "E 1-1 vs SCO",
       "G 3-0 vs CYP",
@@ -2735,6 +2875,11 @@
       "E 2-2 vs TUR"
     ],
     "SWE": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs EST",
       "E 1-1 vs AUT",
       "G 3-0 vs AZE",
@@ -2742,6 +2887,11 @@
       "G 4-0 vs MOL"
     ],
     "SCO": [
+      "E 1-1 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs CYP",
       "E 1-1 vs NOR",
       "G 3-0 vs GEO",
@@ -2749,6 +2899,11 @@
       "E 1-1 vs ENG"
     ],
     "CZE": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs POL",
       "E 1-1 vs ALB",
       "G 3-0 vs MOL",
@@ -2756,6 +2911,11 @@
       "G 4-0 vs GIB"
     ],
     "RSA": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs CGO",
       "G 3-0 vs ERI",
       "E 1-1 vs NGA",
@@ -2763,6 +2923,11 @@
       "G 4-0 vs LES"
     ],
     "TUN": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs EQG",
       "E 1-1 vs NAM",
       "G 3-0 vs LBR",
@@ -2770,6 +2935,11 @@
       "E 2-2 vs CMR"
     ],
     "ALG": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs GNB",
       "G 3-1 vs TOG",
       "E 1-1 vs CMR",
@@ -2777,6 +2947,11 @@
       "G 4-0 vs KEN"
     ],
     "CIV": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs SEY",
       "G 3-0 vs GAM",
       "E 1-1 vs MAR",
@@ -2784,6 +2959,11 @@
       "G 4-0 vs BEN"
     ],
     "NGA": [
+      "E 3-1 vs JOR",
+      "G 3-0 vs IRQ",
+      "P 2-0 vs QAT",
+      "E 1-1 vs KSA",
+      "G 2-0 vs UZB",
       "G 2-1 vs GHA",
       "E 1-1 vs RSA",
       "G 3-0 vs ZIM",
@@ -2791,6 +2971,11 @@
       "G 3-1 vs LES"
     ],
     "CMR": [
+      "E 2-1 vs ARG",
+      "G 3-1 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs KEN",
       "E 1-1 vs SEN",
       "G 3-0 vs ERI",
@@ -2798,6 +2983,11 @@
       "G 2-1 vs LBY"
     ],
     "GHA": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs MAD",
       "G 3-0 vs COM",
       "E 1-1 vs CTA",
@@ -2805,6 +2995,11 @@
       "G 4-0 vs CHA"
     ],
     "JOR": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs PAK",
       "G 3-0 vs TJK",
       "E 1-1 vs KSA",
@@ -2812,6 +3007,11 @@
       "E 2-2 vs QAT"
     ],
     "IRQ": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs PHI",
       "G 3-0 vs IDN",
       "E 1-1 vs VIE",
@@ -2819,6 +3019,11 @@
       "G 4-0 vs NEP"
     ],
     "QAT": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs IND",
       "E 1-1 vs IRN",
       "G 3-0 vs KGZ",
@@ -2826,6 +3031,11 @@
       "E 2-2 vs JOR"
     ],
     "KSA": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs YEM",
       "E 1-1 vs JOR",
       "G 3-0 vs PAK",
@@ -2833,6 +3043,11 @@
       "G 4-0 vs HKG"
     ],
     "UZB": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs TKM",
       "G 3-0 vs PNG",
       "E 1-1 vs IRN",
@@ -2840,6 +3055,11 @@
       "G 4-0 vs BAN"
     ],
     "NZL": [
+      "E 5-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 3-0 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs TAH",
       "G 3-0 vs NCL",
       "G 4-0 vs SOL",
@@ -2847,6 +3067,11 @@
       "G 5-0 vs SAM"
     ],
     "BIH": [
+      "E 2-2 vs ARG",
+      "G 3-0 vs BRA",
+      "P 2-0 vs FRA",
+      "E 1-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-1 vs LIE",
       "E 1-1 vs SVK",
       "G 3-0 vs ISL",
@@ -2854,6 +3079,11 @@
       "E 2-2 vs POR"
     ],
     "HAI": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-1 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs BER",
       "G 3-1 vs GUY",
       "E 1-1 vs SKN",
@@ -2861,6 +3091,11 @@
       "G 4-0 vs VGB"
     ],
     "PAN": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs MSR",
       "G 3-0 vs NCA",
       "E 1-1 vs CRC",
@@ -2868,6 +3103,11 @@
       "G 4-0 vs DOM"
     ],
     "CUR": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs VIN",
       "G 3-0 vs LCA",
       "E 1-1 vs PUR",
@@ -2875,6 +3115,11 @@
       "G 4-0 vs BON"
     ],
     "CPV": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs STP",
       "G 3-0 vs LBR",
       "E 1-1 vs CGO",
@@ -2882,6 +3127,11 @@
       "G 4-0 vs MRI"
     ],
     "COD": [
+      "E 4-0 vs ARG",
+      "G 3-0 vs BRA",
+      "P 0-1 vs FRA",
+      "E 3-0 vs ENG",
+      "G 2-0 vs ESP",
       "G 2-0 vs SSD",
       "G 3-0 vs MAW",
       "E 1-1 vs CTA",
@@ -3181,81 +3431,81 @@
   },
   "weather": {
     "Estadio Azteca": {
-      "temp": 22.3,
-      "desc": "Tormenta",
-      "wind": 5.3,
-      "code": 95
+      "temp": 21.5,
+      "desc": "Llovizna ligera",
+      "wind": 3.2,
+      "code": 51
     },
     "Estadio Akron": {
       "temp": 24,
-      "desc": "Llovizna ligera",
-      "wind": 10.9,
-      "code": 51
+      "desc": "Nublado",
+      "wind": 10.6,
+      "code": 3
     },
     "SoFi Stadium": {
       "temp": 21.7,
       "desc": "Mayormente despejado",
-      "wind": 12,
+      "wind": 18.1,
       "code": 1
     },
     "BMO Field": {
-      "temp": 17.9,
-      "desc": "Nublado",
-      "wind": 5.2,
-      "code": 3
-    },
-    "Levi's Stadium": {
-      "temp": 18.9,
-      "desc": "Mayormente despejado",
-      "wind": 12.7,
-      "code": 1
-    },
-    "MetLife Stadium": {
-      "temp": 24.3,
+      "temp": 15.6,
       "desc": "Despejado",
-      "wind": 21.3,
+      "wind": 14.1,
       "code": 0
     },
-    "Gillette Stadium": {
-      "temp": 25.2,
+    "Levi's Stadium": {
+      "temp": 21.4,
+      "desc": "Despejado",
+      "wind": 17.6,
+      "code": 0
+    },
+    "MetLife Stadium": {
+      "temp": 23.3,
       "desc": "Mayormente despejado",
-      "wind": 14.2,
+      "wind": 22.1,
       "code": 1
     },
     "BC Place": {
-      "temp": 25.7,
+      "temp": 26.4,
       "desc": "Nublado",
-      "wind": 8.4,
+      "wind": 10.4,
+      "code": 3
+    },
+    "Gillette Stadium": {
+      "temp": 23,
+      "desc": "Nublado",
+      "wind": 14.9,
+      "code": 3
+    },
+    "NRG Stadium": {
+      "temp": 28,
+      "desc": "Nublado",
+      "wind": 4.3,
       "code": 3
     },
     "Lincoln Financial Field": {
-      "temp": 22.7,
-      "desc": "Despejado",
-      "wind": 16.8,
-      "code": 0
-    },
-    "NRG Stadium": {
-      "temp": 26.4,
-      "desc": "Llovizna densa",
-      "wind": 15,
-      "code": 55
-    },
-    "Estadio BBVA": {
-      "temp": 28.5,
+      "temp": 24,
       "desc": "Nublado",
-      "wind": 9.2,
+      "wind": 13.2,
       "code": 3
     },
     "AT&T Stadium": {
-      "temp": 25.9,
+      "temp": 27.8,
       "desc": "Parcialmente nublado",
-      "wind": 15.8,
+      "wind": 13.3,
       "code": 2
     },
+    "Estadio BBVA": {
+      "temp": 24.5,
+      "desc": "Llovizna ligera",
+      "wind": 5.5,
+      "code": 51
+    },
     "Lumen Field": {
-      "temp": 24.9,
+      "temp": 30.7,
       "desc": "Nublado",
-      "wind": 4.7,
+      "wind": 11.7,
       "code": 3
     }
   },
@@ -3263,5 +3513,329 @@
     "total": 12,
     "correct": 8,
     "pct": 0.6666666666666666
+  },
+  "injuries": {
+    "MEX": [
+      {
+        "player": "César Montes",
+        "issue": "Suspendido (tarjeta roja MD1)",
+        "status": "suspendido",
+        "return": "MD3"
+      },
+      {
+        "player": "Julián Quiñones",
+        "issue": "Golpe en tobillo",
+        "status": "duda",
+        "return": "MD2"
+      }
+    ],
+    "RSA": [
+      {
+        "player": "Sphephelo Sithole",
+        "issue": "Suspendido (tarjeta roja MD1)",
+        "status": "suspendido",
+        "return": "MD3"
+      },
+      {
+        "player": "Themba Zwane",
+        "issue": "Suspendido (tarjeta roja MD1)",
+        "status": "suspendido",
+        "return": "MD3"
+      }
+    ],
+    "KOR": [
+      {
+        "player": "Son Heung-min",
+        "issue": "Sobrecarga muscular",
+        "status": "duda",
+        "return": "MD2"
+      }
+    ],
+    "CZE": [],
+    "SUI": [],
+    "CAN": [],
+    "QAT": [],
+    "BIH": [],
+    "SCO": [],
+    "MAR": [],
+    "BRA": [
+      {
+        "player": "Neymar",
+        "issue": "Molestias en el muslo",
+        "status": "duda",
+        "return": "MD2"
+      }
+    ],
+    "HAI": [],
+    "USA": [],
+    "PAR": [],
+    "GER": [],
+    "CUR": [],
+    "CIV": [],
+    "ECU": [],
+    "SWE": [],
+    "JPN": [],
+    "NED": [],
+    "TUN": [],
+    "BEL": [],
+    "EGY": [
+      {
+        "player": "Mohamed Salah",
+        "issue": "Fatiga muscular",
+        "status": "probable",
+        "return": "MD2"
+      }
+    ],
+    "IRN": [],
+    "NZL": [],
+    "ESP": [],
+    "CPV": [],
+    "KSA": [],
+    "URU": [],
+    "FRA": [],
+    "SEN": [],
+    "IRQ": [],
+    "NOR": [
+      {
+        "player": "Erling Haaland",
+        "issue": "Contractura lumbar",
+        "status": "duda",
+        "return": "MD2"
+      }
+    ],
+    "ARG": [],
+    "ALG": [],
+    "AUT": [],
+    "JOR": [],
+    "POR": [
+      {
+        "player": "Cristiano Ronaldo",
+        "issue": "Descanso programado",
+        "status": "probable",
+        "return": "MD2"
+      }
+    ],
+    "COD": [],
+    "UZB": [],
+    "COL": [],
+    "ENG": [
+      {
+        "player": "John Stones",
+        "issue": "Lesión en el isquiotibial",
+        "status": "baja",
+        "return": "Fase de grupos"
+      }
+    ],
+    "CRO": [],
+    "GHA": [],
+    "PAN": []
+  },
+  "refereeAssignments": {
+    "MEX-RSA": {
+      "ref": "César Ramos (MEX)",
+      "cardsAvg": 3.8
+    },
+    "KOR-CZE": {
+      "ref": "Raphael Claus (BRA)",
+      "cardsAvg": 4.2
+    },
+    "CAN-BIH": {
+      "ref": "Mustapha Ghorbal (ALG)",
+      "cardsAvg": 3.5
+    },
+    "QAT-SUI": {
+      "ref": "Daniele Orsato (ITA)",
+      "cardsAvg": 4
+    },
+    "USA-PAR": {
+      "ref": "Szymon Marciniak (POL)",
+      "cardsAvg": 4.5
+    },
+    "BRA-MAR": {
+      "ref": "Anthony Taylor (ENG)",
+      "cardsAvg": 4.1
+    },
+    "HAI-SCO": {
+      "ref": "Jesús Valenzuela (VEN)",
+      "cardsAvg": 3.9
+    },
+    "AUS-TUR": {
+      "ref": "Mario Escobar (GUA)",
+      "cardsAvg": 4.3
+    },
+    "GER-CUR": {
+      "ref": "Clément Turpin (FRA)",
+      "cardsAvg": 3.7
+    },
+    "CIV-ECU": {
+      "ref": "Iván Barton (SLV)",
+      "cardsAvg": 4.4
+    },
+    "NED-JPN": {
+      "ref": "Wilton Sampaio (BRA)",
+      "cardsAvg": 4
+    },
+    "SWE-TUN": {
+      "ref": "Fernando Rapallini (ARG)",
+      "cardsAvg": 3.6
+    }
+  },
+  "teamTrends": {
+    "MEX": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0.5,
+      "avgGoalsScored": 2,
+      "avgGoalsConceded": 0
+    },
+    "RSA": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 2
+    },
+    "KOR": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 2,
+      "avgGoalsConceded": 1
+    },
+    "CZE": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 2
+    },
+    "SUI": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "CAN": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "QAT": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "BIH": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "USA": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 4,
+      "avgGoalsConceded": 1
+    },
+    "PAR": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 4
+    },
+    "BRA": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "MAR": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 1
+    },
+    "GER": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 7,
+      "avgGoalsConceded": 1
+    },
+    "CUR": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 7
+    },
+    "CIV": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 1,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 0
+    },
+    "ECU": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 1
+    },
+    "NED": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 2,
+      "avgGoalsConceded": 2
+    },
+    "JPN": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 2,
+      "avgGoalsConceded": 2
+    },
+    "SWE": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 5,
+      "avgGoalsConceded": 1
+    },
+    "TUN": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 5
+    },
+    "SCO": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 1,
+      "avgGoalsScored": 1,
+      "avgGoalsConceded": 0
+    },
+    "HAI": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 1
+    },
+    "AUS": {
+      "scoredStreak": 1,
+      "cleanSheetPct": 1,
+      "avgGoalsScored": 2,
+      "avgGoalsConceded": 0
+    },
+    "TUR": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 2
+    },
+    "BEL": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 0
+    },
+    "EGY": {
+      "scoredStreak": 0,
+      "cleanSheetPct": 0,
+      "avgGoalsScored": 0,
+      "avgGoalsConceded": 0
+    }
   }
 }

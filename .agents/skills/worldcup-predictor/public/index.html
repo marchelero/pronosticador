@@ -148,6 +148,12 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
       <div class="output" id="output">Seleccioná dos equipos y presioná <b>Predecir</b></div>
       <div id="team-compare" style="display:none;margin-top:10px"></div>
       <div id="key-players" style="display:none;margin-top:10px"></div>
+      <div id="scoreline-grid" style="display:none;margin-top:10px"></div>
+      <div id="goal-dist" style="display:none;margin-top:10px"></div>
+      <div id="value-analysis" style="display:none;margin-top:10px"></div>
+      <div id="match-simulation" style="display:none;margin-top:10px"></div>
+      <div id="momentum-visual" style="display:none;margin-top:10px"></div>
+      <div id="historical-trend" style="display:none;margin-top:10px"></div>
     </div>
 
     <!-- APUESTAS -->
@@ -157,6 +163,19 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
         <button class="strat-btn" data-strat="balanced">⚖️ Equilibrado</button>
         <button class="strat-btn" data-strat="aggressive">⚡ Agresivo</button>
       </div>
+      <details style="background:#0d1225;border:1px solid var(--border);border-radius:8px;padding:6px 8px;margin-bottom:10px;font-size:.6rem;color:var(--muted);line-height:1.6">
+        <summary style="cursor:pointer;color:var(--text);font-weight:600;font-size:.65rem">📖 Glosario rápido · click para expandir</summary>
+        <div style="margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:2px 12px">
+          <div><b>xG</b> — Goles esperados (Poisson + Dixon-Coles)</div>
+          <div><b>Over/Under</b> — ≥ ese número de goles</div>
+          <div><b>BTTS</b> — Ambos equipos anotan</div>
+          <div><b>1X / 12 / X2</b> — Doble oportunidad</div>
+          <div><b>HA -0.5</b> — Debe ganar; <b>+0.5</b> no debe perder</div>
+          <div><b>Valor</b> — (prob × cuota) − 1; + = hay valor</div>
+          <div><b>Cuota justa</b> — 1 ÷ prob. del modelo</div>
+          <div><b>Margen</b> — Sobreprecio de la casa</div>
+        </div>
+      </details>
 
       <div id="bet-summary" class="bet-summary"></div>
       <div id="bet-match-destacado" style="margin-bottom:12px"></div>
@@ -229,6 +248,24 @@ function pct(v){return (v*100).toFixed(1)+'%'}
 function bar(v,w){return '█'.repeat(Math.round(v*w))+'░'.repeat(Math.max(0,w-Math.round(v*w)))}
 function pd(s,n){return String(s).padEnd(n)}
 
+const FLAG_MAP = {
+  MEX:'MX',KOR:'KR',CZE:'CZ',RSA:'ZA',SUI:'CH',CAN:'CA',QAT:'QA',BIH:'BA',
+  SCO:'GB-SCT',MAR:'MA',BRA:'BR',HAI:'HT',USA:'US',AUS:'AU',TUR:'TR',PAR:'PY',
+  GER:'DE',CIV:'CI',ECU:'EC',CUR:'CW',SWE:'SE',JPN:'JP',NED:'NL',TUN:'TN',
+  BEL:'BE',EGY:'EG',IRN:'IR',NZL:'NZ',ESP:'ES',CPV:'CV',KSA:'SA',URU:'UY',
+  FRA:'FR',SEN:'SN',IRQ:'IQ',NOR:'NO',ARG:'AR',ALG:'DZ',AUT:'AT',JOR:'JO',
+  POR:'PT',COD:'CD',UZB:'UZ',COL:'CO',ENG:'GB-ENG',CRO:'HR',GHA:'GH',PAN:'PA'
+};
+function flagOf(code){
+  if(!code) return '🏳️';
+  const iso = FLAG_MAP[code] || code;
+  if(iso === 'GB-ENG') return '🏴󠁧󠁢󠁥󠁮󠁧󠁿';
+  if(iso === 'GB-SCT') return '🏴󠁧󠁢󠁳󠁣󠁴󠁿';
+  if(iso.length !== 2) return '🏳️';
+  const A = 0x1F1E6;
+  return String.fromCodePoint(A + (iso.charCodeAt(0) - 65)) + String.fromCodePoint(A + (iso.charCodeAt(1) - 65));
+}
+
 // ── Cargar equipos ──
 fetch('/api/teams').then(r=>r.json()).then(t=>{
   teams=t;
@@ -236,7 +273,7 @@ fetch('/api/teams').then(r=>r.json()).then(t=>{
   teams.forEach(tm=>{
     [$('home'),$('away')].forEach(sel=>{
       const o=document.createElement('option');
-      o.value=tm.code;o.textContent=tm.esName+(tm.isHost?' 🏠':'')+' (#'+tm.fifaRank+')';
+      o.value=tm.code;o.textContent=flagOf(tm.code)+' '+tm.esName+(tm.isHost?' 🏟️':'')+' (#'+tm.fifaRank+')';
       sel.appendChild(o);
     });
   });
@@ -340,7 +377,7 @@ function renderVisualPrediction(p,h,a){
   html+='<div style="background:#0d1225;border-radius:8px;padding:8px;margin-bottom:10px">'+
     '<div style="font-size:.55rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Marcadores más probables</div>';
   p.topScorelines.forEach(s=>{
-    const w=s.scoreline.home>s.scoreline.away?'🏠':s.scoreline.away>s.scoreline.home?'✈️':'🤝';
+    const w=s.scoreline.home>s.scoreline.away?flagOf(h):s.scoreline.away>s.scoreline.home?flagOf(a):'🤝';
     const wName=s.scoreline.home>s.scoreline.away?hn:s.scoreline.away>s.scoreline.home?an:'Empate';
     html+='<div style="display:flex;align-items:center;padding:3px 0;border-bottom:1px solid var(--border)">'+
       '<span style="font-size:.85rem;font-weight:700;min-width:40px">'+s.scoreline.home+'-'+s.scoreline.away+'</span>'+
@@ -383,12 +420,24 @@ $('predict').onclick=()=>{
   $('output').innerHTML='<span style="color:var(--muted)">🔮 Calculando predicción...</span>';
   $('team-compare').style.display='none';
   $('key-players').style.display='none';
+  $('scoreline-grid').style.display='none';
+  $('goal-dist').style.display='none';
+  $('value-analysis').style.display='none';
+  $('match-simulation').style.display='none';
+  $('momentum-visual').style.display='none';
+  $('historical-trend').style.display='none';
 
   fetch('/api/predict?home='+h+'&away='+a+'&format=json').then(r=>r.json()).then(p=>{
     renderVisualPrediction(p,h,a);
     renderTeamCompare(h,a);
     renderKeyPlayers(h,a);
     renderSimMatch(h,a);
+    renderScorelineGrid(p,h,a);
+    renderGoalDist(p,h,a);
+    renderValueAnalysis(p,h,a);
+    renderMatchSimulation(p,h,a);
+    renderMomentumVisual(p,h,a);
+    renderHistoricalTrend(h,a);
     // Enriched data
     fetch('/api/enriched?home='+h+'&away='+a).then(r=>r.json()).then(ed=>{
       renderEnriched(ed,h,a);
@@ -422,7 +471,7 @@ function renderTeamCompare(h,a){
     ['home','away'].map((side,i)=>{
       const t=i===0?ht:at, tm=i===0?ht.esName:at.esName;
       const color=i===0?'var(--accent)':'var(--gold)';
-      return '<div class="team-card"><div class="flag">'+(i===0?'🏠':'✈️')+'</div><div class="info">'+
+      return '<div class="team-card"><div class="flag" style="font-size:1.6rem">'+(i===0?flagOf(h):flagOf(a))+'</div><div class="info">'+
         '<div class="name">'+t.esName+'</div>'+
         '<div style="margin-top:6px">'+
         gauge(t.attackStrength,'Ataque',color)+
@@ -553,22 +602,8 @@ function renderEnriched(ed,h,a){
     html+='</div>';
   }
 
-  // Recent form
-  if(ed.homeForm&&ed.homeForm.length){
-    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
-      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Forma Reciente</div>'+
-      '<div style="font-size:.65rem"><strong>'+hn+':</strong></div>';
-    ed.homeForm.forEach(f=>{
-      const isG=f.startsWith('G');
-      html+='<div style="font-size:.65rem;padding:1px 0"><span style="color:'+(isG?'var(--green)':'var(--red)')+'">'+(isG?'▲':'△')+'</span> '+f+'</div>';
-    });
-    html+='<div style="font-size:.65rem;margin-top:4px"><strong>'+an+':</strong></div>';
-    ed.awayForm.forEach(f=>{
-      const isG=f.startsWith('G');
-      html+='<div style="font-size:.65rem;padding:1px 0"><span style="color:'+(isG?'var(--green)':'var(--red)')+'">'+(isG?'▲':'△')+'</span> '+f+'</div>';
-    });
-    html+='</div>';
-  }
+  // Recent form (merged into Momentum below — 10 partidos)
+
 
   // Squad
   if(ed.homeSquad&&ed.homeSquad.value){
@@ -620,6 +655,87 @@ function renderEnriched(ed,h,a){
     html+=accHtml+'<div></div>';
   }
 
+  // Injuries
+  if(ed.homeInjuries&&ed.homeInjuries.length){
+    function injHtml(list,team,color){
+      if(!list||!list.length) return '';
+      return '<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+        '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">🩹 Lesiones / Sanciones</div>'+
+        '<div style="font-size:.65rem;margin-bottom:2px;color:'+color+'"><b>'+team+'</b></div>'+
+        list.map(i => '<div style="font-size:.65rem;padding:2px 0;border-bottom:1px solid var(--border)"><span style="color:'+(i.status==='baja'?'var(--red)':i.status==='suspendido'?'var(--orange)':i.status==='duda'?'var(--gold)':'var(--muted)')+'">●</span> '+i.player+' — '+i.issue+' <span style="color:var(--muted)">('+i.status+', vuelve: '+i.return+')</span></div>').join('')+
+        '</div>';
+    }
+    html+=injHtml(ed.homeInjuries,hn,'var(--accent)');
+    html+=injHtml(ed.awayInjuries,an,'var(--gold)');
+  }
+
+  // Cards
+  if(ed.homeCards){
+    const hc=ed.homeCards, ac=ed.awayCards;
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">🟨 Tarjetas en el Torneo</div>'+
+      '<div style="font-size:.65rem;color:var(--accent)"><b>'+hn+':</b> 🟨 '+hc.yellow+' · 🟥 '+hc.red+'</div>'+
+      '<div style="font-size:.65rem;color:var(--gold)"><b>'+an+':</b> 🟨 '+ac.yellow+' · 🟥 '+ac.red+'</div>'+
+      '</div>';
+  }
+
+  // Referee
+  if(ed.referee){
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">👨‍⚖️ Árbitro</div>'+
+      '<div style="font-size:.7rem;font-weight:600">'+ed.referee.ref+'</div>'+
+      '<div style="font-size:.6rem;color:var(--muted)">Promedio tarjetas: '+ed.referee.cardsAvg+' por partido</div>'+
+      '</div>';
+  }
+
+  // Team trends
+  if(ed.homeTrends){
+    const ht2=ed.homeTrends, at2=ed.awayTrends;
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">📈 Tendencia (Fecha 1)</div>'+
+      '<div style="font-size:.6rem;color:var(--accent)"><b>'+hn+'</b> · GF '+ht2.avgGoalsScored.toFixed(1)+' · GC '+ht2.avgGoalsConceded.toFixed(1)+' · '+(ht2.cleanSheetPct>0?'PCA '+Math.round(ht2.cleanSheetPct*100)+'%':'')+'</div>'+
+      '<div style="font-size:.6rem;color:var(--gold)"><b>'+an+'</b> · GF '+at2.avgGoalsScored.toFixed(1)+' · GC '+at2.avgGoalsConceded.toFixed(1)+' · '+(at2.cleanSheetPct>0?'PCA '+Math.round(at2.cleanSheetPct*100)+'%':'')+'</div>'+
+      '</div>';
+  }
+
+  // Asian Handicap
+  if(ed.asianHandicap){
+    const ah=ed.asianHandicap;
+    const homeMinus05Odd = ah.homeMinus05 > 0 ? (1/ah.homeMinus05).toFixed(2) : '-';
+    const awayMinus05Odd = ah.awayMinus05 > 0 ? (1/ah.awayMinus05).toFixed(2) : '-';
+    html+='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border)">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">🎲 Handicap Asiático</div>'+
+      '<div style="font-size:.65rem;display:flex;justify-content:space-between;padding:2px 0">'+
+      '<span>'+hn+' -0.5</span><span style="font-weight:600;color:var(--accent)">'+(ah.homeMinus05*100).toFixed(0)+'%</span><span style="color:var(--muted)">@'+homeMinus05Odd+'</span></div>'+
+      '<div style="font-size:.65rem;display:flex;justify-content:space-between;padding:2px 0">'+
+      '<span>'+hn+' -1</span><span style="font-weight:600;color:var(--accent)">'+(ah.homeMinus1*100).toFixed(0)+'%</span><span style="color:var(--muted)">'+(ah.homeMinus1>0?'@'+(1/ah.homeMinus1).toFixed(2):'')+'</span></div>'+
+      '<div style="font-size:.65rem;display:flex;justify-content:space-between;padding:2px 0">'+
+      '<span>'+hn+' +0.5</span><span style="font-weight:600;color:var(--gold)">'+(ah.homePlus05*100).toFixed(0)+'%</span><span style="color:var(--muted)">'+(ah.homePlus05>0?'@'+(1/ah.homePlus05).toFixed(2):'')+'</span></div>'+
+      '<div style="font-size:.65rem;display:flex;justify-content:space-between;padding:2px 0">'+
+      '<span>'+an+' -0.5</span><span style="font-weight:600;color:var(--gold)">'+(ah.awayMinus05*100).toFixed(0)+'%</span><span style="color:var(--muted)">@'+awayMinus05Odd+'</span></div>'+
+      '</div>';
+  }
+
+  // Exact goals
+  if(ed.exactGoals){
+    let egHtml='<div style="background:#0d1225;padding:8px;border-radius:6px;border:1px solid var(--border);grid-column:1/-1">'+
+      '<div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">⚽ Goles Exactos en el Partido</div>'+
+      '<div style="display:flex;gap:2px;margin-bottom:4px">';
+    const maxEg = Math.max(...ed.exactGoals.map(g => g.probability), 0.01);
+    ed.exactGoals.forEach(g => {
+      const pct = g.probability*100;
+      const h = Math.max(3, (g.probability/maxEg)*35);
+      egHtml += '<div style="flex:1;text-align:center">'+
+        '<div style="height:38px;display:flex;align-items:flex-end;justify-content:center">'+
+          '<div style="height:'+h+'px;width:100%;background:'+(g.goals>3?'var(--orange)':g.goals>1?'var(--accent)':'var(--border)')+';border-radius:3px"></div>'+
+        '</div>'+
+        '<div style="font-size:.55rem;font-weight:600;margin-top:2px">'+pct.toFixed(0)+'%</div>'+
+        '<div style="font-size:.45rem;color:var(--muted)">'+g.goals+' gol'+(g.goals!==1?'es':'')+'</div></div>';
+    });
+    egHtml += '</div></div>';
+    html += egHtml;
+  }
+
   html+='</div>';
   el.innerHTML=html;
   $('team-compare').parentNode.appendChild(el);
@@ -656,6 +772,222 @@ function renderStandings(d){
     html+='</table>';
   });
   el.innerHTML=html;
+}
+
+// ── Scoreline Grid ──
+function renderScorelineGrid(p,h,a){
+  const sc = p.extendedScorelines;
+  if(!sc||!sc.length) return;
+  const el = $('scoreline-grid'); el.style.display='block';
+  const ht=teams.find(t=>t.code===h), at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+  const barW = 180;
+  let html='<div class="card"><div class="card-title">🧩 Distribución de Marcadores (top 15)</div>'+
+    '<div style="font-size:.65rem;color:var(--muted);margin-bottom:6px">Cada resultado posible con su probabilidad según modelo Poisson + Dixon-Coles</div>'+
+    '<table style="width:100%;border-collapse:collapse;font-size:.72rem">'+
+    '<tr style="color:var(--muted);border-bottom:1px solid var(--border)"><td style="padding:3px 6px">Marcador</td><td style="padding:3px 6px;text-align:center">Prob</td><td style="padding:3px 6px">Barra</td><td style="padding:3px 6px;text-align:right">Cuota Justa</td><td style="padding:3px 6px;text-align:center">Tendencia</td></tr>';
+  sc.forEach(s => {
+    const th = s.scoreline.home, ta = s.scoreline.away;
+    const pct = (s.probability*100).toFixed(1);
+    const fairOdds = s.probability > 0 ? (1/s.probability).toFixed(2) : '-';
+    const bar = Math.round(s.probability * barW);
+    const isHome = th > ta, isDraw = th === ta, isAway = ta > th;
+    const color = isHome ? 'var(--accent)' : isDraw ? 'var(--gold)' : 'var(--orange)';
+    const icon = isHome ? flagOf(h) : isDraw ? '🤝' : flagOf(a);
+    const label = isHome ? hn : isDraw ? 'Empate' : an;
+    html += '<tr style="border-bottom:1px solid var(--border)"><td style="padding:3px 6px;font-weight:600">'+th+'-'+ta+' '+icon+'</td>'+
+      '<td style="padding:3px 6px;text-align:center;font-weight:700">'+pct+'%</td>'+
+      '<td style="padding:3px 6px"><div style="height:14px;background:var(--border);border-radius:3px;overflow:hidden;width:'+barW+'px"><div style="height:100%;width:'+bar+'px;background:'+color+';border-radius:3px"></div></div></td>'+
+      '<td style="padding:3px 6px;text-align:right;color:var(--gold)">'+fairOdds+'</td>'+
+      '<td style="padding:3px 6px;text-align:center;font-size:.6rem;color:var(--muted)">'+label+'</td></tr>';
+  });
+  html += '</table></div>';
+  el.innerHTML = html;
+}
+
+// ── Goal Distribution Poisson ──
+function renderGoalDist(p,h,a){
+  const hd = p.homeGoalsDist, ad = p.awayGoalsDist;
+  if(!hd||!ad) return;
+  const el = $('goal-dist'); el.style.display='block';
+  const ht=teams.find(t=>t.code===h), at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+  const barW=120;
+  function teamDist(d,team,color){
+    let h='<div style="background:#0d1225;border-radius:8px;padding:8px;border:1px solid var(--border)">'+
+      '<div style="font-size:.65rem;font-weight:600;color:'+color+';margin-bottom:4px">'+team+'</div>'+
+      '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center">';
+    d.forEach(g => {
+      const bp = Math.max(4, Math.round(g.probability * barW));
+      h += '<div><div style="font-size:.5rem;color:var(--muted)">'+g.goals+' gol'+(g.goals!==1?'es':'')+'</div>'+
+        '<div style="height:40px;background:var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column-reverse;margin:2px 0">'+
+        '<div style="height:'+bp+'px;background:'+color+';border-radius:4px;transition:height .3s"></div></div>'+
+        '<div style="font-size:.6rem;font-weight:600">'+(g.probability*100).toFixed(0)+'%</div></div>';
+    });
+    h += '</div></div>';
+    return h;
+  }
+  let html='<div class="card"><div class="card-title">📊 Distribución Poisson de Goles Esperados (xG)</div>'+
+    '<div style="font-size:.65rem;color:var(--muted);margin-bottom:6px">Probabilidad de que cada equipo anote exactamente N goles según el modelo</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+
+    teamDist(hd,hn,'var(--accent)')+teamDist(ad,an,'var(--gold)')+'</div></div>';
+  el.innerHTML = html;
+}
+
+// ── Value Analysis ──
+function renderValueAnalysis(p,h,a){
+  const va = p.valueAnalysis;
+  if(!va || !va.length) return;
+  const el = $('value-analysis'); el.style.display='block';
+  let html = '<div class="card"><div class="card-title">🧮 Calculadora de Valor</div>'+
+    '<div style="font-size:.6rem;color:var(--muted);margin-bottom:6px">Comparación entre la probabilidad del modelo, la cuota justa, la cuota de mercado simulada y el valor esperado (EV)</div>'+
+    '<table style="width:100%;border-collapse:collapse;font-size:.7rem">'+
+    '<tr style="color:var(--muted);border-bottom:1px solid var(--border)">'+
+    '<td style="padding:4px 6px">Resultado</td><td style="padding:4px 6px;text-align:center">Modelo</td><td style="padding:4px 6px;text-align:center">Cuota Justa</td>'+
+    '<td style="padding:4px 6px;text-align:center">Cuota Mercado</td><td style="padding:4px 6px;text-align:center">EV</td><td style="padding:4px 6px;text-align:center">Kelly</td><td style="padding:4px 6px;text-align:center">Señal</td></tr>';
+  va.forEach(o => {
+    const evCls = o.ev > 0.05 ? 'var(--green)' : o.ev > 0 ? 'var(--orange)' : 'var(--red)';
+    const kPct = o.kellyPct * 100;
+    html += '<tr style="border-bottom:1px solid var(--border)"><td style="padding:4px 6px;font-weight:600">'+
+      (o.outcome==='1'?'🏠 '+o.label:o.outcome==='X'?'🤝 '+o.label:'✈️ '+o.label)+'</td>'+
+      '<td style="padding:4px 6px;text-align:center">'+(o.modelProb*100).toFixed(0)+'%</td>'+
+      '<td style="padding:4px 6px;text-align:center;color:var(--accent);font-weight:600">'+o.fairOdds.toFixed(2)+'</td>'+
+      '<td style="padding:4px 6px;text-align:center;color:var(--gold)">'+o.marketOdds.toFixed(2)+'</td>'+
+      '<td style="padding:4px 6px;text-align:center;color:'+evCls+';font-weight:700">'+(o.ev*100).toFixed(1)+'%</td>'+
+      '<td style="padding:4px 6px;text-align:center;color:var(--muted)">'+(kPct > 0 ? kPct.toFixed(1)+'%' : '-')+'</td>'+
+      '<td style="padding:4px 6px;text-align:center;font-weight:600;font-size:.65rem">'+o.signal+'</td></tr>';
+  });
+  html += '</table>'+
+    '<div style="font-size:.55rem;color:var(--muted);margin-top:6px;padding:4px 6px;background:#080c18;border-radius:4px">'+
+    '<b>EV</b> = Valor Esperado · Si es positivo, estadísticamente ganarías dinero apostando a este resultado a largo plazo. '+
+    '<b>Kelly</b> = Porcentaje del bankroll recomendado según criterio Kelly. '+
+    '<b>Cuota mercado</b> es simulada con margen realista (~'+(va[0] ? ((1/va[0].marketOdds + 1/va[1].marketOdds + 1/va[2].marketOdds - 1)*100).toFixed(1) : '8')+'%).</div></div>';
+  el.innerHTML = html;
+}
+
+// ── Match Simulation (Monte Carlo) ──
+function renderMatchSimulation(p,h,a){
+  const ms = p.matchSimulation;
+  if(!ms || !ms.simulations) return;
+  const el = $('match-simulation'); el.style.display='block';
+  const ht=teams.find(t=>t.code===h), at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+  const barW=120;
+  let html = '<div class="card"><div class="card-title">🎲 Simulación del Partido (Monte Carlo)</div>'+
+    '<div style="font-size:.6rem;color:var(--muted);margin-bottom:6px">'+
+    ms.simulations.toLocaleString()+' simulaciones del partido usando el modelo Poisson + Dixon-Coles</div>'+
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px">'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">Goles Prom.</div><div style="font-size:.85rem;font-weight:700;color:var(--text)">'+ms.avgTotalGoals.toFixed(2)+'</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">'+hn+'</div><div style="font-size:.85rem;font-weight:700;color:var(--accent)">'+ms.avgHomeGoals.toFixed(2)+'</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">'+an+'</div><div style="font-size:.85rem;font-weight:700;color:var(--gold)">'+ms.avgAwayGoals.toFixed(2)+'</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">Más común</div><div style="font-size:.85rem;font-weight:700">'+(ms.mostCommonScore ? ms.mostCommonScore.scoreline.replace('-','-') : '-')+'</div></div>'+
+    '</div>'+
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px">'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">Local</div><div style="font-size:.8rem;font-weight:700;color:var(--accent)">'+(ms.homeWinPct*100).toFixed(1)+'%</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">Empate</div><div style="font-size:.8rem;font-weight:700;color:var(--gold)">'+(ms.drawPct*100).toFixed(1)+'%</div></div>'+
+    '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center"><div style="font-size:.5rem;color:var(--muted)">Visitante</div><div style="font-size:.8rem;font-weight:700;color:var(--gold)">'+(ms.awayWinPct*100).toFixed(1)+'%</div></div>'+
+    '</div>'+
+    '<div style="font-size:.6rem;color:var(--muted);margin-bottom:4px">Marcadores más frecuentes en la simulación:</div>'+
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px">';
+  (ms.topScorelines||[]).forEach(s => {
+    const parts = s.scoreline.split('-');
+    const hg = parseInt(parts[0]), ag = parseInt(parts[1]);
+    const icon = hg > ag ? flagOf(h) : ag > hg ? flagOf(a) : '🤝';
+    html += '<div style="background:#0d1225;border-radius:6px;padding:6px;text-align:center;border:1px solid var(--border)">'+
+      '<div style="font-size:.85rem;font-weight:700">'+icon+' '+s.scoreline+'</div>'+
+      '<div style="height:4px;background:var(--border);border-radius:2px;margin:4px 0;overflow:hidden">'+
+      '<div style="height:100%;width:'+(s.probability*100)+'%;background:var(--accent);border-radius:2px"></div></div>'+
+      '<div style="font-size:.6rem;color:var(--muted)">'+(s.probability*100).toFixed(1)+'%</div></div>';
+  });
+  html += '</div></div>';
+  el.innerHTML = html;
+}
+
+// ── Momentum & Forma Reciente (10 partidos) ──
+function renderMomentumVisual(p,h,a){
+  const mo = p.momentum;
+  if(!mo || !mo.home) return;
+  const el = $('momentum-visual'); el.style.display='block';
+  const ht=teams.find(t=>t.code===h), at=teams.find(t=>t.code===a);
+  const hn=ht?.esName||h, an=at?.esName||a;
+  const esNames = {};
+  teams.forEach(t => { esNames[t.code] = t.esName; });
+  function trendArrow(form){
+    if(form.length<2) return '';
+    const last3 = form.slice(-3);
+    const wins = last3.filter(r=>r.result==='W').length;
+    return wins >= 2 ? '📈' : wins >= 1 ? '➡️' : '📉';
+  }
+  function teamBlock(team, color, form, teamCode){
+    const wins = form.filter(r=>r.result==='W').length;
+    const draws = form.filter(r=>r.result==='D').length;
+    const losses = form.filter(r=>r.result==='L').length;
+    const pct = form.length ? Math.round(wins/form.length*100) : 0;
+    let rows = '';
+    form.forEach((r, idx) => {
+      const oppCode = r.opp || '???';
+      const oppName = esNames[oppCode] || oppCode;
+      const oppFlag = flagOf(oppCode);
+      const bg = idx < 5 ? 'background:#0a0f1d' : 'background:#0d1225';
+      const ageLabel = idx < 5 ? 'reciente' : 'anterior';
+      const ageColor = idx < 5 ? 'var(--muted)' : '#3d4a5c';
+      rows += '<div style="display:flex;align-items:center;padding:3px 6px;'+bg+';border-radius:3px;margin-bottom:2px;font-size:.65rem">'+
+        '<span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:'+r.color+';text-align:center;line-height:16px;font-size:.55rem;font-weight:700;color:#000;flex-shrink:0;margin-right:6px">'+(r.result==='W'?'G':r.result==='D'?'E':'P')+'</span>'+
+        '<span style="font-size:.9rem;margin-right:4px;flex-shrink:0">'+oppFlag+'</span>'+
+        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">vs '+oppName+'</span>'+
+        '<span style="font-weight:700;color:'+r.color+';margin:0 6px;flex-shrink:0">'+r.score+'</span>'+
+        '<span style="font-size:.45rem;color:'+ageColor+';flex-shrink:0">'+ageLabel+'</span>'+
+        '</div>';
+    });
+    return '<div style="background:#080c18;border-radius:8px;padding:8px;border:1px solid var(--border)">'+
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">'+
+        '<div style="font-size:.7rem;font-weight:600;color:'+color+'">'+flagOf(teamCode)+' '+team+' '+trendArrow(form)+'</div>'+
+        '<div style="font-size:.55rem;color:var(--muted)">'+wins+'G · '+draws+'E · '+losses+'P · '+pct+'%</div>'+
+      '</div>'+rows+'</div>';
+  }
+  let html = '<div class="card"><div class="card-title">📈 Momentum · Últimos 10 partidos</div>'+
+    '<div style="font-size:.6rem;color:var(--muted);margin-bottom:6px">5 más recientes arriba, 5 más antiguos abajo · G=Ganado E=Empatado P=Perdido</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+
+    teamBlock(hn,'var(--accent)',mo.home.form,h)+
+    teamBlock(an,'var(--gold)',mo.away.form,a)+
+    '</div></div>';
+  el.innerHTML = html;
+}
+
+// ── Historical Trend ──
+function renderHistoricalTrend(h,a){
+  const el = $('historical-trend'); el.style.display='block';
+  const ht=teams.find(t=>t.code===h), at=teams.find(t=>t.code===a);
+  if(!ht||!at) return;
+  const groups = new Set([ht.groupCode, at.groupCode]);
+  fetch('/api/stats').then(r=>r.json()).then(st => {
+    const md = st.matchDetails||{};
+    const completed = Object.values(md).filter(m => {
+      const mh = typeof m.homeTeam==='object'?m.homeTeam.code:m.homeTeam;
+      const ma = typeof m.awayTeam==='object'?m.awayTeam.code:m.awayTeam;
+      const hTeam = teams.find(t=>t.code===mh);
+      const aTeam = teams.find(t=>t.code===ma);
+      return hTeam && aTeam && groups.has(hTeam.groupCode) && groups.has(aTeam.groupCode) && m.score;
+    });
+    if(!completed.length){ el.innerHTML=''; el.style.display='none'; return; }
+    let html='<div class="card"><div class="card-title">📋 Resultados de Fecha 1 en el Grupo</div>'+
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px">';
+    completed.forEach(m => {
+      const hName = typeof m.homeTeam==='object'?m.homeTeam.name:m.homeTeam;
+      const aName = typeof m.awayTeam==='object'?m.awayTeam.name:m.awayTeam;
+      const sc = m.score;
+      const hWon = sc.home > sc.away, aWon = sc.away > sc.home, drw = sc.home === sc.away;
+      const cls = hWon ? 'color:var(--green)' : aWon ? 'color:var(--red)' : 'color:var(--gold)';
+      html += '<div style="background:#0d1225;border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center">'+
+        '<div style="font-size:.6rem;color:var(--muted)">'+hName+' vs '+aName+'</div>'+
+        '<div style="font-size:1.5rem;font-weight:800;'+cls+'">'+sc.home+' - '+sc.away+'</div>'+
+        '<div style="font-size:.6rem;color:var(--muted)">'+
+        (sc.home>0?'<span style="color:var(--text)">'+sc.home+' gol'+(sc.home>1?'es':'')+' de '+hName+'</span> · ':'')+
+        (sc.away>0?'<span style="color:var(--text)">'+sc.away+' gol'+(sc.away>1?'es':'')+' de '+aName+'</span>':'')+'</div></div>';
+    });
+    html += '</div></div>';
+    el.innerHTML = html;
+  }).catch(()=>{ el.style.display='none'; });
 }
 
 // ── Schedule ──
@@ -695,7 +1027,7 @@ function loadBetting(strat){
 function buildBetCardHtml(m, sel, tags){
   if(!sel) return '';
   const pickSet = new Set(sel.label310);
-  const labels = {'3':'1 (Local)','1':'X (Empate)','0':'2 (Visitante)'};
+  const labels = {'3':flagOf(m.homeCode)+' 1 (Local)','1':'🤝 X (Empate)','0':flagOf(m.awayCode)+' 2 (Visitante)'};
   const pLetters = {'3':'1','1':'X','0':'2'};
   const pKey = {'3':'homeWin90Prob','1':'draw90Prob','0':'awayWin90Prob'};
   const oKey = {'3':'homeOdds','1':'drawOdds','0':'awayOdds'};
@@ -710,21 +1042,144 @@ function buildBetCardHtml(m, sel, tags){
       '<div class="od">@ '+od.toFixed(2)+' <span style="color:var(--muted)">(justa '+m.market[fKey[k]].toFixed(2)+')</span></div>'+
       '<div class="vl '+cls+'">valor '+txt+'</div></div>';
   };
-  const ex = (l, v) => '<div class="bet-extra-cell"><div class="l">'+l+'</div><div class="v">'+v+'</div></div>';
   const tgs = (tags||[]).map(t=>'<span class="bet-banker-tag">'+t+'</span>').join('');
   const conf = (sel.confidenceScore*100).toFixed(0);
+
+  // Doble Oportunidad
+  const hw = m.homeWin90Prob, dw = m.draw90Prob, aw = m.awayWin90Prob;
+  const dc1X = hw + dw; const dc12 = hw + aw; const dcX2 = dw + aw;
+  const dc1X_sug = dc1X > 0.65 ? '✅' : dc1X > 0.55 ? '⚠️' : '';
+  const dc12_sug = dc12 > 0.72 ? '✅' : dc12 > 0.62 ? '⚠️' : '';
+  const dcX2_sug = dcX2 > 0.65 ? '✅' : dcX2 > 0.55 ? '⚠️' : '';
+
+  // Over/Under suggestions
+  const ov15_sug = m.over15 > 0.65 ? 'Sí ✅' : m.over15 < 0.40 ? 'No ❌' : '~';
+  const ov25_sug = m.over25 > 0.55 ? 'Sí ✅' : m.over25 < 0.40 ? 'No ❌' : '~';
+  const ov35_sug = m.over35 > 0.35 ? 'Sí ✅' : m.over35 < 0.20 ? 'No ❌' : '~';
+  const bt_sug = m.btts > 0.55 ? 'Sí ✅' : m.btts < 0.40 ? 'No ❌' : '~';
+
   return '<div class="bet-match">'+
     '<div class="bet-match-head"><div class="bet-match-title">'+m.homeTeam+' <span style="color:var(--muted)">vs</span> '+m.awayTeam+tgs+'</div>'+
     '<div class="bet-match-meta">Grupo '+m.groupCode+' · '+m.round+' · '+(m.venueCountryCode||'')+
     ' · <span class="bet-risk-'+sel.riskTag+'">'+sel.riskTag.toUpperCase()+'</span> · conf '+conf+'%</div></div>'+
     '<div class="bet-pick">'+cell('3')+cell('1')+cell('0')+'</div>'+
-    '<div class="bet-extra">'+
-    ex('xG Local',m.expectedGoalsHome.toFixed(2))+ex('xG Visit',m.expectedGoalsAway.toFixed(2))+
-    ex('Total xG',m.totalXG.toFixed(2))+ex('Over 2.5',(m.over25*100).toFixed(0)+'%')+
-    ex('Over 1.5',(m.over15*100).toFixed(0)+'%')+ex('Over 3.5',(m.over35*100).toFixed(0)+'%')+
-    ex('BTTS',(m.btts*100).toFixed(0)+'%')+ex('Margen',m.market.margin+'%')+
+
+    // Goles Esperados (xG)
+    '<div style="background:#080c18;border:1px solid var(--border);border-radius:8px;padding:8px;margin-top:6px">'+
+    '<div style="font-size:.5rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">⚽ Goles Esperados (xG)</div>'+
+    '<div style="display:flex;gap:8px;align-items:center">'+
+    '<div style="flex:1;text-align:center"><div style="font-size:.55rem;color:var(--accent);font-weight:600">'+m.homeTeam+'</div><div style="font-size:1.1rem;font-weight:700;color:var(--accent)">'+m.expectedGoalsHome.toFixed(2)+'</div></div>'+
+    '<div style="text-align:center;font-size:.6rem;color:var(--muted)">vs</div>'+
+    '<div style="flex:1;text-align:center"><div style="font-size:.55rem;color:var(--gold);font-weight:600">'+m.awayTeam+'</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">'+m.expectedGoalsAway.toFixed(2)+'</div></div>'+
     '</div>'+
-    '<div class="bet-reason">📌 Pick: <b style="color:var(--accent)">'+sel.selection.split('').map(c=>pLetters[c]).join('+')+'</b> · '+sel.reason+'</div></div>';
+    '<div style="height:4px;background:var(--border);border-radius:2px;margin:4px 0;overflow:hidden;display:flex">'+
+    '<div style="height:100%;width:'+(m.expectedGoalsHome/m.totalXG*100)+'%;background:var(--accent)"></div>'+
+    '<div style="height:100%;width:'+(m.expectedGoalsAway/m.totalXG*100)+'%;background:var(--gold)"></div></div>'+
+    '<div style="text-align:center;font-size:.55rem;color:var(--muted)">Total xG: <b style="color:var(--text)">'+m.totalXG.toFixed(2)+'</b> · Media torneo: 2.64</div></div>'+
+
+    // Over/Under + BTTS
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:6px">'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.45rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px">Over 1.5</div>'+
+    '<div style="font-size:.95rem;font-weight:700;margin:1px 0">'+(m.over15*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.55rem;font-weight:600;padding:1px 4px;border-radius:6px;display:inline-block;background:'+(m.over15>0.65?'rgba(11,232,129,.15)':m.over15<0.40?'rgba(255,107,107,.15)':'rgba(87,101,116,.15)')+';color:'+(m.over15>0.65?'var(--green)':m.over15<0.40?'var(--red)':'var(--muted)')+'">'+ov15_sug+'</div></div>'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.45rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px">Over 2.5</div>'+
+    '<div style="font-size:.95rem;font-weight:700;margin:1px 0">'+(m.over25*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.55rem;font-weight:600;padding:1px 4px;border-radius:6px;display:inline-block;background:'+(m.over25>0.55?'rgba(11,232,129,.15)':m.over25<0.40?'rgba(255,107,107,.15)':'rgba(87,101,116,.15)')+';color:'+(m.over25>0.55?'var(--green)':m.over25<0.40?'var(--red)':'var(--muted)')+'">'+ov25_sug+'</div></div>'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.45rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px">Over 3.5</div>'+
+    '<div style="font-size:.95rem;font-weight:700;margin:1px 0">'+(m.over35*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.55rem;font-weight:600;padding:1px 4px;border-radius:6px;display:inline-block;background:'+(m.over35>0.35?'rgba(11,232,129,.15)':m.over35<0.20?'rgba(255,107,107,.15)':'rgba(87,101,116,.15)')+';color:'+(m.over35>0.35?'var(--green)':m.over35<0.20?'var(--red)':'var(--muted)')+'">'+ov35_sug+'</div></div>'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.45rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px">BTTS</div>'+
+    '<div style="font-size:.95rem;font-weight:700;margin:1px 0">'+(m.btts*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.55rem;font-weight:600;padding:1px 4px;border-radius:6px;display:inline-block;background:'+(m.btts>0.55?'rgba(11,232,129,.15)':m.btts<0.40?'rgba(255,107,107,.15)':'rgba(87,101,116,.15)')+';color:'+(m.btts>0.55?'var(--green)':m.btts<0.40?'var(--red)':'var(--muted)')+'">'+bt_sug+'</div></div>'+
+    '</div>'+
+
+    // Doble Oportunidad
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px">'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.5rem;color:var(--accent);font-weight:600">1X '+(m.market?((1/dc1X).toFixed(2)):'')+'</div>'+
+    '<div style="font-size:.95rem;font-weight:700;color:var(--accent)">'+(dc1X*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.5rem;color:var(--muted)">'+m.homeTeam+' o Empate</div>'+
+    '<div style="font-size:.55rem;font-weight:600;margin-top:2px">'+(dc1X > 0.65 ? '✅ Sólido' : dc1X > 0.55 ? '⚠️ Considerar' : '❌ Riesgoso')+'</div></div>'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.5rem;color:var(--gold);font-weight:600">12 '+(m.market?((1/dc12).toFixed(2)):'')+'</div>'+
+    '<div style="font-size:.95rem;font-weight:700;color:var(--gold)">'+(dc12*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.5rem;color:var(--muted)">No hay empate</div>'+
+    '<div style="font-size:.55rem;font-weight:600;margin-top:2px">'+(dc12 > 0.72 ? '✅ Sólido' : dc12 > 0.62 ? '⚠️ Considerar' : '❌ Riesgoso')+'</div></div>'+
+    '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+    '<div style="font-size:.5rem;color:var(--orange);font-weight:600">X2 '+(m.market?((1/dcX2).toFixed(2)):'')+'</div>'+
+    '<div style="font-size:.95rem;font-weight:700;color:var(--orange)">'+(dcX2*100).toFixed(0)+'%</div>'+
+    '<div style="font-size:.5rem;color:var(--muted)">Empate o '+m.awayTeam+'</div>'+
+    '<div style="font-size:.55rem;font-weight:600;margin-top:2px">'+(dcX2 > 0.65 ? '✅ Sólido' : dcX2 > 0.55 ? '⚠️ Considerar' : '❌ Riesgoso')+'</div></div>'+
+    '</div>'+
+
+    // Market comparison
+    (m.market ? '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px">'+
+      '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border);font-size:.6rem">'+
+      '<div style="color:var(--muted);font-size:.5rem;text-transform:uppercase;margin-bottom:2px">Cuota Justa</div>'+
+      '<span style="color:var(--accent);font-weight:700">'+(m.market.homeFair).toFixed(2)+'</span> · '+
+      '<span style="color:var(--gold);font-weight:700">'+(m.market.drawFair).toFixed(2)+'</span> · '+
+      '<span style="color:var(--orange);font-weight:700">'+(m.market.awayFair).toFixed(2)+'</span></div>'+
+      '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border);font-size:.6rem">'+
+      '<div style="color:var(--muted);font-size:.5rem;text-transform:uppercase;margin-bottom:2px">Cuota Mercado <span style="color:var(--muted)">· Margen '+m.market.margin+'%</span></div>'+
+      '<span style="color:var(--accent);font-weight:700">'+m.market.homeOdds.toFixed(2)+'</span> · '+
+      '<span style="color:var(--gold);font-weight:700">'+m.market.drawOdds.toFixed(2)+'</span> · '+
+      '<span style="color:var(--orange);font-weight:700">'+m.market.awayOdds.toFixed(2)+'</span></div>'+
+    '</div>' : '') +
+
+    // Asian Handicap
+    (m.asianHandicap ? '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px">'+
+      '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+        '<div style="font-size:.5rem;color:var(--accent);font-weight:600">'+m.homeTeam+' -0.5</div>'+
+        '<div style="font-size:.95rem;font-weight:700;color:var(--accent)">'+(m.asianHandicap.homeMinus05*100).toFixed(0)+'%</div>'+
+        '<div style="font-size:.55rem;color:var(--muted)">@ '+(m.asianHandicap.homeMinus05>0?(1/m.asianHandicap.homeMinus05).toFixed(2):'-')+'</div>'+
+        '<div style="font-size:.5rem;color:var(--muted);margin-top:2px">Debe ganar</div></div>'+
+      '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+        '<div style="font-size:.5rem;color:var(--gold);font-weight:600">'+m.homeTeam+' +0.5</div>'+
+        '<div style="font-size:.95rem;font-weight:700;color:var(--gold)">'+(m.asianHandicap.homePlus05*100).toFixed(0)+'%</div>'+
+        '<div style="font-size:.55rem;color:var(--muted)">@ '+(m.asianHandicap.homePlus05>0?(1/m.asianHandicap.homePlus05).toFixed(2):'-')+'</div>'+
+        '<div style="font-size:.5rem;color:var(--muted);margin-top:2px">No debe perder</div></div>'+
+      '<div style="background:#080c18;border-radius:6px;padding:6px 4px;text-align:center;border:1px solid var(--border)">'+
+        '<div style="font-size:.5rem;color:var(--orange);font-weight:600">'+m.awayTeam+' -0.5</div>'+
+        '<div style="font-size:.95rem;font-weight:700;color:var(--orange)">'+(m.asianHandicap.awayMinus05*100).toFixed(0)+'%</div>'+
+        '<div style="font-size:.55rem;color:var(--muted)">@ '+(m.asianHandicap.awayMinus05>0?(1/m.asianHandicap.awayMinus05).toFixed(2):'-')+'</div>'+
+        '<div style="font-size:.5rem;color:var(--muted);margin-top:2px">Debe ganar</div></div>'+
+    '</div>' : '') +
+
+    // Exact goals mini-bars (cells use fixed-height bar area, text below)
+    (m.exactGoals ? '<div style="margin-top:6px;display:flex;gap:2px">'+
+      (() => { const maxEg = Math.max(...m.exactGoals.map(g=>g.probability), 0.01);
+        return m.exactGoals.slice(0,5).map(g => {
+          const h = Math.max(2, (g.probability/maxEg)*26);
+          const col = (g.goals>2?'var(--orange)':g.goals>0?'var(--accent)':'var(--border)');
+          return '<div style="flex:1;text-align:center">'+
+            '<div style="height:26px;display:flex;align-items:flex-end;justify-content:center">'+
+              '<div style="height:'+h+'px;background:'+col+';border-radius:2px;width:100%"></div>'+
+            '</div>'+
+            '<div style="font-size:.5rem;font-weight:600;margin-top:1px">'+(g.probability*100).toFixed(0)+'%</div>'+
+            '<div style="font-size:.4rem;color:var(--muted)">'+g.goals+'g</div>'+
+          '</div>';
+        }).join('');
+      })() +
+    '</div>' : '') +
+
+    '<div class="bet-reason">📌 Pick: <b style="color:var(--accent)">'+sel.selection.split('').map(c=>pLetters[c]).join('+')+'</b> · '+sel.reason+'</div>'+
+
+    // Scoreline mini-grid
+    (m.extendedScorelines ? '<div style="margin-top:6px;font-size:.6rem;color:var(--muted)">🔽 Marcadores probables: '+
+      m.extendedScorelines.slice(0, 8).map(s => {
+        const th=s.scoreline.home, ta=s.scoreline.away;
+        const icon = th>ta ? flagOf(m.homeCode) : ta>th ? flagOf(m.awayCode) : '🤝';
+        return icon + ' ' + th + '-' + ta + ' ' + (s.probability*100).toFixed(1) + '%';
+      }).join(' · ') + '</div>' : '') +
+    (m.homeGoalsDist ? '<div style="margin-top:4px;display:flex;gap:6px;font-size:.55rem">'+
+      '<div style="flex:1">⚽ <b style="color:var(--accent)">'+(m.homeGoalsDist.find(d=>d.goals===0)?(m.homeGoalsDist.find(d=>d.goals===0).probability*100).toFixed(0):'?')+'%</b> 0g · <b style="color:var(--accent)">'+(m.homeGoalsDist.find(d=>d.goals===1)?(m.homeGoalsDist.find(d=>d.goals===1).probability*100).toFixed(0):'?')+'%</b> 1g · <b style="color:var(--accent)">'+(m.homeGoalsDist.find(d=>d.goals===2)?(m.homeGoalsDist.find(d=>d.goals===2).probability*100).toFixed(0):'?')+'%</b> 2g+ · '+m.homeTeam+'</div>'+
+      '<div style="flex:1;text-align:right">'+m.awayTeam+' · <b style="color:var(--gold)">'+(m.awayGoalsDist.find(d=>d.goals===0)?(m.awayGoalsDist.find(d=>d.goals===0).probability*100).toFixed(0):'?')+'%</b> 0g · <b style="color:var(--gold)">'+(m.awayGoalsDist.find(d=>d.goals===1)?(m.awayGoalsDist.find(d=>d.goals===1).probability*100).toFixed(0):'?')+'%</b> 1g · <b style="color:var(--gold)">'+(m.awayGoalsDist.find(d=>d.goals===2)?(m.awayGoalsDist.find(d=>d.goals===2).probability*100).toFixed(0):'?')+'%</b> 2g+</div>'+
+    '</div>' : '') +
+  '</div>';
 }
 
 function renderBetting(d){

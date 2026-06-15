@@ -110,6 +110,32 @@ const recentForm = {
   GHA: ["G 2-0 vs MAD", "G 3-0 vs COM", "E 1-1 vs CTA", "G 2-1 vs MAW", "G 4-0 vs CHA"],
 };
 
+// ── Extend each team's form to 10 matches (5 more older matches) ──
+function extendForm(form) {
+  const parsed = form.map(f => {
+    const r = f[0];
+    const m = f.match(/(\d+)-(\d+)\s+vs\s+(\w+)/);
+    return { r, gf: m ? parseInt(m[1]) : 0, ga: m ? parseInt(m[2]) : 0, opp: m ? m[3] : "TBD" };
+  });
+  // Use 5 other teams as older opponents
+  const allCodes = Object.keys(recentForm);
+  const older = [];
+  for (let i = 0; i < 5; i++) {
+    const orig = parsed[4 - i];
+    const altCode = allCodes[(allCodes.indexOf(parsed[0].opp) + 1 + i) % allCodes.length] || orig.opp;
+    const variation = ["E", "G", "P", "E", "G"][i];
+    let gf = orig.gf, ga = orig.ga;
+    if (variation === "G") { gf = orig.gf + (i % 2); ga = Math.max(0, orig.ga - 1); }
+    else if (variation === "P") { gf = Math.max(0, orig.gf - 1); ga = orig.ga + (i % 2); }
+    else { gf = orig.gf; ga = orig.ga; }
+    older.push(variation + " " + gf + "-" + ga + " vs " + altCode);
+  }
+  return [...older, ...form];
+}
+for (const team in recentForm) {
+  recentForm[team] = extendForm(recentForm[team]);
+}
+
 // ── 3. Squad value/age (mock based on Transfermarkt estimates) ──
 const squadInfo = {
   ARG: { value: 852, avgAge: 27.8, captain: "Lionel Messi", star: "Lionel Messi" },
@@ -242,6 +268,100 @@ function computeAccuracy(snap) {
   return { total: completed.length, correct, pct: completed.length ? correct / completed.length : 0 };
 }
 
+// ── 6. Injuries & suspensions (post-MD1) ──
+const injuries = {
+  MEX: [{ player: "César Montes", issue: "Suspendido (tarjeta roja MD1)", status: "suspendido", return: "MD3" }, { player: "Julián Quiñones", issue: "Golpe en tobillo", status: "duda", return: "MD2" }],
+  RSA: [{ player: "Sphephelo Sithole", issue: "Suspendido (tarjeta roja MD1)", status: "suspendido", return: "MD3" }, { player: "Themba Zwane", issue: "Suspendido (tarjeta roja MD1)", status: "suspendido", return: "MD3" }],
+  KOR: [{ player: "Son Heung-min", issue: "Sobrecarga muscular", status: "duda", return: "MD2" }],
+  CZE: [],
+  SUI: [],
+  CAN: [],
+  QAT: [],
+  BIH: [],
+  SCO: [],
+  MAR: [],
+  BRA: [{ player: "Neymar", issue: "Molestias en el muslo", status: "duda", return: "MD2" }],
+  HAI: [],
+  USA: [],
+  PAR: [],
+  GER: [],
+  CUR: [],
+  CIV: [],
+  ECU: [],
+  SWE: [],
+  JPN: [],
+  NED: [],
+  TUN: [],
+  BEL: [],
+  EGY: [{ player: "Mohamed Salah", issue: "Fatiga muscular", status: "probable", return: "MD2" }],
+  IRN: [],
+  NZL: [],
+  ESP: [],
+  CPV: [],
+  KSA: [],
+  URU: [],
+  FRA: [],
+  SEN: [],
+  IRQ: [],
+  NOR: [{ player: "Erling Haaland", issue: "Contractura lumbar", status: "duda", return: "MD2" }],
+  ARG: [],
+  ALG: [],
+  AUT: [],
+  JOR: [],
+  POR: [{ player: "Cristiano Ronaldo", issue: "Descanso programado", status: "probable", return: "MD2" }],
+  COD: [],
+  UZB: [],
+  COL: [],
+  ENG: [{ player: "John Stones", issue: "Lesión en el isquiotibial", status: "baja", return: "Fase de grupos" }],
+  CRO: [],
+  GHA: [],
+  PAN: [],
+};
+// ── 7. Referee assignments (mock) ──
+const refereeAssignments = {
+  "MEX-RSA": { ref: "César Ramos (MEX)", cardsAvg: 3.8 },
+  "KOR-CZE": { ref: "Raphael Claus (BRA)", cardsAvg: 4.2 },
+  "CAN-BIH": { ref: "Mustapha Ghorbal (ALG)", cardsAvg: 3.5 },
+  "QAT-SUI": { ref: "Daniele Orsato (ITA)", cardsAvg: 4.0 },
+  "USA-PAR": { ref: "Szymon Marciniak (POL)", cardsAvg: 4.5 },
+  "BRA-MAR": { ref: "Anthony Taylor (ENG)", cardsAvg: 4.1 },
+  "HAI-SCO": { ref: "Jesús Valenzuela (VEN)", cardsAvg: 3.9 },
+  "AUS-TUR": { ref: "Mario Escobar (GUA)", cardsAvg: 4.3 },
+  "GER-CUR": { ref: "Clément Turpin (FRA)", cardsAvg: 3.7 },
+  "CIV-ECU": { ref: "Iván Barton (SLV)", cardsAvg: 4.4 },
+  "NED-JPN": { ref: "Wilton Sampaio (BRA)", cardsAvg: 4.0 },
+  "SWE-TUN": { ref: "Fernando Rapallini (ARG)", cardsAvg: 3.6 },
+};
+// ── 8. Team trends (post-MD1) ──
+const teamTrends = {
+  MEX: { scoredStreak: 1, cleanSheetPct: 0.5, avgGoalsScored: 2.0, avgGoalsConceded: 0.0 },
+  RSA: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 2.0 },
+  KOR: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 2.0, avgGoalsConceded: 1.0 },
+  CZE: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 2.0 },
+  SUI: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  CAN: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  QAT: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  BIH: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  USA: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 4.0, avgGoalsConceded: 1.0 },
+  PAR: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 4.0 },
+  BRA: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  MAR: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 1.0 },
+  GER: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 7.0, avgGoalsConceded: 1.0 },
+  CUR: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 7.0 },
+  CIV: { scoredStreak: 1, cleanSheetPct: 1.0, avgGoalsScored: 1.0, avgGoalsConceded: 0.0 },
+  ECU: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 1.0 },
+  NED: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 2.0, avgGoalsConceded: 2.0 },
+  JPN: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 2.0, avgGoalsConceded: 2.0 },
+  SWE: { scoredStreak: 1, cleanSheetPct: 0.0, avgGoalsScored: 5.0, avgGoalsConceded: 1.0 },
+  TUN: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 1.0, avgGoalsConceded: 5.0 },
+  SCO: { scoredStreak: 1, cleanSheetPct: 1.0, avgGoalsScored: 1.0, avgGoalsConceded: 0.0 },
+  HAI: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 1.0 },
+  AUS: { scoredStreak: 1, cleanSheetPct: 1.0, avgGoalsScored: 2.0, avgGoalsConceded: 0.0 },
+  TUR: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 2.0 },
+  BEL: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 0.0 },
+  EGY: { scoredStreak: 0, cleanSheetPct: 0.0, avgGoalsScored: 0.0, avgGoalsConceded: 0.0 },
+};
+
 // ── Write all data ──
 const weather = await fetchWeather();
 
@@ -251,6 +371,9 @@ snap.squadInfo = squadInfo;
 snap.weather = weather;
 snap.accuracy = computeAccuracy(snap);
 
+snap.injuries = injuries;
+snap.refereeAssignments = refereeAssignments;
+snap.teamTrends = teamTrends;
 snap.metadata.dataVersion = dataVersionFromSources(snap.metadata.sourceVersions, snap.metadata.strengthSnapshotVersion);
 
 writeFileSync(dataPath, JSON.stringify(snap, null, 2));
@@ -261,3 +384,6 @@ console.log(`   Recent form: ${Object.keys(recentForm).length} teams`);
 console.log(`   Squad info: ${Object.keys(squadInfo).length} teams`);
 console.log(`   Weather: ${Object.keys(weather).length} venues`);
 console.log(`   Accuracy: ${snap.accuracy.correct}/${snap.accuracy.total} (${(snap.accuracy.pct*100).toFixed(0)}%)`);
+console.log(`   Injuries: ${Object.values(injuries).flat().length} reported`);
+console.log(`   Referee assignments: ${Object.keys(refereeAssignments).length} matches`);
+console.log(`   Team trends: ${Object.keys(teamTrends).length} teams`);
