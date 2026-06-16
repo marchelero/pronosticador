@@ -5,10 +5,10 @@
   "description": "World Cup 2026 Predictor - Skill frontend",
   "scripts": {
     "server": "node .agents/skills/worldcup-predictor/scripts/predict-server.mjs",
-    "server:start": "kill $(lsof -ti:3030) 2>/dev/null; nohup node .agents/skills/worldcup-predictor/scripts/predict-server.mjs > /tmp/predict-server.log 2>&1 &",
-    "server:stop": "kill $(lsof -ti:3030) 2>/dev/null; echo 'Servidor detenido'",
-    "server:restart": "npm run server:stop && sleep 1 && npm run server:start",
-    "server:status": "lsof -ti:3030 2>/dev/null && echo 'Servidor corriendo en http://localhost:3030' || echo 'Servidor NO está corriendo'",
+    "server:start": "node .agents/skills/worldcup-predictor/scripts/server-manager.mjs start",
+    "server:stop": "node .agents/skills/worldcup-predictor/scripts/server-manager.mjs stop",
+    "server:restart": "node .agents/skills/worldcup-predictor/scripts/server-manager.mjs restart",
+    "server:status": "node .agents/skills/worldcup-predictor/scripts/server-manager.mjs status",
     "predict": "node .agents/skills/worldcup-predictor/scripts/predict-match.mjs",
     "simulate": "node .agents/skills/worldcup-predictor/scripts/simulate-tournament.mjs",
     "calibrate": "node .agents/skills/worldcup-predictor/scripts/calibrate-snapshot.mjs"

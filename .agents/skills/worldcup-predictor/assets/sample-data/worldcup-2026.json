@@ -29,9 +29,9 @@
       "eloRating": 1835,
       "isHost": false,
       "formScore": 65,
-      "attackStrength": 1.0846,
-      "defenseStrength": 1.1445,
-      "ratingValue": 1859,
+      "attackStrength": 1.1269,
+      "defenseStrength": 1.2969,
+      "ratingValue": 1883,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -44,10 +44,10 @@
       "fifaRank": 25,
       "eloRating": 1782,
       "isHost": false,
-      "formScore": 62,
-      "attackStrength": 1.1021,
-      "defenseStrength": 1.0219,
-      "ratingValue": 1794,
+      "formScore": 64,
+      "attackStrength": 1.1915,
+      "defenseStrength": 1.0387,
+      "ratingValue": 1806,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -60,10 +60,10 @@
       "fifaRank": 40,
       "eloRating": 1715,
       "isHost": false,
-      "formScore": 56,
-      "attackStrength": 0.9279,
-      "defenseStrength": 0.9692,
-      "ratingValue": 1703,
+      "formScore": 57,
+      "attackStrength": 0.8976,
+      "defenseStrength": 0.9307,
+      "ratingValue": 1691,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -78,8 +78,8 @@
       "isHost": false,
       "formScore": 51,
       "attackStrength": 0.78,
-      "defenseStrength": 0.9544,
-      "ratingValue": 1624,
+      "defenseStrength": 0.936,
+      "ratingValue": 1600,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -92,9 +92,9 @@
       "fifaRank": 19,
       "eloRating": 1844,
       "isHost": false,
-      "formScore": 62,
-      "attackStrength": 0.935,
-      "defenseStrength": 1.0774,
+      "formScore": 60,
+      "attackStrength": 0.8636,
+      "defenseStrength": 1.093,
       "ratingValue": 1844,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -108,9 +108,9 @@
       "fifaRank": 30,
       "eloRating": 1760,
       "isHost": false,
-      "formScore": 60,
-      "attackStrength": 0.9215,
-      "defenseStrength": 1.0013,
+      "formScore": 59,
+      "attackStrength": 0.8478,
+      "defenseStrength": 1.0117,
       "ratingValue": 1760,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -124,9 +124,9 @@
       "fifaRank": 56,
       "eloRating": 1655,
       "isHost": false,
-      "formScore": 55,
-      "attackStrength": 0.9287,
-      "defenseStrength": 1.0113,
+      "formScore": 56,
+      "attackStrength": 0.902,
+      "defenseStrength": 1.0507,
       "ratingValue": 1655,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -140,9 +140,9 @@
       "fifaRank": 64,
       "eloRating": 1628,
       "isHost": false,
-      "formScore": 53,
-      "attackStrength": 0.9284,
-      "defenseStrength": 1.003,
+      "formScore": 55,
+      "attackStrength": 0.9092,
+      "defenseStrength": 1.0439,
       "ratingValue": 1628,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -156,10 +156,10 @@
       "fifaRank": 42,
       "eloRating": 1722,
       "isHost": false,
-      "formScore": 56,
-      "attackStrength": 0.9151,
-      "defenseStrength": 1.1331,
-      "ratingValue": 1734,
+      "formScore": 57,
+      "attackStrength": 0.8571,
+      "defenseStrength": 1.284,
+      "ratingValue": 1746,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -172,9 +172,9 @@
       "fifaRank": 7,
       "eloRating": 1868,
       "isHost": false,
-      "formScore": 64,
-      "attackStrength": 0.9671,
-      "defenseStrength": 1.1385,
+      "formScore": 62,
+      "attackStrength": 0.9044,
+      "defenseStrength": 1.1949,
       "ratingValue": 1868,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -188,9 +188,9 @@
       "fifaRank": 6,
       "eloRating": 1972,
       "isHost": false,
-      "formScore": 66,
-      "attackStrength": 1.0197,
-      "defenseStrength": 1.1289,
+      "formScore": 63,
+      "attackStrength": 0.9212,
+      "defenseStrength": 1.1661,
       "ratingValue": 1972,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -204,10 +204,10 @@
       "fifaRank": 83,
       "eloRating": 1560,
       "isHost": false,
-      "formScore": 48,
+      "formScore": 49,
       "attackStrength": 0.78,
-      "defenseStrength": 0.951,
-      "ratingValue": 1548,
+      "defenseStrength": 0.9816,
+      "ratingValue": 1536,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -220,10 +220,10 @@
       "fifaRank": 17,
       "eloRating": 1835,
       "isHost": false,
-      "formScore": 71,
+      "formScore": 75,
       "attackStrength": 1.35,
-      "defenseStrength": 1.0125,
-      "ratingValue": 1871,
+      "defenseStrength": 1.0138,
+      "ratingValue": 1907,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -236,10 +236,10 @@
       "fifaRank": 27,
       "eloRating": 1768,
       "isHost": false,
-      "formScore": 62,
-      "attackStrength": 1.1354,
-      "defenseStrength": 1.1445,
-      "ratingValue": 1792,
+      "formScore": 64,
+      "attackStrength": 1.2571,
+      "defenseStrength": 1.2969,
+      "ratingValue": 1816,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -252,10 +252,10 @@
       "fifaRank": 22,
       "eloRating": 1790,
       "isHost": false,
-      "formScore": 55,
+      "formScore": 53,
       "attackStrength": 0.78,
-      "defenseStrength": 0.9106,
-      "ratingValue": 1766,
+      "defenseStrength": 0.8631,
+      "ratingValue": 1742,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -268,10 +268,10 @@
       "fifaRank": 41,
       "eloRating": 1700,
       "isHost": false,
-      "formScore": 56,
-      "attackStrength": 0.9265,
-      "defenseStrength": 0.8223,
-      "ratingValue": 1664,
+      "formScore": 57,
+      "attackStrength": 0.9242,
+      "defenseStrength": 0.78,
+      "ratingValue": 1628,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -284,10 +284,10 @@
       "fifaRank": 10,
       "eloRating": 1930,
       "isHost": false,
-      "formScore": 84,
+      "formScore": 90,
       "attackStrength": 1.35,
-      "defenseStrength": 1.0177,
-      "ratingValue": 2002,
+      "defenseStrength": 0.9569,
+      "ratingValue": 2074,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -301,9 +301,9 @@
       "eloRating": 1740,
       "isHost": false,
       "formScore": 57,
-      "attackStrength": 0.9375,
-      "defenseStrength": 1.1331,
-      "ratingValue": 1752,
+      "attackStrength": 0.8968,
+      "defenseStrength": 1.284,
+      "ratingValue": 1764,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -316,10 +316,10 @@
       "fifaRank": 23,
       "eloRating": 1785,
       "isHost": false,
-      "formScore": 55,
+      "formScore": 53,
       "attackStrength": 0.78,
-      "defenseStrength": 0.9913,
-      "ratingValue": 1773,
+      "defenseStrength": 1.013,
+      "ratingValue": 1761,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -332,10 +332,10 @@
       "fifaRank": 82,
       "eloRating": 1530,
       "isHost": false,
-      "formScore": 50,
-      "attackStrength": 0.935,
+      "formScore": 53,
+      "attackStrength": 1.0501,
       "defenseStrength": 0.78,
-      "ratingValue": 1458,
+      "ratingValue": 1386,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -348,10 +348,10 @@
       "fifaRank": 38,
       "eloRating": 1710,
       "isHost": false,
-      "formScore": 68,
+      "formScore": 77,
       "attackStrength": 1.35,
-      "defenseStrength": 1.0134,
-      "ratingValue": 1758,
+      "defenseStrength": 1.0217,
+      "ratingValue": 1806,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -364,9 +364,9 @@
       "fifaRank": 18,
       "eloRating": 1848,
       "isHost": false,
-      "formScore": 68,
-      "attackStrength": 1.1819,
-      "defenseStrength": 1.0225,
+      "formScore": 67,
+      "attackStrength": 1.283,
+      "defenseStrength": 0.9993,
       "ratingValue": 1848,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -380,9 +380,9 @@
       "fifaRank": 8,
       "eloRating": 1950,
       "isHost": false,
-      "formScore": 69,
-      "attackStrength": 1.1794,
-      "defenseStrength": 1.0155,
+      "formScore": 68,
+      "attackStrength": 1.2335,
+      "defenseStrength": 0.973,
       "ratingValue": 1950,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
@@ -396,10 +396,10 @@
       "fifaRank": 45,
       "eloRating": 1695,
       "isHost": false,
-      "formScore": 55,
-      "attackStrength": 0.9056,
+      "formScore": 56,
+      "attackStrength": 0.8908,
       "defenseStrength": 0.78,
-      "ratingValue": 1647,
+      "ratingValue": 1599,
       "ratingSource": "legacy_elo",
       "strengthVersion": "wc2026-calibrated-v0.2"
     },
@@ -1274,11 +1274,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "MEX",
-      "title": "MD1: GF 2 (xG 1.6) GA 0 (opp xG 1.1) → atk 1.030→1.085 def 1.010→1.145",
+      "title": "MD1: GF 2 (xG 1.7) GA 0 (opp xG 0.9) → atk 1.085→1.127 def 1.145→1.297",
       "impact": {
-        "attackStrengthDelta": 0.0546,
-        "defenseStrengthDelta": 0.1345,
-        "formScoreDelta": 1
+        "attackStrengthDelta": 0.0423,
+        "defenseStrengthDelta": 0.1524,
+        "formScoreDelta": 0
       }
     },
     {
@@ -1288,10 +1288,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "KOR",
-      "title": "MD1: GF 2 (xG 1.4) GA 1 (opp xG 1.2) → atk 1.000→1.102 def 1.000→1.022",
+      "title": "MD1: GF 2 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.102→1.192 def 1.022→1.039",
       "impact": {
-        "attackStrengthDelta": 0.1021,
-        "defenseStrengthDelta": 0.0219,
+        "attackStrengthDelta": 0.0894,
+        "defenseStrengthDelta": 0.0168,
         "formScoreDelta": 2
       }
     },
@@ -1302,10 +1302,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "CZE",
-      "title": "MD1: GF 1 (xG 1.2) GA 2 (opp xG 1.4) → atk 0.970→0.928 def 1.020→0.969",
+      "title": "MD1: GF 1 (xG 1.1) GA 2 (opp xG 1.5) → atk 0.928→0.898 def 0.969→0.931",
       "impact": {
-        "attackStrengthDelta": -0.0421,
-        "defenseStrengthDelta": -0.0508,
+        "attackStrengthDelta": -0.0303,
+        "defenseStrengthDelta": -0.0385,
         "formScoreDelta": 1
       }
     },
@@ -1316,11 +1316,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "RSA",
-      "title": "MD1: GF 0 (xG 1.1) GA 2 (opp xG 1.6) → atk 0.940→0.780 def 0.980→0.954",
+      "title": "MD1: GF 0 (xG 0.9) GA 2 (opp xG 1.7) → atk 0.780→0.780 def 0.954→0.936",
       "impact": {
-        "attackStrengthDelta": -0.16,
-        "defenseStrengthDelta": -0.0256,
-        "formScoreDelta": -1
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": -0.0184,
+        "formScoreDelta": 0
       }
     },
     {
@@ -1330,11 +1330,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "SUI",
-      "title": "MD1: GF 1 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.020→0.935 def 1.060→1.077",
+      "title": "MD1: GF 1 (xG 1.4) GA 1 (opp xG 1.1) → atk 0.935→0.864 def 1.077→1.093",
       "impact": {
-        "attackStrengthDelta": -0.085,
-        "defenseStrengthDelta": 0.0174,
-        "formScoreDelta": -3
+        "attackStrengthDelta": -0.0714,
+        "defenseStrengthDelta": 0.0156,
+        "formScoreDelta": -2
       }
     },
     {
@@ -1344,10 +1344,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "CAN",
-      "title": "MD1: GF 1 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.010→0.921 def 0.990→1.001",
+      "title": "MD1: GF 1 (xG 1.5) GA 1 (opp xG 1.1) → atk 0.921→0.848 def 1.001→1.012",
       "impact": {
-        "attackStrengthDelta": -0.0885,
-        "defenseStrengthDelta": 0.0113,
+        "attackStrengthDelta": -0.0737,
+        "defenseStrengthDelta": 0.0104,
         "formScoreDelta": -1
       }
     },
@@ -1358,11 +1358,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "QAT",
-      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.5) → atk 0.960→0.929 def 0.970→1.011",
+      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.4) → atk 0.929→0.902 def 1.011→1.051",
       "impact": {
-        "attackStrengthDelta": -0.0313,
-        "defenseStrengthDelta": 0.0413,
-        "formScoreDelta": 2
+        "attackStrengthDelta": -0.0267,
+        "defenseStrengthDelta": 0.0394,
+        "formScoreDelta": 1
       }
     },
     {
@@ -1372,11 +1372,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "BIH",
-      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.5) → atk 0.950→0.928 def 0.960→1.003",
+      "title": "MD1: GF 1 (xG 1.1) GA 1 (opp xG 1.5) → atk 0.928→0.909 def 1.003→1.044",
       "impact": {
-        "attackStrengthDelta": -0.0216,
-        "defenseStrengthDelta": 0.043,
-        "formScoreDelta": 4
+        "attackStrengthDelta": -0.0192,
+        "defenseStrengthDelta": 0.0409,
+        "formScoreDelta": 2
       }
     },
     {
@@ -1386,10 +1386,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "SCO",
-      "title": "MD1: GF 1 (xG 1.4) GA 0 (opp xG 1.0) → atk 0.980→0.915 def 1.000→1.133",
+      "title": "MD1: GF 1 (xG 1.3) GA 0 (opp xG 1.0) → atk 0.915→0.857 def 1.133→1.284",
       "impact": {
-        "attackStrengthDelta": -0.0649,
-        "defenseStrengthDelta": 0.1331,
+        "attackStrengthDelta": -0.058,
+        "defenseStrengthDelta": 0.1509,
         "formScoreDelta": 1
       }
     },
@@ -1400,11 +1400,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "MAR",
-      "title": "MD1: GF 1 (xG 1.4) GA 1 (opp xG 1.7) → atk 1.040→0.967 def 1.080→1.139",
+      "title": "MD1: GF 1 (xG 1.4) GA 1 (opp xG 1.6) → atk 0.967→0.904 def 1.139→1.195",
       "impact": {
-        "attackStrengthDelta": -0.0729,
-        "defenseStrengthDelta": 0.0585,
-        "formScoreDelta": -4
+        "attackStrengthDelta": -0.0627,
+        "defenseStrengthDelta": 0.0564,
+        "formScoreDelta": -2
       }
     },
     {
@@ -1414,11 +1414,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "BRA",
-      "title": "MD1: GF 1 (xG 1.7) GA 1 (opp xG 1.4) → atk 1.140→1.020 def 1.090→1.129",
+      "title": "MD1: GF 1 (xG 1.6) GA 1 (opp xG 1.4) → atk 1.020→0.921 def 1.129→1.166",
       "impact": {
-        "attackStrengthDelta": -0.1203,
-        "defenseStrengthDelta": 0.0389,
-        "formScoreDelta": -6
+        "attackStrengthDelta": -0.0985,
+        "defenseStrengthDelta": 0.0372,
+        "formScoreDelta": -3
       }
     },
     {
@@ -1428,10 +1428,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "HAI",
-      "title": "MD1: GF 0 (xG 1.0) GA 1 (opp xG 1.4) → atk 0.910→0.780 def 0.920→0.951",
+      "title": "MD1: GF 0 (xG 1.0) GA 1 (opp xG 1.3) → atk 0.780→0.780 def 0.951→0.982",
       "impact": {
-        "attackStrengthDelta": -0.13,
-        "defenseStrengthDelta": 0.031,
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": 0.0306,
         "formScoreDelta": 1
       }
     },
@@ -1442,11 +1442,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "USA",
-      "title": "MD1: GF 4 (xG 1.6) GA 1 (opp xG 1.1) → atk 1.030→1.350 def 1.000→1.012",
+      "title": "MD1: GF 4 (xG 1.8) GA 1 (opp xG 1.0) → atk 1.350→1.350 def 1.012→1.014",
       "impact": {
-        "attackStrengthDelta": 0.32,
-        "defenseStrengthDelta": 0.0125,
-        "formScoreDelta": 8
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": 0.0013,
+        "formScoreDelta": 4
       }
     },
     {
@@ -1456,11 +1456,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "AUS",
-      "title": "MD1: GF 2 (xG 1.3) GA 0 (opp xG 1.4) → atk 0.990→1.135 def 1.010→1.145",
+      "title": "MD1: GF 2 (xG 1.4) GA 0 (opp xG 1.1) → atk 1.135→1.257 def 1.145→1.297",
       "impact": {
-        "attackStrengthDelta": 0.1454,
-        "defenseStrengthDelta": 0.1345,
-        "formScoreDelta": 3
+        "attackStrengthDelta": 0.1217,
+        "defenseStrengthDelta": 0.1524,
+        "formScoreDelta": 2
       }
     },
     {
@@ -1470,11 +1470,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "TUR",
-      "title": "MD1: GF 0 (xG 1.4) GA 2 (opp xG 1.3) → atk 1.010→0.780 def 0.980→0.911",
+      "title": "MD1: GF 0 (xG 1.1) GA 2 (opp xG 1.4) → atk 0.780→0.780 def 0.911→0.863",
       "impact": {
-        "attackStrengthDelta": -0.23,
-        "defenseStrengthDelta": -0.0694,
-        "formScoreDelta": -3
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": -0.0475,
+        "formScoreDelta": -2
       }
     },
     {
@@ -1484,11 +1484,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "PAR",
-      "title": "MD1: GF 1 (xG 1.1) GA 4 (opp xG 1.6) → atk 0.950→0.926 def 0.990→0.822",
+      "title": "MD1: GF 1 (xG 1.0) GA 4 (opp xG 1.8) → atk 0.926→0.924 def 0.822→0.780",
       "impact": {
-        "attackStrengthDelta": -0.0235,
-        "defenseStrengthDelta": -0.1677,
-        "formScoreDelta": 2
+        "attackStrengthDelta": -0.0023,
+        "defenseStrengthDelta": -0.0423,
+        "formScoreDelta": 1
       }
     },
     {
@@ -1498,11 +1498,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "GER",
-      "title": "MD1: GF 7 (xG 1.7) GA 1 (opp xG 0.8) → atk 1.100→1.350 def 1.050→1.018",
+      "title": "MD1: GF 7 (xG 2.0) GA 1 (opp xG 0.7) → atk 1.350→1.350 def 1.018→0.957",
       "impact": {
-        "attackStrengthDelta": 0.25,
-        "defenseStrengthDelta": -0.0323,
-        "formScoreDelta": 14
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": -0.0608,
+        "formScoreDelta": 6
       }
     },
     {
@@ -1512,10 +1512,10 @@
       "type": "manual",
       "target": "home",
       "teamCode": "CIV",
-      "title": "MD1: GF 1 (xG 1.2) GA 0 (opp xG 1.4) → atk 0.980→0.938 def 1.000→1.133",
+      "title": "MD1: GF 1 (xG 1.2) GA 0 (opp xG 1.2) → atk 0.938→0.897 def 1.133→1.284",
       "impact": {
-        "attackStrengthDelta": -0.0425,
-        "defenseStrengthDelta": 0.1331,
+        "attackStrengthDelta": -0.0407,
+        "defenseStrengthDelta": 0.1509,
         "formScoreDelta": 0
       }
     },
@@ -1526,11 +1526,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "ECU",
-      "title": "MD1: GF 0 (xG 1.4) GA 1 (opp xG 1.2) → atk 1.000→0.780 def 0.970→0.991",
+      "title": "MD1: GF 0 (xG 1.2) GA 1 (opp xG 1.2) → atk 0.780→0.780 def 0.991→1.013",
       "impact": {
-        "attackStrengthDelta": -0.22,
-        "defenseStrengthDelta": 0.0213,
-        "formScoreDelta": -3
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": 0.0217,
+        "formScoreDelta": -2
       }
     },
     {
@@ -1540,11 +1540,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "CUR",
-      "title": "MD1: GF 1 (xG 0.8) GA 7 (opp xG 1.7) → atk 0.880→0.935 def 0.900→0.780",
+      "title": "MD1: GF 1 (xG 0.7) GA 7 (opp xG 2.0) → atk 0.935→1.050 def 0.780→0.780",
       "impact": {
-        "attackStrengthDelta": 0.055,
-        "defenseStrengthDelta": -0.12,
-        "formScoreDelta": 5
+        "attackStrengthDelta": 0.1151,
+        "defenseStrengthDelta": 0,
+        "formScoreDelta": 3
       }
     },
     {
@@ -1554,11 +1554,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "SWE",
-      "title": "MD1: GF 5 (xG 1.3) GA 1 (opp xG 1.2) → atk 0.970→1.350 def 0.990→1.013",
+      "title": "MD1: GF 5 (xG 1.5) GA 1 (opp xG 1.1) → atk 1.350→1.350 def 1.013→1.022",
       "impact": {
-        "attackStrengthDelta": 0.38,
-        "defenseStrengthDelta": 0.0234,
-        "formScoreDelta": 14
+        "attackStrengthDelta": 0,
+        "defenseStrengthDelta": 0.0083,
+        "formScoreDelta": 9
       }
     },
     {
@@ -1568,11 +1568,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "JPN",
-      "title": "MD1: GF 2 (xG 1.4) GA 2 (opp xG 1.6) → atk 1.070→1.182 def 1.050→1.022",
+      "title": "MD1: GF 2 (xG 1.5) GA 2 (opp xG 1.7) → atk 1.182→1.283 def 1.022→0.999",
       "impact": {
-        "attackStrengthDelta": 0.1119,
-        "defenseStrengthDelta": -0.0275,
-        "formScoreDelta": -2
+        "attackStrengthDelta": 0.1011,
+        "defenseStrengthDelta": -0.0232,
+        "formScoreDelta": -1
       }
     },
     {
@@ -1582,11 +1582,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "NED",
-      "title": "MD1: GF 2 (xG 1.6) GA 2 (opp xG 1.4) → atk 1.120→1.179 def 1.070→1.016",
+      "title": "MD1: GF 2 (xG 1.7) GA 2 (opp xG 1.5) → atk 1.179→1.234 def 1.016→0.973",
       "impact": {
-        "attackStrengthDelta": 0.0594,
-        "defenseStrengthDelta": -0.0545,
-        "formScoreDelta": -2
+        "attackStrengthDelta": 0.0541,
+        "defenseStrengthDelta": -0.0425,
+        "formScoreDelta": -1
       }
     },
     {
@@ -1596,11 +1596,11 @@
       "type": "manual",
       "target": "home",
       "teamCode": "TUN",
-      "title": "MD1: GF 1 (xG 1.2) GA 5 (opp xG 1.3) → atk 0.950→0.906 def 1.010→0.780",
+      "title": "MD1: GF 1 (xG 1.1) GA 5 (opp xG 1.5) → atk 0.906→0.891 def 0.780→0.780",
       "impact": {
-        "attackStrengthDelta": -0.0444,
-        "defenseStrengthDelta": -0.23,
-        "formScoreDelta": 2
+        "attackStrengthDelta": -0.0148,
+        "defenseStrengthDelta": 0,
+        "formScoreDelta": 1
       }
     }
   ],
@@ -3430,89 +3430,89 @@
     }
   },
   "weather": {
-    "Estadio Azteca": {
-      "temp": 21.5,
-      "desc": "Llovizna ligera",
-      "wind": 3.2,
-      "code": 51
-    },
-    "Estadio Akron": {
-      "temp": 24,
-      "desc": "Nublado",
-      "wind": 10.6,
-      "code": 3
-    },
-    "SoFi Stadium": {
-      "temp": 21.7,
-      "desc": "Mayormente despejado",
-      "wind": 18.1,
-      "code": 1
-    },
     "BMO Field": {
-      "temp": 15.6,
+      "temp": 16.6,
       "desc": "Despejado",
-      "wind": 14.1,
+      "wind": 8.7,
       "code": 0
-    },
-    "Levi's Stadium": {
-      "temp": 21.4,
-      "desc": "Despejado",
-      "wind": 17.6,
-      "code": 0
-    },
-    "MetLife Stadium": {
-      "temp": 23.3,
-      "desc": "Mayormente despejado",
-      "wind": 22.1,
-      "code": 1
     },
     "BC Place": {
-      "temp": 26.4,
+      "temp": 25.5,
+      "desc": "Parcialmente nublado",
+      "wind": 10.2,
+      "code": 2
+    },
+    "AT&T Stadium": {
+      "temp": 28.6,
+      "desc": "Mayormente despejado",
+      "wind": 12.6,
+      "code": 1
+    },
+    "Levi's Stadium": {
+      "temp": 20.3,
+      "desc": "Despejado",
+      "wind": 17.4,
+      "code": 0
+    },
+    "Estadio Azteca": {
+      "temp": 19.4,
+      "desc": "Llovizna moderada",
+      "wind": 5.3,
+      "code": 53
+    },
+    "SoFi Stadium": {
+      "temp": 20.9,
+      "desc": "Despejado",
+      "wind": 18.4,
+      "code": 0
+    },
+    "Lumen Field": {
+      "temp": 30.5,
       "desc": "Nublado",
-      "wind": 10.4,
+      "wind": 13.9,
+      "code": 3
+    },
+    "Estadio Akron": {
+      "temp": 23.4,
+      "desc": "Nublado",
+      "wind": 11.6,
       "code": 3
     },
     "Gillette Stadium": {
-      "temp": 23,
-      "desc": "Nublado",
-      "wind": 14.9,
-      "code": 3
-    },
-    "NRG Stadium": {
-      "temp": 28,
-      "desc": "Nublado",
-      "wind": 4.3,
-      "code": 3
+      "temp": 21.1,
+      "desc": "Mayormente despejado",
+      "wind": 12,
+      "code": 1
     },
     "Lincoln Financial Field": {
-      "temp": 24,
-      "desc": "Nublado",
-      "wind": 13.2,
-      "code": 3
+      "temp": 22.6,
+      "desc": "Mayormente despejado",
+      "wind": 7.9,
+      "code": 1
     },
-    "AT&T Stadium": {
-      "temp": 27.8,
-      "desc": "Parcialmente nublado",
-      "wind": 13.3,
-      "code": 2
+    "NRG Stadium": {
+      "temp": 27.1,
+      "desc": "Nublado",
+      "wind": 3.4,
+      "code": 3
     },
     "Estadio BBVA": {
-      "temp": 24.5,
-      "desc": "Llovizna ligera",
-      "wind": 5.5,
-      "code": 51
+      "temp": 24.2,
+      "desc": "Chubascos ligeros",
+      "wind": 5.4,
+      "code": 80
     },
-    "Lumen Field": {
-      "temp": 30.7,
-      "desc": "Nublado",
-      "wind": 11.7,
-      "code": 3
+    "MetLife Stadium": {
+      "temp": 21.5,
+      "desc": "Despejado",
+      "wind": 17.3,
+      "code": 0
     }
   },
   "accuracy": {
     "total": 12,
-    "correct": 8,
-    "pct": 0.6666666666666666
+    "correct": 7,
+    "pct": 0.5833333333333334
   },
   "injuries": {
     "MEX": [

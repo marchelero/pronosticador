@@ -75,4 +75,4 @@ node .agents/skills/worldcup-predictor/scripts/add-match-details.mjs
 node .agents/skills/worldcup-predictor/scripts/enrich-snapshot.mjs
 # 5. Reiniciar servidor
 npm run server:restart
-```
+```1
